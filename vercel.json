@@ -16,10 +16,5 @@
   ],
   "env": {
     "NEXT_TELEMETRY_DISABLED": "1"
-  },
-  "functions": {
-    "src/app/api/**": {
-      "maxDuration": 30
-    }
   }
 }
