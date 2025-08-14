@@ -1,6 +1,72 @@
 @import "tailwindcss";
 
 :root {
+  --smidig-blue: #3361AC;
+  --smidig-lightgray: #E7E6DD;
+  --smidig-lightyellow: #E8C766;
+  --smidig-yellow: #E8AF30;
+  --smidig-darkblue: #162F65;
+  --smidig-deepblue: #0F2043;
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #3361AC 0%, #E8C766 100%) !important;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #3361AC 0%, #E8C766 100%) !important;
+}
+
+.gradient-secondary {
+  background: linear-gradient(120deg, #162F65 0%, #E7E6DD 100%) !important;
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(120deg, #162F65 0%, #E7E6DD 100%) !important;
+}
+
+.gradient-cta {
+  background: linear-gradient(135deg, #E8AF30 0%, #E8C766 100%) !important;
+}
+
+.bg-gradient-cta {
+  background: linear-gradient(135deg, #E8AF30 0%, #E8C766 100%) !important;
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: all 0.07s ease-in-out;
+}
+
+.WhyUs h3 {
+  color: black !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3361AC;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #162F65;
+}
+
+:root {
   --background: #ffffff;
   --foreground: #171717;
 }
