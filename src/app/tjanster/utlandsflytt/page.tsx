@@ -10,68 +10,68 @@ export const metadata: Metadata = {
 export default function UtlandsflyttPage() {
   const serviceData = {
     name: "Utlandsflytt",
-    subtitle: "Internationell flyttservice med experthjälp",
-    description: "Vi hjälper dig med internationella flyttar av hela hushåll över hela världen. Med vår expertis inom tullformaliteter, dokumentation och internationell transport ser vi till att din flytt går smidigt oavsett destination. Vi erbjuder flytthjälp utomlands, inte bara transport av enstaka föremål.",
+    subtitle: "Komplett flytthjälp utomlands för hela hushåll",
+    description: "Vi erbjuder professionell flytthjälp utomlands för hela bohaget. Vi flyttar inte bara enskilda möbler eller föremål, utan hjälper dig med kompletta hushållsflyttar till utlandet. Med vår expertis inom internationella flyttar ser vi till att hela ditt bohag kommer trygt fram till destinationen.",
     hero_image: "/utlandsflytt-hero.jpg",
     duration: "2-6 veckor",
     features: [
-      "Hjälp med tullformaliteter och dokumentation",
-      "Door-to-door service för hela hushåll",
-      "Professionell export-packning av allt bohag",
-      "Spårning av ditt bohag under transporten",
-      "Fullständig försäkring",
-      "Rådgivning om importregler",
-      "Tillfällig magasinering",
-      "Uppackning och etablering på destinationen",
-      "Flytthjälp utomlands - inte bara transport"
+      "Komplett bohagsflytt utomlands - hela hushåll",
+      "Flytthjälp utomlands, inte transport av enskilda möbler",
+      "Professionell hantering av allt bohag",
+      "Hjälp med tullformaliteter för hela hushållet",
+      "Door-to-door service för kompletta flyttar",
+      "Fullständig försäkring för hela bohaget",
+      "Etablering och uppackning på destinationen",
+      "Rådgivning om internationella flyttregler",
+      "Vi flyttar inte bara möbler - vi flyttar hem"
     ],
     process: [
       {
         step: 1,
         title: "Konsultation och planering",
-        description: "Vi går igenom dina behov för hela hushållsflytten och informerar om regler och krav för destinationslandet."
+        description: "Vi bedömer ditt kompletta bohag och planerar för en hel hushållsflytt utomlands, inte bara transport av enstaka föremål."
       },
       {
         step: 2,
-        title: "Dokumentation",
-        description: "Vi hjälper dig med alla nödvändiga tulldokument och importpapper för ditt kompletta bohag."
+        title: "Dokumentation för hela bohaget",
+        description: "Vi hjälper dig med alla nödvändiga dokument för att flytta hela ditt hushåll till utlandet."
       },
       {
         step: 3,
-        title: "Export-packning",
-        description: "Professionell packning av hela hushållet enligt internationella standarder för säker transport."
+        title: "Packning av hela hushållet",
+        description: "Professionell packning av allt bohag enligt internationella standarder för säker flytt utomlands."
       },
       {
         step: 4,
-        title: "Transport och spårning",
-        description: "Säker transport med full spårning så du alltid vet var ditt bohag befinner sig."
+        title: "Komplett transport",
+        description: "Vi transporterar hela ditt bohag säkert till destinationen - inte bara enskilda möbler."
       },
       {
         step: 5,
-        title: "Import och etablering",
-        description: "Vi tar hand om importen och erbjuder flytthjälp för etablering på destinationen."
+        title: "Flytthjälp och etablering",
+        description: "Vi hjälper dig etablera hela ditt hem på den nya destinationen utomlands."
       }
     ],
     faq: [
       {
-        question: "Hur lång tid tar en utlandsflytt?",
-        answer: "Det beror på destination och transportmetod. Inom Europa tar det oftast 1-2 veckor, medan intercontinentala flyttar kan ta 4-6 veckor."
+        question: "Flyttar ni bara möbler eller hela hushåll utomlands?",
+        answer: "Vi flyttar hela bohaget och hushåll utomlands. Vi erbjuder inte transport av bara enskilda möbler eller föremål, utan fokuserar på kompletta hushållsflyttar."
       },
       {
-        question: "Vad kostar en utlandsflytt?",
-        answer: "Kostnaden beror på volym, destination och servicenivå. Vi ger alltid en detaljerad kostnadskalkyl innan flytten."
+        question: "Vad ingår i er flytthjälp utomlands?",
+        answer: "Vi erbjuder komplett flytthjälp utomlands för hela bohaget, inklusive packning, transport, uppackning och etablering på destinationen."
       },
       {
         question: "Hjälper ni med tullformaliteter?",
-        answer: "Ja, vi har expertis inom tullformaliteter och hjälper dig med alla nödvändiga dokument och procedurer för hela hushållsflytten."
+        answer: "Ja, vi hjälper dig med alla nödvändiga dokument och procedurer för att flytta hela hushållet utomlands."
       },
       {
-        question: "Kan jag spåra mitt bohag under transporten?",
-        answer: "Ja, du får spårningsinformation så du alltid vet var ditt bohag befinner sig under transporten."
+        question: "Hur lång tid tar en komplett hushållsflytt utomlands?",
+        answer: "Det beror på destination och omfattning av bohaget. Inom Europa tar det oftast 1-2 veckor, medan intercontinentala flyttar kan ta 4-6 veckor."
       },
       {
-        question: "Erbjuder ni flytthjälp utomlands eller bara transport?",
-        answer: "Vi erbjuder komplett flytthjälp utomlands, inte bara transport. Vi hjälper dig etablera dig i ditt nya hem med hela hushållet."
+        question: "Erbjuder ni bara transport eller även flytthjälp utomlands?",
+        answer: "Vi erbjuder komplett flytthjälp utomlands, inte bara transport. Vi hjälper dig flytta hela ditt hem och etablera dig på den nya destinationen."
       }
     ],
     related_services: [

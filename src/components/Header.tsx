@@ -8,32 +8,63 @@ import { motion, AnimatePresence } from 'framer-motion'
 const navigation = [
   { name: 'Hem', href: '/' },
   { 
-    name: 'Tjänster', 
+    name: 'Flyttjänster', 
     href: '/tjanster',
     submenu: [
-      { name: 'Bohagsflytt privatflytt', href: '/tjanster/bohagsflytt-privatflytt' },
-      { name: 'Företagsflytt', href: '/tjanster/foretagsflytt' },
-      { name: 'Utlandsflytt', href: '/tjanster/utlandsflytt' },
-      { name: 'Bärhjälp', href: '/tjanster/barhjalp' },
-      { name: 'Packhjälp vid flytt', href: '/tjanster/packhjalp-vid-flytt' },
-      { name: 'Bortforsling av möbler', href: '/tjanster/bortforsling-av-mobler' },
-      { name: 'Magasinering av möbler', href: '/tjanster/magasinering-av-mobler' },
-      { name: 'Flyttstädning', href: '/tjanster/flyttstadning' },
-      { name: 'Byggstädning', href: '/tjanster/byggstadning' },
-      { name: 'Fönsterputsning', href: '/tjanster/fonsterputsning' },
+      { 
+        name: 'Västmanland', 
+        href: '/stader/vastmanland',
+        description: 'Flyttjänster i Västerås, Köping och Sala med omnejd.',
+        services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
+      },
+      { 
+        name: 'Stockholm', 
+        href: '/stader/stockholm',
+        description: 'Smidig flytt i hela Storstockholm – från city till förort.',
+        services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
+      },
+      { 
+        name: 'Örebro län', 
+        href: '/stader/orebro-lan',
+        description: 'Vi hjälper dig med flytt i Örebro, Kumla och Hallsberg.',
+        services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
+      },
+      { 
+        name: 'Södermanland', 
+        href: '/stader/sodermanland',
+        description: 'Flyttjänster i Eskilstuna, Strängnäs och Katrineholm.',
+        services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
+      },
     ]
   },
   { 
-    name: 'Städer', 
-    href: '/stader',
+    name: 'Städtjänster', 
+    href: '/tjanster/stadning',
     submenu: [
-      { name: 'Mälardalen', href: '/stader/malardalen' },
-      { name: 'Stockholm', href: '/stader/stockholm' },
-      { name: 'Göteborg', href: '/stader/goteborg' },
-      { name: 'Malmö', href: '/stader/malmo' },
-      { name: 'Uppsala', href: '/stader/uppsala' },
-      { name: 'Västerås', href: '/stader/vasteras' },
-      { name: 'Örebro', href: '/stader/orebro' },
+      { 
+        name: 'Västmanland', 
+        href: '/stader/vastmanland',
+        description: 'Flyttstäd och hemstäd i Västerås, Köping och Sala.',
+        services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
+      },
+      { 
+        name: 'Stockholm', 
+        href: '/stader/stockholm',
+        description: 'Städtjänster för hem och kontor i hela Stockholm.',
+        services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
+      },
+      { 
+        name: 'Örebro län', 
+        href: '/stader/orebro-lan',
+        description: 'Städning vid flytt och vardag i Örebro, Kumla och Hallsberg.',
+        services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
+      },
+      { 
+        name: 'Södermanland', 
+        href: '/stader/sodermanland',
+        description: 'Professionell städservice i Eskilstuna, Strängnäs och Katrineholm.',
+        services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
+      },
     ]
   },
   { name: 'Reklamera', href: '/reklamation' },
@@ -69,14 +100,34 @@ export default function Header() {
   return (
     <>
       {/* Top contact bar */}
-      <div className="bg-smidig-darkblue text-white text-xs py-1.5">
+      <div style={{ backgroundColor: '#162F65' }} className="text-white text-xs py-1.5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center space-x-4">
-            <a href="tel:010-123-4567" className="flex items-center hover:text-smidig-blue transition-colors">
+            <a 
+              href="tel:010-123-4567" 
+              className="flex items-center transition-colors"
+              style={{ color: 'white' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#3361AC'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'white'
+              }}
+            >
               <Phone size={14} className="mr-1.5" />
               Kommer snart
             </a>
-            <a href="mailto:info@smidigflytt365.nu" className="flex items-center hover:text-smidig-blue transition-colors">
+            <a 
+              href="mailto:info@smidigflytt365.nu" 
+              className="flex items-center transition-colors"
+              style={{ color: 'white' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#3361AC'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'white'
+              }}
+            >
               <Mail size={14} className="mr-1.5" />
               info@smidigflytt365.nu
             </a>
@@ -105,12 +156,15 @@ export default function Header() {
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
                 <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-md">
+                  <div 
+                    className="w-12 h-12 rounded-xl flex items-center justify-center shadow-md"
+                    style={{ background: 'linear-gradient(135deg, #3361AC 0%, #E8C766 100%)' }}
+                  >
                     <span className="text-white font-bold text-2xl">S</span>
                   </div>
                   <div>
-                    <div style={{color: 'black !important'}} className="text-2xl font-bold text-smidig-darkblue">Smidigflytt</div>
-                    <div style={{color: 'black !important'}} className="text-xs text-smidig-blue -mt-1">Din flyttpartner i Mälardalen</div>
+                    <div className="text-2xl font-bold" style={{ color: '#162F65' }}>Smidigflytt</div>
+                    <div className="text-xs -mt-1" style={{ color: '#3361AC' }}>Din flyttpartner i Mälardalen</div>
                   </div>
                 </div>
               </Link>
@@ -127,7 +181,14 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
-                    className="text-gray-700 hover:text-smidig-blue px-4 py-2 rounded-md text-base font-medium transition-all duration-300 flex items-center group"
+                    className="text-gray-700 px-4 py-2 rounded-md text-base font-medium transition-all duration-300 flex items-center group"
+                    style={{ color: '#374151' }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = '#3361AC'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = '#374151'
+                    }}
                   >
                     {item.name}
                     {item.submenu && <ChevronDown size={16} className="ml-1 opacity-70 group-hover:opacity-100 transition-opacity" />}
@@ -135,20 +196,47 @@ export default function Header() {
                   <AnimatePresence>
                     {item.submenu && hoveredMenu === item.name && (
                       <motion.div 
-                        className="absolute left-0 mt-1 w-56 rounded-lg shadow-xl bg-white ring-1 ring-black ring-opacity-5 z-50"
+                        className="absolute left-0 mt-1 w-80 rounded-lg shadow-xl bg-white ring-1 ring-black ring-opacity-5 z-50"
                         variants={desktopSubmenuVariants}
                         initial="hidden"
                         animate="visible"
                         exit="exit"
                       >
                         <div className="py-2">
-                          {item.submenu.map((subItem) => (
+                          {item.submenu.map((subItem: any) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-smidig-lightgray hover:text-smidig-darkblue transition-colors duration-200"
+                              className="block px-5 py-3 text-sm text-gray-700 hover:text-gray-900 transition-colors duration-200"
+                              style={{
+                                backgroundColor: 'transparent'
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = '#E7E6DD'
+                                e.currentTarget.style.color = '#162F65'
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = 'transparent'
+                                e.currentTarget.style.color = '#374151'
+                              }}
                             >
-                              {subItem.name}
+                              <div className="font-semibold">{subItem.name}</div>
+                              <div className="text-xs text-gray-500 mt-1">{subItem.description}</div>
+                              <div className="flex gap-2 mt-2">
+                                {subItem.services && subItem.services.map((service: string, index: number) => (
+                                  service && (
+                                    <span 
+                                      key={index}
+                                      className="inline-block px-2 py-1 rounded text-xs"
+                                      style={{
+                                        backgroundColor: 'transparent',
+                                        color: 'white'
+                                      }}
+                                    >
+                                    </span>
+                                  )
+                                ))}
+                              </div>
                             </Link>
                           ))}
                         </div>
@@ -163,8 +251,11 @@ export default function Header() {
             <div className="hidden lg:block ml-5">
               <Link
                 href="/offert"
-                style={{ color: 'black !important'}}
-                className="bg-gradient-cta text-smidig-darkblue px-6 py-3 rounded-full text-base font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                className="px-6 py-3 rounded-full text-base font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                style={{ 
+                  background: 'linear-gradient(135deg, #E8AF30 0%, #E8C766 100%)',
+                  color: '#162F65'
+                }}
               >
                 Begär Offert
               </Link>
@@ -174,7 +265,14 @@ export default function Header() {
             <div className="lg:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-500 hover:text-smidig-blue focus:outline-none p-2 rounded-md"
+                className="focus:outline-none p-2 rounded-md"
+                style={{ color: '#6B7280' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#3361AC'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '#6B7280'
+                }}
               >
                 <AnimatePresence initial={false} mode="wait">
                   <motion.div
@@ -206,21 +304,42 @@ export default function Header() {
                     <div key={item.name}>
                       <Link
                         href={item.href}
-                        className="text-gray-800 hover:text-smidig-blue block px-3 py-3 text-lg font-semibold"
+                        className="text-gray-800 block px-3 py-3 text-lg font-semibold"
+                        style={{ color: '#374151' }}
+                        onTouchStart={(e) => {
+                          e.currentTarget.style.color = '#3361AC'
+                        }}
+                        onTouchEnd={(e) => {
+                          e.currentTarget.style.color = '#374151'
+                        }}
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.name}
                       </Link>
                       {item.submenu && (
-                        <div className="pl-6 mt-1 space-y-1">
-                          {item.submenu.map((subItem) => (
+                        <div className="pl-6 mt-1 space-y-3">
+                          {item.submenu.map((subItem: any) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="text-gray-600 hover:text-smidig-blue block px-3 py-2 text-base"
+                              className="block px-3 py-2"
                               onClick={() => setIsMenuOpen(false)}
                             >
-                              {subItem.name}
+                              <div className="font-medium text-gray-700" style={{ color: '#374151' }}>{subItem.name}</div>
+                              <div className="text-xs text-gray-500 mt-1">{subItem.description}</div>
+                              <div className="flex flex-wrap gap-1 mt-2">
+                                {subItem.services && subItem.services.map((service: string, index: number) => (
+                                  <span 
+                                    key={index}
+                                    className="inline-block px-2 py-1 rounded text-xs"
+                                    style={{
+                                      backgroundColor: 'transparent',
+                                      color: 'transparent'
+                                    }}
+                                  >
+                                  </span>
+                                ))}
+                              </div>
                             </Link>
                           ))}
                         </div>
@@ -230,7 +349,11 @@ export default function Header() {
                   <div className="pt-6">
                     <Link
                       href="/offert"
-                      className="bg-gradient-cta text-smidig-darkblue block text-center px-6 py-4 rounded-full text-lg font-semibold w-full"
+                      className="block text-center px-6 py-4 rounded-full text-lg font-semibold w-full"
+                      style={{ 
+                        background: 'linear-gradient(135deg, #E8AF30 0%, #E8C766 100%)',
+                        color: '#162F65'
+                      }}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Begär Offert

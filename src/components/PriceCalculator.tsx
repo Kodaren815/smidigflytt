@@ -8,7 +8,12 @@ import CustomCalendar from './CustomCalendar'
 interface FormData {
   serviceType: 'flyttjänster' | 'städtjänster' | 'flyttjänster-och-städtjänster' | ''
   date: string
+  fromAddress: string
+  fromPostalCode: string
+  toAddress: string
+  toPostalCode: string
   address: string
+  postalCode: string
   housingType: 'lägenhet' | 'radhus' | 'villa' | ''
   squareMeters: string
   floor: string
@@ -23,7 +28,12 @@ interface FormData {
 const initialFormData: FormData = {
   serviceType: '',
   date: '',
+  fromAddress: '',
+  fromPostalCode: '',
+  toAddress: '',
+  toPostalCode: '',
   address: '',
+  postalCode: '',
   housingType: '',
   squareMeters: '',
   floor: '',
@@ -133,7 +143,14 @@ export default function PriceCalculator() {
                     : formData.serviceType
                 }</div>
                 <div><strong>Datum:</strong> {formData.date}</div>
-                <div><strong>Adress:</strong> {formData.address}</div>
+                {formData.serviceType === 'städtjänster' ? (
+                  <div><strong>Adress:</strong> {formData.address} {formData.postalCode}</div>
+                ) : (
+                  <>
+                    <div><strong>Från adress:</strong> {formData.fromAddress} {formData.fromPostalCode}</div>
+                    <div><strong>Till adress:</strong> {formData.toAddress} {formData.toPostalCode}</div>
+                  </>
+                )}
                 <div><strong>Boendetyp:</strong> {formData.housingType}</div>
                 <div><strong>Yta:</strong> {formData.squareMeters} m²</div>
                 <div><strong>Våning:</strong> {formData.floor}</div>
@@ -238,19 +255,99 @@ export default function PriceCalculator() {
         )
 
       case 2:
+        // If service is only städtjänster, show single address
+        if (formData.serviceType === 'städtjänster') {
+          return (
+            <div className="text-center text-black">
+              <MapPin className="h-12 w-12 md:h-16 md:w-16 text-black mx-auto mb-4 md:mb-6" />
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8" style={{ color: '#162F65' }}>
+                Vilken adress gäller det?
+              </h2>
+              <div className="space-y-4">
+                <div className="flex gap-4 max-w-2xl mx-auto">
+                  <input
+                    type="text"
+                    value={formData.address}
+                    onChange={(e) => updateFormData('address', e.target.value)}
+                    placeholder="Ange fullständig adress..."
+                    className="flex-1 px-4 md:px-6 py-3 md:py-4 text-lg md:text-xl rounded-2xl border-2 border-gray-200 focus:outline-none transition-colors"
+                    style={{ borderColor: formData.address ? '#3361AC' : '#E5E7EB' }}
+                  />
+                  <input
+                    type="text"
+                    value={formData.postalCode}
+                    onChange={(e) => updateFormData('postalCode', e.target.value)}
+                    placeholder="Postkod*"
+                    className="w-32 px-4 md:px-6 py-3 md:py-4 text-lg md:text-xl rounded-2xl border-2 border-gray-200 focus:outline-none transition-colors"
+                    style={{ borderColor: formData.postalCode ? '#3361AC' : '#E5E7EB' }}
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          )
+        }
+        
+        // If service includes flyttjänster, show dual addresses
         return (
           <div className="text-center text-black">
             <MapPin className="h-12 w-12 md:h-16 md:w-16 text-black mx-auto mb-4 md:mb-6" />
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-smidig-darkblue mb-6 md:mb-8">
-              Vilken adress gäller det?
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8" style={{ color: '#162F65' }}>
+              Från vilken adress och till vilken adress?
             </h2>
-            <input
-              type="text"
-              value={formData.address}
-              onChange={(e) => updateFormData('address', e.target.value)}
-              placeholder="Ange fullständig adress..."
-              className="w-full max-w-md mx-auto px-4 md:px-6 py-3 md:py-4 text-lg md:text-xl rounded-2xl border-2 border-gray-200 focus:border-smidig-blue focus:outline-none transition-colors"
-            />
+            <div className="space-y-6 max-w-2xl mx-auto">
+              {/* From Address */}
+              <div>
+                <label className="block text-left text-lg font-semibold mb-2" style={{ color: '#162F65' }}>
+                  Från:
+                </label>
+                <div className="flex gap-4">
+                  <input
+                    type="text"
+                    value={formData.fromAddress}
+                    onChange={(e) => updateFormData('fromAddress', e.target.value)}
+                    placeholder="Ange ursprungsadress..."
+                    className="flex-1 px-4 md:px-6 py-3 md:py-4 text-lg md:text-xl rounded-2xl border-2 border-gray-200 focus:outline-none transition-colors"
+                    style={{ borderColor: formData.fromAddress ? '#3361AC' : '#E5E7EB' }}
+                  />
+                  <input
+                    type="text"
+                    value={formData.fromPostalCode}
+                    onChange={(e) => updateFormData('fromPostalCode', e.target.value)}
+                    placeholder="Postkod*"
+                    className="w-32 px-4 md:px-6 py-3 md:py-4 text-lg md:text-xl rounded-2xl border-2 border-gray-200 focus:outline-none transition-colors"
+                    style={{ borderColor: formData.fromPostalCode ? '#3361AC' : '#E5E7EB' }}
+                    required
+                  />
+                </div>
+              </div>
+              
+              {/* To Address */}
+              <div>
+                <label className="block text-left text-lg font-semibold mb-2" style={{ color: '#162F65' }}>
+                  Till:
+                </label>
+                <div className="flex gap-4">
+                  <input
+                    type="text"
+                    value={formData.toAddress}
+                    onChange={(e) => updateFormData('toAddress', e.target.value)}
+                    placeholder="Ange destinationsadress..."
+                    className="flex-1 px-4 md:px-6 py-3 md:py-4 text-lg md:text-xl rounded-2xl border-2 border-gray-200 focus:outline-none transition-colors"
+                    style={{ borderColor: formData.toAddress ? '#3361AC' : '#E5E7EB' }}
+                  />
+                  <input
+                    type="text"
+                    value={formData.toPostalCode}
+                    onChange={(e) => updateFormData('toPostalCode', e.target.value)}
+                    placeholder="Postkod*"
+                    className="w-32 px-4 md:px-6 py-3 md:py-4 text-lg md:text-xl rounded-2xl border-2 border-gray-200 focus:outline-none transition-colors"
+                    style={{ borderColor: formData.toPostalCode ? '#3361AC' : '#E5E7EB' }}
+                    required
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         )
 
@@ -443,7 +540,13 @@ export default function PriceCalculator() {
     switch (currentStep) {
       case 0: return formData.serviceType !== ''
       case 1: return formData.date !== ''
-      case 2: return formData.address !== ''
+      case 2: 
+        if (formData.serviceType === 'städtjänster') {
+          return formData.address !== '' && formData.postalCode !== ''
+        } else {
+          return formData.fromAddress !== '' && formData.fromPostalCode !== '' && 
+                 formData.toAddress !== '' && formData.toPostalCode !== ''
+        }
       case 3: return formData.housingType !== ''
       case 4: return formData.squareMeters !== ''
       case 5: return formData.floor !== ''

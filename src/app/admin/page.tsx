@@ -30,6 +30,11 @@ interface Message {
   serviceType?: string
   date?: string
   address?: string
+  postalCode?: string
+  fromAddress?: string
+  fromPostalCode?: string
+  toAddress?: string
+  toPostalCode?: string
   housingType?: string
   squareMeters?: string
   floor?: string
@@ -438,11 +443,28 @@ export default function AdminPage() {
                             <p className="text-gray-900">{selectedMessage.date}</p>
                           </div>
                         )}
-                        {selectedMessage.address && (
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Adress</label>
-                            <p className="text-gray-900">{selectedMessage.address}</p>
-                          </div>
+                        {selectedMessage.serviceType === 'städtjänster' ? (
+                          selectedMessage.address && (
+                            <div>
+                              <label className="block text-sm font-medium text-gray-700 mb-1">Adress</label>
+                              <p className="text-gray-900">{selectedMessage.address} {selectedMessage.postalCode}</p>
+                            </div>
+                          )
+                        ) : (
+                          <>
+                            {selectedMessage.fromAddress && (
+                              <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Från adress</label>
+                                <p className="text-gray-900">{selectedMessage.fromAddress} {selectedMessage.fromPostalCode}</p>
+                              </div>
+                            )}
+                            {selectedMessage.toAddress && (
+                              <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Till adress</label>
+                                <p className="text-gray-900">{selectedMessage.toAddress} {selectedMessage.toPostalCode}</p>
+                              </div>
+                            )}
+                          </>
                         )}
                         {selectedMessage.housingType && (
                           <div>

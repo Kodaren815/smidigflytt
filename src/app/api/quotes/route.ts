@@ -10,6 +10,11 @@ interface QuoteRequest {
   serviceType: string
   date: string
   address: string
+  postalCode: string
+  fromAddress: string
+  fromPostalCode: string
+  toAddress: string
+  toPostalCode: string
   housingType: string
   squareMeters: string
   floor: string
@@ -57,6 +62,11 @@ export async function POST(request: NextRequest) {
       serviceType,
       date,
       address,
+      postalCode,
+      fromAddress,
+      fromPostalCode,
+      toAddress,
+      toPostalCode,
       housingType,
       squareMeters,
       floor,
@@ -83,6 +93,11 @@ export async function POST(request: NextRequest) {
       serviceType,
       date: date || '',
       address: address || '',
+      postalCode: postalCode || '',
+      fromAddress: fromAddress || '',
+      fromPostalCode: fromPostalCode || '',
+      toAddress: toAddress || '',
+      toPostalCode: toPostalCode || '',
       housingType: housingType || '',
       squareMeters: squareMeters || '',
       floor: floor || '',

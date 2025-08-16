@@ -1,44 +1,47 @@
 import SEO from '@/components/SEO'
 import Link from 'next/link'
 
-const municipalities = [
-  'Botkyrka', 'Danderyd', 'Ekerö', 'Haninge', 'Huddinge', 'Järfälla', 
-  'Lidingö', 'Nacka', 'Norrtälje', 'Nykvarn', 'Nynäshamn', 'Salem', 
-  'Sigtuna', 'Sollentuna', 'Solna', 'Stockholm', 'Sundbyberg', 'Södertälje', 
-  'Tyresö', 'Täby', 'Upplands-Bro', 'Upplands Väsby', 'Vallentuna', 
-  'Vaxholm', 'Värmdö', 'Österåker'
+const cities = [
+  { name: 'Örebro', population: '' },
+  { name: 'Karlskoga', population: '' },
+  { name: 'Kumla', population: '' },
+  { name: 'Lindesberg', population: '' },
+  { name: 'Hallsberg', population: '' },
+  { name: 'Degerfors', population: '' },
+  { name: 'Nora', population: '' },
+  { name: 'Hällefors', population: '' },
+  { name: 'Askersund', population: '' }
 ]
 
-export default function StockholmPage() {
+export default function OrebroLanPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <SEO 
-        title="Smidigflytt i Stockholm - Välj Din Kommun"
-        description="Välj din kommun i Stockholm för flyttjänster och städtjänster från Smidigflytt. Vi hjälper kunder i hela Stockholms län."
+        title="Smidigflytt i Örebro län - Välj Din Stad"
+        description="Välj din stad i Örebro län för flyttjänster och städtjänster från Smidigflytt. Vi hjälper kunder i hela länet."
       />
       
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold mb-4" style={{ color: '#162F65' }}>
-              Välj din kommun i Stockholm
+              Välj din stad i Örebro län
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Vi erbjuder professionella flytt- och städtjänster i hela Stockholms län. 
-              Välj din kommun nedan för att se våra tjänster i ditt område.
+              Vi erbjuder professionella flytt- och städtjänster i hela Örebro län. 
+              Välj din stad nedan för att se våra tjänster i ditt område.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {municipalities.map((municipality, index) => {
-              const citySlug = municipality
+            {cities.map((city, index) => {
+              const citySlug = city.name
                 .toLowerCase()
                 .replace('å', 'a')
                 .replace('ä', 'a')
                 .replace('ö', 'o')
                 .replace('é', 'e')
-                .replace(/ /g, '-')
-                .replace('--', '-');
+                .replace(/ /g, '-');
               return (
                 <Link
                   key={index}
@@ -47,7 +50,7 @@ export default function StockholmPage() {
                 >
                   <div className="text-center">
                     <h3 className="text-xl font-semibold mb-2" style={{ color: '#162F65' }}>
-                      {municipality}
+                      {city.name}
                     </h3>
                     <div className="space-y-2">
                       <div className="flex flex-wrap justify-center gap-2">
@@ -83,7 +86,10 @@ export default function StockholmPage() {
                 </Link>
               );
             })}
-          </div>          <div className="mt-16 text-center">
+            {/* Removed duplicate city card rendering after map callback */}
+          </div>
+
+          <div className="mt-16 text-center">
             <div 
               className="inline-block p-6 rounded-lg"
               style={{ backgroundColor: '#E7E6DD' }}
@@ -92,7 +98,7 @@ export default function StockholmPage() {
                 Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge.
               </p>
               <p className="text-gray-600 mt-2">
-                Kontakta oss för en kostnadsfri offert oavsett var i Stockholm du befinner dig!
+                Kontakta oss för en kostnadsfri offert oavsett var i Örebro län du befinner dig!
               </p>
             </div>
           </div>
