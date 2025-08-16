@@ -9,6 +9,11 @@ interface CustomCalendarProps {
   onDateSelect: (date: string) => void
   minDate?: string
 }
+type CalendarDay = {
+  date: number
+  isCurrentMonth: boolean
+  fullDate: Date
+}
 
 export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: CustomCalendarProps) {
   const [currentMonth, setCurrentMonth] = useState(new Date())
@@ -91,7 +96,7 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
     })
   }
 
-  const handleDateClick = (day: any) => {
+  const handleDateClick = (day: CalendarDay) => {
     if (!day.isCurrentMonth) return
     
     const dateObj = day.fullDate
@@ -101,24 +106,24 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
     onDateSelect(dateString)
   }
 
-  const isSelected = (day: any) => {
+  const isSelected = (day: CalendarDay) => {
     if (!selectedDate || !day.isCurrentMonth) return false
     const dateString = day.fullDate.toISOString().split('T')[0]
     return dateString === selectedDate
   }
 
-  const isDisabled = (day: any) => {
+  const isDisabled = (day: CalendarDay) => {
     if (!day.isCurrentMonth) return true
     return day.fullDate < minimumDate
   }
 
-  const isToday = (day: any) => {
+  const isToday = (day: CalendarDay) => {
     if (!day.isCurrentMonth) return false
     const today = new Date()
     return day.fullDate.toDateString() === today.toDateString()
   }
 
-  const days = getDaysInMonth(currentMonth)
+  const days: CalendarDay[] = getDaysInMonth(currentMonth)
 
   const monthVariants = {
     enter: (direction: number) => ({
@@ -198,7 +203,7 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
           opacity: { duration: 0.3 }
         }}
       >
-        {days.map((day, index) => {
+        {days.map((day: CalendarDay, index) => {
           const selected = isSelected(day)
           const disabled = isDisabled(day)
           const todayDate = isToday(day)
