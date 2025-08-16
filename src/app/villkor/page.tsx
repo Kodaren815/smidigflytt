@@ -14,7 +14,7 @@ export default function VillkorPage() {
           
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-smidig-darkblue mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-black mb-6">
               Användarvillkor
             </h1>
             <p className="text-xl text-gray-600">
@@ -28,11 +28,11 @@ export default function VillkorPage() {
           <div className="prose max-w-none">
             
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">1. Allmänt</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">1. Allmänt</h2>
               <p className="text-gray-700 mb-4">
                 Dessa villkor gäller för alla tjänster som tillhandahålls av Smidigflytt. Genom att boka våra tjänster accepterar du dessa villkor.
               </p>
-              <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="bg-gray-50 p-4 rounded-lg text-black">
                 <p><strong>Företagsuppgifter:</strong></p>
                 <p>Smidigflytt<br />
                 E-post: info@smidigflytt365.nu<br />
@@ -41,7 +41,7 @@ export default function VillkorPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">2. Tjänster</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">2. Tjänster</h2>
               <p className="text-gray-700 mb-4">
                 Vi erbjuder följande tjänster:
               </p>
@@ -59,7 +59,7 @@ export default function VillkorPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">3. Bokning och avtal</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">3. Bokning och avtal</h2>
               <p className="text-gray-700 mb-4">
                 <strong>Offert och bekräftelse:</strong> All bokning sker efter offert och skriftlig bekräftelse från båda parter.
               </p>
@@ -72,7 +72,7 @@ export default function VillkorPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">4. Priser och betalning</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">4. Priser och betalning</h2>
               <p className="text-gray-700 mb-4">
                 <strong>Prissättning:</strong> Priser anges i offert och gäller för det specificerade arbetet.
               </p>
@@ -88,7 +88,7 @@ export default function VillkorPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">5. Kundens ansvar</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">5. Kundens ansvar</h2>
               <p className="text-gray-700 mb-4">
                 Kunden ansvarar för att:
               </p>
@@ -102,7 +102,7 @@ export default function VillkorPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">6. Vårt ansvar och försäkring</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">6. Vårt ansvar och försäkring</h2>
               <p className="text-gray-700 mb-4">
                 <strong>Ansvarsförsäkring:</strong> Vi har fullständig ansvarsförsäkring som täcker skador som uppstår under utförandet av våra tjänster.
               </p>
@@ -121,7 +121,7 @@ export default function VillkorPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">7. Force majeure</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">7. Force majeure</h2>
               <p className="text-gray-700 mb-4">
                 Vi ansvarar inte för förseningar eller avbrott som orsakas av force majeure-händelser såsom:
               </p>
@@ -135,7 +135,7 @@ export default function VillkorPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">8. Reklamationer</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">8. Reklamationer</h2>
               <p className="text-gray-700 mb-4">
                 <strong>Reklamationstid:</strong> Reklamationer måste göras inom 7 dagar efter utfört arbete.
               </p>
@@ -148,17 +148,17 @@ export default function VillkorPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">9. Personuppgifter</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">9. Personuppgifter</h2>
               <p className="text-gray-700 mb-4">
                 Vi behandlar personuppgifter enligt vår integritetspolicy och gällande dataskyddslagstiftning (GDPR).
               </p>
               <p className="text-gray-700 mb-4">
-                Läs mer i vår <a href="/integritet" className="text-smidig-blue hover:text-smidig-darkblue">integritetspolicy</a>.
+                Läs mer i vår <a href="/integritet" className="text-smidig-blue hover:text-black">integritetspolicy</a>.
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">10. Tillämplig lag och tvister</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">10. Tillämplig lag och tvister</h2>
               <p className="text-gray-700 mb-4">
                 <strong>Tillämplig lag:</strong> Svensk lag gäller för alla avtal och tvister.
               </p>
@@ -168,7 +168,7 @@ export default function VillkorPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">11. Ändringar av villkor</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">11. Ändringar av villkor</h2>
               <p className="text-gray-700 mb-4">
                 Vi förbehåller oss rätten att ändra dessa villkor. Ändringar meddelas på vår webbplats och gäller för framtida avtal.
               </p>
@@ -178,11 +178,11 @@ export default function VillkorPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">12. Kontakt</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">12. Kontakt</h2>
               <p className="text-gray-700 mb-4">
                 Har du frågor om dessa villkor eller våra tjänster?
               </p>
-              <div className="bg-smidig-lightgray p-6 rounded-lg">
+              <div className="text-black bg-smidig-lightgray p-6 rounded-lg">
                 <p><strong>Kontakta oss:</strong></p>
                 <p>E-post: info@smidigflytt365.nu<br />
                 Telefon: Kommer snart<br />

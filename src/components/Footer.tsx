@@ -16,7 +16,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="text-xl font-bold">Smidigflytt</div>
-                <div className="text-sm text-smidig-lightyellow">Din flyttpartner i Södermanland</div>
+                <div className="text-sm text-smidig-lightyellow">Din flyttpartner i Mälardalen</div>
               </div>
             </div>
             <p className="text-gray-700 text-sm leading-relaxed">
@@ -114,7 +114,7 @@ export default function Footer() {
                 <div className="text-black text-sm">
                   <div>Täcker hela Sverige</div>
                   <div className="text-xs text-gray-400 mt-1">
-                    Huvudkontor: Södermanland
+                    Huvudkontor: Mälardalen
                   </div>
                 </div>
               </div>

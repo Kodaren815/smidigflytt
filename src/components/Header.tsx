@@ -27,6 +27,7 @@ const navigation = [
     name: 'Städer', 
     href: '/stader',
     submenu: [
+      { name: 'Mälardalen', href: '/stader/malardalen' },
       { name: 'Stockholm', href: '/stader/stockholm' },
       { name: 'Göteborg', href: '/stader/goteborg' },
       { name: 'Malmö', href: '/stader/malmo' },
@@ -109,7 +110,7 @@ export default function Header() {
                   </div>
                   <div>
                     <div style={{color: 'black !important'}} className="text-2xl font-bold text-smidig-darkblue">Smidigflytt</div>
-                    <div style={{color: 'black !important'}} className="text-xs text-smidig-blue -mt-1">Din flyttpartner i Södermanland</div>
+                    <div style={{color: 'black !important'}} className="text-xs text-smidig-blue -mt-1">Din flyttpartner i Mälardalen</div>
                   </div>
                 </div>
               </Link>

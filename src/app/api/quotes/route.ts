@@ -18,6 +18,7 @@ interface QuoteRequest {
   name: string
   phone: string
   email: string
+  extraInfo: string
 }
 
 const DATA_DIR = path.join(process.cwd(), 'data')
@@ -63,7 +64,8 @@ export async function POST(request: NextRequest) {
       hasBalcony,
       name,
       phone,
-      email
+      email,
+      extraInfo
     } = body
 
     // Validate required fields
@@ -88,7 +90,8 @@ export async function POST(request: NextRequest) {
       hasBalcony,
       name,
       phone,
-      email
+      email,
+      extraInfo: extraInfo || ''
     }
 
     await saveQuoteRequest(quoteRequest)

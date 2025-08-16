@@ -109,7 +109,7 @@ export default function KontaktPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">Område</h3>
                     <p className="text-lg text-gray-700">Hela Sverige</p>
-                    <p className="text-gray-600 text-sm mt-1">Huvudkontor: Södermanland</p>
+                    <p className="text-gray-600 text-sm mt-1">Huvudkontor: Mälardalen</p>
                   </div>
                 </div>
 

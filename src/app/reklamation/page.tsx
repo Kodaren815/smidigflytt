@@ -178,7 +178,7 @@ export default function ReklamationPage() {
                 </Link>
                 <Link 
                   href="/kontakt"
-                  className="border-2 border-smidig-blue text-smidig-blue px-8 py-3 rounded-full font-semibold hover:bg-smidig-blue hover:text-white transition-colors"
+                  className="border-2 border-smidig-blue text-black px-8 py-3 rounded-full font-semibold hover:bg-smidig-blue hover:text-white transition-colors"
                 >
                   Kontakta oss
                 </Link>
@@ -207,7 +207,7 @@ export default function ReklamationPage() {
               <AlertTriangle className="h-8 w-8 text-orange-600" />
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Reklamation och <span className="text-smidig-lightyellow">Skadeanmälan</span>
+              Reklamation och <span className="text-white">Skadeanmälan</span>
             </h1>
             <p className="text-xl text-white max-w-3xl mx-auto">
               Har det uppstått en skada under flytten eller städningen? Anmäl skadan här så behandlar vi ditt ärende snarast.
@@ -226,7 +226,7 @@ export default function ReklamationPage() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-black mb-2">
                       För- och efternamn *
                     </label>
                     <input
@@ -234,7 +234,7 @@ export default function ReklamationPage() {
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Ditt fullständiga namn"
                       required
                     />
@@ -249,7 +249,7 @@ export default function ReklamationPage() {
                       name="orderNumber"
                       value={formData.orderNumber}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                      className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Ordernummer om tillgängligt"
                     />
                   </div>
@@ -263,7 +263,7 @@ export default function ReklamationPage() {
                       name="personalNumber"
                       value={formData.personalNumber}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                      className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="YYYYMMDD-XXXX"
                       required
                     />
@@ -278,7 +278,7 @@ export default function ReklamationPage() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                      className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="din.epost@exempel.se"
                       required
                     />
@@ -293,7 +293,7 @@ export default function ReklamationPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                      className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="070-123 45 67"
                       required
                     />
@@ -317,7 +317,7 @@ export default function ReklamationPage() {
                       name="damageDateTime"
                       value={formData.damageDateTime}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                      className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       required
                     />
                   </div>
@@ -331,7 +331,7 @@ export default function ReklamationPage() {
                       name="damageLocation"
                       value={formData.damageLocation}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                      className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Fullständig adress där skadan inträffade"
                       required
                     />
@@ -346,7 +346,7 @@ export default function ReklamationPage() {
                       value={formData.damageDescription}
                       onChange={handleInputChange}
                       rows={5}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                      className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Detaljerad beskrivning av hur skadan uppstod..."
                       required
                     />
@@ -362,7 +362,7 @@ export default function ReklamationPage() {
                         name="brand"
                         value={formData.brand}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                        className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="t.ex. IKEA Billy, Samsung TV"
                       />
                     </div>
@@ -376,7 +376,7 @@ export default function ReklamationPage() {
                         name="acquisitionValue"
                         value={formData.acquisitionValue}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                        className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="Ursprungligt inköpspris"
                       />
                     </div>
@@ -392,7 +392,7 @@ export default function ReklamationPage() {
                         onChange={handleInputChange}
                         min="1900"
                         max={new Date().getFullYear()}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                        className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="YYYY"
                       />
                     </div>
@@ -406,7 +406,7 @@ export default function ReklamationPage() {
                         name="insuranceCompany"
                         value={formData.insuranceCompany}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                        className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="t.ex. Länsförsäkringar, If, Folksam"
                       />
                     </div>
@@ -420,7 +420,7 @@ export default function ReklamationPage() {
                         name="purchaseDate"
                         value={formData.purchaseDate}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                        className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       />
                     </div>
                     
@@ -433,7 +433,7 @@ export default function ReklamationPage() {
                         name="claimAmount"
                         value={formData.claimAmount}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                        className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="Begärt ersättningsbelopp"
                       />
                     </div>
@@ -448,7 +448,7 @@ export default function ReklamationPage() {
                       value={formData.witnessInfo}
                       onChange={handleInputChange}
                       rows={3}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
+                      className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Vittnes namn, adress och telefonnummer om tillämpligt"
                     />
                   </div>
@@ -470,7 +470,7 @@ export default function ReklamationPage() {
                       <div className="space-y-1 text-center">
                         <Upload className="mx-auto h-12 w-12 text-gray-400" />
                         <div className="flex text-sm text-gray-600">
-                          <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-smidig-blue hover:text-smidig-darkblue focus-within:outline-none">
+                          <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-black hover:text-smidig-darkblue focus-within:outline-none">
                             <span>Ladda upp filer</span>
                             <input
                               id="file-upload"
@@ -537,7 +537,7 @@ export default function ReklamationPage() {
                       name="confirmed"
                       checked={formData.confirmed}
                       onChange={handleInputChange}
-                      className="mt-1 h-4 w-4 text-smidig-blue focus:ring-smidig-blue border-gray-300 rounded"
+                      className="mt-1 h-4 w-4 text-black focus:ring-smidig-blue border-gray-300 rounded"
                       required
                     />
                     <label className="ml-3 text-sm text-gray-700">

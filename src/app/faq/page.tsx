@@ -11,7 +11,7 @@ const faqData = [
     questions: [
       {
         question: "Vilka områden täcker ni?",
-        answer: "Vi täcker hela Sverige med våra flyttjänster och städservice. Vårt huvudkontor ligger i Södermanland, men vi har partners och team över hela landet för att säkerställa hög kvalitet överallt."
+        answer: "Vi täcker hela Sverige med våra flyttjänster och städservice. Vårt huvudkontor ligger i Mälardalen, men vi har partners och team över hela landet för att säkerställa hög kvalitet överallt."
       },
       {
         question: "Hur bokar jag era tjänster?",

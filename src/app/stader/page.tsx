@@ -4,6 +4,15 @@ import SEO from '@/components/SEO'
 
 const cities = [
   {
+    name: "Mälardalen",
+    region: "Mälardalsregionen",
+    population: "2.5 miljoner",
+    description: "Vår hemmaregion med dess unika kombination av städer, industriområden och natursköna miljöer.",
+    specialties: ["Hemmaplansfördel med regional kunskap", "Lokala kontakter och nätverk", "Expertis på hela regionen"],
+    link: "/stader/malardalen",
+    image: "/malardalen-city.jpg"
+  },
+  {
     name: "Stockholm",
     region: "Stockholms län",
     population: "2.3 miljoner",
@@ -82,7 +91,7 @@ export default function StaderPage() {
               </p>
               <div className="flex items-center justify-center space-x-4 text-lg">
                 <MapPin className="h-6 w-6 text-smidig-lightyellow" />
-                <span>Huvudkontor: Södermanland</span>
+                <span>Huvudkontor: Mälardalen</span>
               </div>
             </div>
           </div>

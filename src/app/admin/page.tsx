@@ -35,6 +35,7 @@ interface Message {
   floor?: string
   hasElevator?: boolean | null
   hasBalcony?: boolean | null
+  extraInfo?: string
   // Damage report fields
   orderNumber?: string
   personalNumber?: string
@@ -471,6 +472,12 @@ export default function AdminPage() {
                           <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Balkong</label>
                             <p className="text-gray-900">{selectedMessage.hasBalcony ? 'Ja' : 'Nej'}</p>
+                          </div>
+                        )}
+                        {selectedMessage.extraInfo && (
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Extra information</label>
+                            <p className="text-gray-900">{selectedMessage.extraInfo}</p>
                           </div>
                         )}
                       </div>

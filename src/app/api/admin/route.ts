@@ -4,7 +4,8 @@ import { existsSync } from 'fs'
 import path from 'path'
 
 // Hardcoded password (as requested)
-const ADMIN_PASSWORD = 'smidigflytt2024admin'
+// Hardcoded password (as requested)
+const ADMIN_PASSWORD = 'smidigflytt2024smidigflytt365'
 
 const DATA_DIR = path.join(process.cwd(), 'data')
 const CONTACT_FILE = path.join(DATA_DIR, 'contacts.json')

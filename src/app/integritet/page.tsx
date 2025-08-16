@@ -9,15 +9,15 @@ export default function IntegritetPage() {
         keywords="integritetspolicy, personuppgifter, GDPR, datasäkerhet"
       />
       
-      <div className="min-h-screen bg-white py-20">
+      <div className="min-h-[60vh] bg-white py-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-smidig-darkblue mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-black mb-6">
               Integritetspolicy
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-black">
               Så hanterar vi dina personuppgifter enligt GDPR
             </p>
             <p className="text-sm text-gray-500 mt-2">
@@ -28,11 +28,11 @@ export default function IntegritetPage() {
           <div className="prose max-w-none">
             
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">1. Personuppgiftsansvarig</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">1. Personuppgiftsansvarig</h2>
               <p className="text-gray-700 mb-4">
                 Smidigflytt är personuppgiftsansvarig för behandlingen av dina personuppgifter.
               </p>
-              <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="bg-gray-50 p-4 rounded-lg text-black">
                 <p><strong>Kontaktuppgifter:</strong></p>
                 <p>Smidigflytt<br />
                 E-post: info@smidigflytt365.nu<br />
@@ -41,7 +41,7 @@ export default function IntegritetPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">2. Vilka personuppgifter samlar vi in?</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">2. Vilka personuppgifter samlar vi in?</h2>
               <p className="text-gray-700 mb-4">
                 Vi samlar in följande typer av personuppgifter:
               </p>
@@ -54,7 +54,7 @@ export default function IntegritetPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">3. Varför behandlar vi dina personuppgifter?</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">3. Varför behandlar vi dina personuppgifter?</h2>
               <p className="text-gray-700 mb-4">
                 Vi behandlar dina personuppgifter för följande ändamål:
               </p>
@@ -68,7 +68,7 @@ export default function IntegritetPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">4. Rättslig grund</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">4. Rättslig grund</h2>
               <p className="text-gray-700 mb-4">
                 Vi behandlar dina personuppgifter baserat på:
               </p>
@@ -81,7 +81,7 @@ export default function IntegritetPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">5. Vem delar vi dina uppgifter med?</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">5. Vem delar vi dina uppgifter med?</h2>
               <p className="text-gray-700 mb-4">
                 Vi delar endast dina personuppgifter med:
               </p>
@@ -97,7 +97,7 @@ export default function IntegritetPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">6. Hur länge sparar vi dina uppgifter?</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">6. Hur länge sparar vi dina uppgifter?</h2>
               <p className="text-gray-700 mb-4">
                 Vi sparar dina personuppgifter endast så länge som nödvändigt:
               </p>
@@ -109,7 +109,7 @@ export default function IntegritetPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">7. Dina rättigheter</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">7. Dina rättigheter</h2>
               <p className="text-gray-700 mb-4">
                 Du har följande rättigheter enligt GDPR:
               </p>
@@ -127,39 +127,39 @@ export default function IntegritetPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">8. Säkerhet</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">8. Säkerhet</h2>
               <p className="text-gray-700 mb-4">
                 Vi vidtar lämpliga tekniska och organisatoriska säkerhetsåtgärder för att skydda dina personuppgifter mot obehörig åtkomst, förlust eller missbruk.
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">9. Cookies</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">9. Cookies</h2>
               <p className="text-gray-700 mb-4">
                 Vår webbplats använder cookies för att förbättra användarupplevelsen. Du kan hantera cookie-inställningar i din webbläsare.
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">10. Klagomål</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">10. Klagomål</h2>
               <p className="text-gray-700 mb-4">
                 Om du är missnöjd med hur vi hanterar dina personuppgifter har du rätt att lämna klagomål till Integritetsskyddsmyndigheten (IMY).
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">11. Ändringar</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">11. Ändringar</h2>
               <p className="text-gray-700 mb-4">
                 Vi kan komma att uppdatera denna integritetspolicy. Väsentliga ändringar meddelas på vår webbplats eller via e-post.
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-smidig-darkblue mb-4">12. Kontakt</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">12. Kontakt</h2>
               <p className="text-gray-700 mb-4">
                 Har du frågor om denna integritetspolicy eller hur vi hanterar dina personuppgifter?
               </p>
-              <div className="bg-smidig-lightgray p-6 rounded-lg">
+              <div className="text-black bg-smidig-lightgray p-6 rounded-lg">
                 <p><strong>Kontakta oss:</strong></p>
                 <p>E-post: info@smidigflytt365.nu<br />
                 Telefon: Kommer snart</p>

@@ -10,7 +10,7 @@ export default function HeroSection() {
 
   const slides = [
     {
-      badge: "Pålitlig flytttjänst i hela Södermanland",
+      badge: "Pålitlig flytttjänst i hela Mälardalen",
       title: "Din flytt blir",
       highlight: "Enkel & Bekymmersfri",
       description: "Vi sköter allt från start till mål - packning, transport och upppackning. Fokusera på ditt nya kapitel medan vi tar hand om resten.",
@@ -39,7 +39,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-white/5"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 lg:pt-36">
+      <div style={{ maxWidth: '70vw', margin: '0 auto' }} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 lg:pt-36">
         {/* Hero Content - Reversed Layout */}
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
           
@@ -153,7 +153,7 @@ export default function HeroSection() {
               <div className="text-center flex-1">
                 <div className="text-2xl font-bold text-smidig-lightyellow mb-1">Regional</div>
                 <div className="text-sm text-gray-200 font-semibold">Lokal kunskap</div>
-                <div className="text-xs text-gray-300">Hela Södermanland</div>
+                <div className="text-xs text-gray-300">Hela Mälardalen</div>
               </div>
               <div className="text-center flex-1">
                 <div className="text-2xl font-bold text-smidig-lightyellow mb-1">Säker</div>

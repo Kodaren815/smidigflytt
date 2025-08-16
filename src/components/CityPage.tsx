@@ -30,9 +30,9 @@ export default function CityPage({ city }: CityPageProps) {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-smidig-yellow/20 text-white text-sm font-medium mb-6">
               <MapPin className="h-4 w-4 mr-2" />
@@ -81,9 +81,9 @@ export default function CityPage({ city }: CityPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
@@ -103,9 +103,9 @@ export default function CityPage({ city }: CityPageProps) {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
               className="mt-12 lg:mt-0"
             >
@@ -130,9 +130,9 @@ export default function CityPage({ city }: CityPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -145,9 +145,9 @@ export default function CityPage({ city }: CityPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-black">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
               className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
@@ -163,9 +163,9 @@ export default function CityPage({ city }: CityPageProps) {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
               className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
@@ -181,9 +181,9 @@ export default function CityPage({ city }: CityPageProps) {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
               className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
@@ -200,9 +200,9 @@ export default function CityPage({ city }: CityPageProps) {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="bg-white rounded-3xl p-8 shadow-lg"
           >
@@ -224,12 +224,12 @@ export default function CityPage({ city }: CityPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-smidig-darkblue mb-6">
+            <h2 className="text-black text-3xl md:text-4xl font-bold text-smidig-darkblue mb-6">
               Områden vi täcker i {city.name}
             </h2>
             <p className="text-xl text-gray-600">
@@ -238,9 +238,9 @@ export default function CityPage({ city }: CityPageProps) {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="bg-gradient-to-br from-smidig-lightgray to-white rounded-3xl p-8"
           >
@@ -248,7 +248,7 @@ export default function CityPage({ city }: CityPageProps) {
               {city.areas.map((area, index) => (
                 <div 
                   key={index}
-                  className="bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
+                  className="text-black bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
                   <span className="text-smidig-darkblue font-medium">{area}</span>
                 </div>
@@ -262,9 +262,9 @@ export default function CityPage({ city }: CityPageProps) {
       <section className="py-20 bg-gradient-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
