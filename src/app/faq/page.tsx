@@ -49,15 +49,70 @@ const faqData = [
     questions: [
       {
         question: "Vad ingår i flyttstädningen?",
-        answer: "Vår flyttstädning inkluderar grundstädning av alla rum, toppstädning av kök och badrum, fönsterputs invändigt, rengöring av ugn och kylskåp. Vi garanterar att städningen blir godkänd av hyresvärd eller mäklare."
+        answer: "Vår flyttstädning inkluderar grundstädning av alla rum,\n toppstädning av kök och badrum,\n fönsterputs invändigt,\n rengöring av ugn och kylskåp.\n Vi garanterar att städningen blir godkänd av hyresvärd eller mäklare."
+      },
+      {
+        question: "Flyttstädning – Checklista",
+        answer: `
+Alla rum
+• Putsa fönster (insida, ev. utsida om avtalat)\n
+• Torka fönsterbänkar och fönsterkarmar\n
+• Torka eluttag, strömbrytare och elskåp\n
+• Torka dörrar och dörrkarmar\n
+• Torka element\n
+• Dammsug och våttorka golv och lister\n
+• Torka trösklar\n
+• Torka ur garderober\n
+
+Badrum och toalett
+• Rengör badrumsskåp (in- och utsida)\n
+• Torka speglar\n
+• Rengör badkar (in- och utsida)\n
+• Rengör toalett och spolknapp\n
+• Rengör tvättställ\n
+• Rengör golvbrunn\n
+• Avkalka kakel och klinker\n
+• Rengör dusch och duschvägg/kabin\n
+• Torka synliga rör\n
+• Rengör tvättmaskin och torktumlare (in- och utsida)\n
+
+Kök
+• Rengör spis, ugn, plåtar och galler\n
+• Rengör mikrovågsugn (in- och utsida)\n
+• Töm och rengör kyl och frys (avfrosta)\n
+• Rengör skåp och lådor (in- och utsida)\n
+• Torka arbetsbänkar\n
+• Rengör köksfläkt och filter\n
+• Kontrollera att diskmaskinen är ren\n
+
+Om det är avtalat – ingår även
+• Persienner\n
+• Spröjsade fönster\n
+• Inglasad balkong och balkong\n
+• Källare, garage, altan eller andra biutrymmen\n
+• Grovstädning av förråd, vind, pannrum (damma väggar, sopa golv)\n
+
+Ingår inte
+• Våttorkning av väggar och tak\n
+• Städning av braskamin\n
+• Demontering av vattenlås (rengörs bara om möjligt)\n
+
+Kom ihåg innan städning
+• Alla möbler och saker ska vara borttagna\n
+• Tunga möbler (spis, kyl/frys, badkar) dras fram och tillbaka av kund\n
+• Kyl och frys ska vara tömda och avfrostade\n
+• Vi demonterar inte lampor, glaskupor eller liknande\n
+• El och vatten måste finnas i bostaden\n
+• Du eller kontaktperson måste vara nåbar under städdagen\n
+        `
       },
       {
         question: "Garanterar ni att städningen blir godkänd?",
-        answer: "Ja, vi garanterar att vår flyttstädning blir godkänd. Om det skulle uppstå problem kommer vi tillbaka och åtgärdar det utan extra kostnad. Vi har mångårig erfarenhet och vet vad som krävs."
+        answer: "Ja, vi garanterar att vår flyttstädning blir godkänd.\n Om det skulle uppstå problem kommer vi tillbaka och åtgärdar det utan extra kostnad.\n Vi har mångårig erfarenhet och vet vad som krävs."
       },
       {
         question: "Behöver jag vara hemma under städningen?",
-        answer: "Nej, du behöver inte vara hemma under städningen. Vi kan ta emot nycklar och återlämna dem enligt överenskommelse. All vår personal är bakgrundskontrollerad och pålitlig."
+        answer: "Nej, du behöver inte vara hemma under städningen.\n Vi kan ta emot nycklar och återlämna dem enligt överenskommelse.\n All vår personal är bakgrundskontrollerad och pålitlig."
       }
     ]
   },
@@ -66,15 +121,15 @@ const faqData = [
     questions: [
       {
         question: "Hur långt i förväg behöver jag boka?",
-        answer: "Vi rekommenderar att du bokar minst 1-2 veckor i förväg, särskilt under högsäsong (sommarmånader och månadsskiften). För akuta fall kan vi ofta ordna hjälp inom 24-48 timmar."
+        answer: "Vi rekommenderar att du bokar minst 1-2 veckor i förväg,\n särskilt under högsäsong (sommarmånader och månadsskiften).\n För akuta fall kan vi ofta ordna hjälp inom 24-48 timmar."
       },
       {
         question: "Vilka betalningsmetoder accepterar ni?",
-        answer: "Vi accepterar banköverföring, Swish, kortbetalning och kontanter. För RUT-avdrag sker betalningen delvis direkt till oss och delvis via Skatteverkets system."
+        answer: "Vi accepterar banköverföring,\n Swish,\n kortbetalning och kontanter.\n För RUT-avdrag sker betalningen delvis direkt till oss och delvis via Skatteverkets system."
       },
       {
         question: "Kan jag avboka eller ändra min bokning?",
-        answer: "Ja, du kan avboka eller ändra din bokning fram till 24 timmar före planerad tid utan kostnad. Vid senare avbokning eller ändring kan en avgift tillkomma."
+        answer: "Ja, du kan avboka eller ändra din bokning fram till 24 timmar före planerad tid utan kostnad.\n Vid senare avbokning eller ändring kan en avgift tillkomma."
       }
     ]
   }
@@ -94,10 +149,8 @@ export default function FAQPage() {
         description="Hitta svar på vanliga frågor om våra flyttjänster och städservice. Läs mer om priser, försäkring, RUT-avdrag och bokning."
         keywords="faq, vanliga frågor, flyttfirma, städservice, hjälp, svar"
       />
-      
       <div className="min-h-screen bg-gradient-secondary py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
@@ -107,7 +160,6 @@ export default function FAQPage() {
               Här hittar du svar på de vanligaste frågorna om våra tjänster. Hittar du inte svaret? Kontakta oss direkt!
             </p>
           </div>
-
           {/* FAQ Categories */}
           <div className="space-y-8 text-black">
             {faqData.map((category, categoryIndex) => (
@@ -115,12 +167,12 @@ export default function FAQPage() {
                 <h2 className="text-2xl font-bold text-smidig-darkblue mb-6 border-b border-gray-200 pb-4">
                   {category.category}
                 </h2>
-                
                 <div className="space-y-4">
                   {category.questions.map((item, questionIndex) => {
                     const questionId = `${categoryIndex}-${questionIndex}`
                     const isOpen = openQuestion === questionId
-                    
+                    // Custom rendering for the "Flyttstädning – Checklista" question
+                    const isChecklist = item.question === "Flyttstädning – Checklista"
                     return (
                       <div key={questionIndex} className="border border-gray-200 rounded-xl overflow-hidden">
                         <button
@@ -132,7 +184,6 @@ export default function FAQPage() {
                             className={`h-5 w-5 text-smidig-blue transition-transform ${isOpen ? 'rotate-180' : ''}`}
                           />
                         </button>
-                        
                         <AnimatePresence>
                           {isOpen && (
                             <motion.div
@@ -143,7 +194,13 @@ export default function FAQPage() {
                               className="overflow-hidden"
                             >
                               <div className="px-6 py-4 bg-white">
-                                <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+                                {isChecklist ? (
+                                  <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                                    {item.answer}
+                                  </div>
+                                ) : (
+                                  <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+                                )}
                               </div>
                             </motion.div>
                           )}
@@ -155,7 +212,6 @@ export default function FAQPage() {
               </div>
             ))}
           </div>
-
           {/* Contact CTA */}
           <div className="mt-12 bg-white rounded-3xl p-8 text-center shadow-2xl text-black">
             <h3 className="text-2xl font-bold text-smidig-darkblue mb-4">
