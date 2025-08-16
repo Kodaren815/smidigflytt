@@ -46,8 +46,8 @@ export default function HeroSection() {
           {/* Visual Section - Now First */}
           <motion.div 
             className="order-2 lg:order-1 relative mb-12 lg:mb-0"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
             <div className="relative">
@@ -73,8 +73,9 @@ export default function HeroSection() {
               {/* Floating elements - repositioned */}
               <motion.div 
                 className="absolute -top-6 -left-6 bg-white rounded-2xl p-4 shadow-lg"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <div className="flex items-center space-x-2">
                   <MessageCircle className="h-6 w-6 text-smidig-blue" />
@@ -87,8 +88,9 @@ export default function HeroSection() {
 
               <motion.div 
                 className="absolute -bottom-6 -right-6 bg-smidig-yellow rounded-2xl p-4 shadow-lg"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <div className="text-center">
                   <div className="text-lg font-bold text-smidig-darkblue">15%</div>
@@ -101,8 +103,8 @@ export default function HeroSection() {
           {/* Content Section - Now Second */}
           <motion.div 
             className="order-1 lg:order-2"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="inline-flex items-center px-5 py-3 rounded-full bg-smidig-yellow/20 text-smidig-darkblue text-sm font-medium mb-8">
@@ -125,10 +127,10 @@ export default function HeroSection() {
             <div className="space-y-4 mb-10">
               <Link
                 href="/offert"
-                className="w-full group bg-gradient-cta text-smidig-darkblue px-8 py-5 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
+                className="w-full group bg-gradient-cta text-smidig-darkblue px-8 py-5 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 flex items-center justify-center"
               >
                 Få din kostnadsfria offert
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link
                 href="tel:+46-10-544-05-77"

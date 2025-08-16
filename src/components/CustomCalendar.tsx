@@ -17,7 +17,6 @@ type CalendarDay = {
 
 export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: CustomCalendarProps) {
   const [currentMonth, setCurrentMonth] = useState(new Date())
-  const [animationDirection, setAnimationDirection] = useState(0)
 
   const today = new Date()
   const minimumDate = minDate ? new Date(minDate) : today
@@ -84,7 +83,6 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
   }
 
   const navigateMonth = (direction: 'prev' | 'next') => {
-    setAnimationDirection(direction === 'next' ? 1 : -1)
     setCurrentMonth(prev => {
       const newMonth = new Date(prev)
       if (direction === 'next') {
@@ -125,22 +123,8 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
 
   const days: CalendarDay[] = getDaysInMonth(currentMonth)
 
-  const monthVariants = {
-    enter: (direction: number) => ({
-      opacity: 0
-    }),
-    center: {
-      zIndex: 1,
-      opacity: 1
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      opacity: 0
-    })
-  }
-
   return (
-    <div className="bg-white rounded-2xl md:rounded-3xl p-3 md:p-4 shadow-xl max-w-xs md:max-w-sm mx-auto">
+    <div className="bg-white rounded-2xl md:rounded-3xl p-3 md:p-10 shadow-xl max-w-xs md:max-w-[50rem] md:w-[50rem] mx-auto">
       {/* Header */}
       <div className="flex items-center justify-between mb-3 md:mb-4">
         <button
@@ -152,9 +136,9 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
         
         <motion.h3 
           key={`${currentMonth.getMonth()}-${currentMonth.getFullYear()}`}
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
           className="text-base md:text-lg font-bold text-smidig-darkblue"
         >
           {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
@@ -194,14 +178,9 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
       <motion.div 
         className="grid grid-cols-7 gap-1"
         key={`${currentMonth.getMonth()}-${currentMonth.getFullYear()}`}
-        custom={animationDirection}
-        variants={monthVariants}
-        initial="enter"
-        animate="center"
-        exit="exit"
-        transition={{
-          opacity: { duration: 0.3 }
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ opacity: { duration: 0.3 } }}
       >
         {days.map((day: CalendarDay, index) => {
           const selected = isSelected(day)
@@ -213,13 +192,11 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
               key={`${day.fullDate.getTime()}-${index}`}
               onClick={() => handleDateClick(day)}
               disabled={disabled}
-              whileHover={!disabled ? { scale: 1.03 } : {}}
-              whileTap={!disabled ? { scale: 0.97 } : {}}
               className={`
                 aspect-square rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200
                 ${day.isCurrentMonth ? 'text-gray-900' : 'text-gray-300'}
                 ${selected 
-                  ? 'bg-gradient-cta text-black shadow-lg transform scale-105 md:scale-110' 
+                  ? 'bg-gradient-cta text-black shadow-lg' 
                   : todayDate
                   ? 'bg-smidig-blue text-yellow-500 font-bold'
                   : disabled
@@ -239,9 +216,9 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
       {/* Selected Date Display */}
       {selectedDate && (
         <motion.div
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
           className="mt-3 md:mt-4 text-center p-2 md:p-3 bg-gray-50 rounded-xl"
         >
           <p className="text-xs md:text-sm text-gray-600">Valt datum:</p>

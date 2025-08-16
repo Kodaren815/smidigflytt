@@ -88,18 +88,15 @@ export default function PriceCalculator() {
 
   const stepVariants = {
     enter: (direction: number) => ({
-      opacity: 0,
-      scale: 0.98
+      opacity: 0
     }),
     center: {
       zIndex: 1,
-      opacity: 1,
-      scale: 1
+      opacity: 1
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      opacity: 0,
-      scale: 0.98
+      opacity: 0
     })
   }
 
@@ -108,9 +105,9 @@ export default function PriceCalculator() {
       <div className="min-h-screen mobile-safe bg-gradient-secondary py-8 md:py-20">
         <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 shadow-2xl text-center"
           >
             <div className="w-16 h-16 md:w-20 md:h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8">
@@ -181,9 +178,9 @@ export default function PriceCalculator() {
                   updateFormData('serviceType', 'flyttjänster')
                   nextStep()
                 }}
-                className="group p-6 md:p-8 bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-smidig-blue"
+                className="group p-6 md:p-8 bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-smidig-blue"
               >
-                <Truck className="h-12 w-12 md:h-16 md:w-16 text-black mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform" />
+                <Truck className="h-12 w-12 md:h-16 md:w-16 text-black mx-auto mb-3 md:mb-4" />
                 <h3 className="text-lg md:text-xl font-bold text-black mb-2">Flyttjänster</h3>
                 <p className="text-sm md:text-base text-black">Professionell flytthjälp, packning och transport</p>
               </button>
@@ -192,9 +189,9 @@ export default function PriceCalculator() {
                   updateFormData('serviceType', 'städtjänster')
                   nextStep()
                 }}
-                className="group p-6 md:p-8 bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-smidig-blue"
+                className="group p-6 md:p-8 bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-smidig-blue"
               >
-                <Sparkles className="h-12 w-12 md:h-16 md:w-16 text-black mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform" />
+                <Sparkles className="h-12 w-12 md:h-16 md:w-16 text-black mx-auto mb-3 md:mb-4" />
                 <h3 className="text-lg md:text-xl font-bold text-black mb-2">Städtjänster</h3>
                 <p className="text-sm md:text-base text-black">Flyttstädning och grundlig rengöring</p>
               </button>
@@ -203,12 +200,12 @@ export default function PriceCalculator() {
                   updateFormData('serviceType', 'flyttjänster-och-städtjänster')
                   nextStep()
                 }}
-                className="group p-6 md:p-8 bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-smidig-blue"
+                className="group p-6 md:p-8 bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-smidig-blue"
               >
                 <div className="flex justify-center items-center space-x-2 mb-3 md:mb-4">
-                  <Truck className="h-8 w-8 md:h-10 md:w-10 text-black group-hover:scale-110 transition-transform" />
+                  <Truck className="h-8 w-8 md:h-10 md:w-10 text-black" />
                   <span className="text-black text-2xl">+</span>
-                  <Sparkles className="h-8 w-8 md:h-10 md:w-10 text-black group-hover:scale-110 transition-transform" />
+                  <Sparkles className="h-8 w-8 md:h-10 md:w-10 text-black" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-black mb-2">Flyttjänster och Städtjänster</h3>
                 <p className="text-sm md:text-base text-black">Komplett lösning med flytt och städning</p>
@@ -260,7 +257,7 @@ export default function PriceCalculator() {
                     updateFormData('housingType', type)
                     nextStep()
                   }}
-                  className="p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-smidig-blue capitalize"
+                  className="p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-smidig-blue capitalize"
                 >
                   <div className="text-3xl md:text-4xl mb-3 md:mb-4">
                     {type === 'lägenhet' ? '🏢' : type === 'radhus' ? '🏘️' : '🏠'}
@@ -321,7 +318,7 @@ export default function PriceCalculator() {
                   updateFormData('hasElevator', true)
                   nextStep()
                 }}
-                className="p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-green-500"
+                className="p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-green-500"
               >
                 <div className="text-3xl md:text-4xl mb-2">✅</div>
                 <div className="text-base md:text-lg font-semibold text-black">Ja</div>
@@ -331,7 +328,7 @@ export default function PriceCalculator() {
                   updateFormData('hasElevator', false)
                   nextStep()
                 }}
-                className="p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-red-500"
+                className="p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-red-500"
               >
                 <div className="text-3xl md:text-4xl mb-2">❌</div>
                 <div className="text-base md:text-lg font-semibold text-black">Nej</div>
@@ -353,7 +350,7 @@ export default function PriceCalculator() {
                   updateFormData('hasBalcony', true)
                   nextStep()
                 }}
-                className="p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-green-500"
+                className="p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-green-500"
               >
                 <div className="text-3xl md:text-4xl mb-2">✅</div>
                 <div className="text-base md:text-lg font-semibold text-black">Ja</div>
@@ -363,7 +360,7 @@ export default function PriceCalculator() {
                   updateFormData('hasBalcony', false)
                   nextStep()
                 }}
-                className="p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-red-500"
+                className="p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-red-500"
               >
                 <div className="text-3xl md:text-4xl mb-2">❌</div>
                 <div className="text-base md:text-lg font-semibold text-black">Nej</div>
@@ -510,7 +507,7 @@ export default function PriceCalculator() {
                 <button
                   onClick={handleSubmit}
                   disabled={!isStepValid() || isSubmitting}
-                  className="flex items-center px-6 md:px-8 py-2 md:py-3 bg-gradient-cta text-smidig-darkblue rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-sm md:text-base"
+                  className="flex items-center px-6 md:px-8 py-2 md:py-3 bg-gradient-cta text-smidig-darkblue rounded-full font-semibold hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
                 >
                   {isSubmitting ? 'Skickar...' : 'Skicka förfrågan'}
                   {!isSubmitting && <Check className="ml-1 md:ml-2 h-4 w-4 md:h-5 md:w-5" />}
@@ -520,7 +517,7 @@ export default function PriceCalculator() {
               <button
                 onClick={nextStep}
                 disabled={!isStepValid()}
-                className="flex items-center px-4 md:px-6 py-2 md:py-3 bg-gradient-cta text-smidig-darkblue rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-sm md:text-base"
+                className="flex items-center px-4 md:px-6 py-2 md:py-3 bg-gradient-cta text-smidig-darkblue rounded-full font-semibold hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
               >
                 Nästa
                 <ArrowRight className="ml-1 md:ml-2 h-4 w-4 md:h-5 md:w-5" />
