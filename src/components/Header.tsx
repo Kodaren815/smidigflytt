@@ -18,7 +18,7 @@ interface NavigationItem {
   submenu?: SubMenuItem[]
 }
 
-const navigation = [
+const navigation: NavigationItem[] = [
   { name: 'Hem', href: '/' },
   { 
     name: 'Flyttjänster', 

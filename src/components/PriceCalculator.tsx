@@ -103,14 +103,14 @@ export default function PriceCalculator() {
   }
 
   const stepVariants = {
-    enter: (_direction: number) => ({
+    enter: () => ({
       opacity: 0
     }),
     center: {
       zIndex: 1,
       opacity: 1
     },
-    exit: (_direction: number) => ({
+    exit: () => ({
       zIndex: 0,
       opacity: 0
     })
