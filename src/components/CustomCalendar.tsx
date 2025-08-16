@@ -96,12 +96,14 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
 
   const handleDateClick = (day: CalendarDay) => {
     if (!day.isCurrentMonth) return
-    
     const dateObj = day.fullDate
     if (dateObj < minimumDate) return
-    
-    const dateString = dateObj.toISOString().split('T')[0]
-    onDateSelect(dateString)
+    // Fix: always use local date, not UTC (toISOString shifts to UTC and can cause off-by-one)
+    const year = dateObj.getFullYear()
+    const month = (dateObj.getMonth() + 1).toString().padStart(2, '0')
+    const date = dateObj.getDate().toString().padStart(2, '0')
+    const localDateString = `${year}-${month}-${date}`
+    onDateSelect(localDateString)
   }
 
   const isSelected = (day: CalendarDay) => {
@@ -124,7 +126,7 @@ export default function CustomCalendar({ selectedDate, onDateSelect, minDate }: 
   const days: CalendarDay[] = getDaysInMonth(currentMonth)
 
   return (
-    <div className="bg-white rounded-2xl md:rounded-3xl p-3 md:p-10 shadow-xl max-w-xs md:max-w-[50rem] md:w-[50rem] mx-auto">
+    <div className="bg-white rounded-2xl md:rounded-3xl p-3 md:p-10 shadow-xl max-w-xs md:max-w-[40rem] md:w-[50rem] mx-auto">
       {/* Header */}
       <div className="flex items-center justify-between mb-3 md:mb-4">
         <button

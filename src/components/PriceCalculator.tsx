@@ -51,12 +51,18 @@ export default function PriceCalculator() {
   const nextStep = () => {
     if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1)
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
     }
   }
 
   const prevStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1)
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
     }
   }
 
@@ -219,7 +225,13 @@ export default function PriceCalculator() {
           <div className="text-center text-black ">
             <CustomCalendar
               selectedDate={formData.date}
-              onDateSelect={(date) => updateFormData('date', date)}
+              onDateSelect={(date) => {
+                updateFormData('date', date);
+                nextStep();
+                if (typeof window !== 'undefined') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               minDate={new Date().toISOString().split('T')[0]}
             />
           </div>
