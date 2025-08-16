@@ -5,6 +5,19 @@ import Link from 'next/link'
 import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+interface SubMenuItem {
+  name: string
+  href: string
+  description?: string
+  services?: string[]
+}
+
+interface NavigationItem {
+  name: string
+  href: string
+  submenu?: SubMenuItem[]
+}
+
 const navigation = [
   { name: 'Hem', href: '/' },
   { 
@@ -203,7 +216,7 @@ export default function Header() {
                         exit="exit"
                       >
                         <div className="py-2">
-                          {item.submenu.map((subItem: any) => (
+                          {item.submenu.map((subItem: SubMenuItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
@@ -318,7 +331,7 @@ export default function Header() {
                       </Link>
                       {item.submenu && (
                         <div className="pl-6 mt-1 space-y-3">
-                          {item.submenu.map((subItem: any) => (
+                          {item.submenu.map((subItem: SubMenuItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}

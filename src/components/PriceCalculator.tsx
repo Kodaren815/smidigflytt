@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, ArrowRight, Check, Home, Truck, Sparkles, Calendar, MapPin, User, Package, FileText } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, Home, Truck, Sparkles, MapPin, User, Package, FileText } from 'lucide-react'
 import CustomCalendar from './CustomCalendar'
 
 interface FormData {
@@ -103,14 +103,14 @@ export default function PriceCalculator() {
   }
 
   const stepVariants = {
-    enter: (direction: number) => ({
+    enter: (_direction: number) => ({
       opacity: 0
     }),
     center: {
       zIndex: 1,
       opacity: 1
     },
-    exit: (direction: number) => ({
+    exit: (_direction: number) => ({
       zIndex: 0,
       opacity: 0
     })
