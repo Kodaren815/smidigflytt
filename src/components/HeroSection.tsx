@@ -78,7 +78,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <div className="flex items-center space-x-2">
-                  <MessageCircle className="h-6 w-6 text-smidig-blue" />
+                  <MessageCircle className="h-6 w-6 text-blue-600" />
                   <div>
                     <div className="text-sm font-semibold text-gray-800">Svar inom</div>
                     <div className="text-xs text-gray-600">24 timmar</div>
@@ -87,7 +87,7 @@ export default function HeroSection() {
               </motion.div>
 
               <motion.div 
-                className="absolute -bottom-6 -right-6 bg-smidig-yellow rounded-2xl p-4 shadow-lg"
+                className="absolute -bottom-6 -right-6 bg-yellow-500 rounded-2xl p-4 shadow-lg"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}

@@ -15,6 +15,18 @@ interface QuoteRequest {
   fromPostalCode: string
   toAddress: string
   toPostalCode: string
+  // Dual housing info for moving services
+  fromHousingType: string
+  fromSquareMeters: string
+  fromFloor: string
+  fromHasElevator: boolean | null
+  fromHasBalcony: boolean | null
+  toHousingType: string
+  toSquareMeters: string
+  toFloor: string
+  toHasElevator: boolean | null
+  toHasBalcony: boolean | null
+  // Single housing info for cleaning services
   housingType: string
   squareMeters: string
   floor: string
@@ -67,6 +79,18 @@ export async function POST(request: NextRequest) {
       fromPostalCode,
       toAddress,
       toPostalCode,
+      // Dual housing info for moving services
+      fromHousingType,
+      fromSquareMeters,
+      fromFloor,
+      fromHasElevator,
+      fromHasBalcony,
+      toHousingType,
+      toSquareMeters,
+      toFloor,
+      toHasElevator,
+      toHasBalcony,
+      // Single housing info for cleaning services
       housingType,
       squareMeters,
       floor,
@@ -98,6 +122,18 @@ export async function POST(request: NextRequest) {
       fromPostalCode: fromPostalCode || '',
       toAddress: toAddress || '',
       toPostalCode: toPostalCode || '',
+      // Dual housing info for moving services
+      fromHousingType: fromHousingType || '',
+      fromSquareMeters: fromSquareMeters || '',
+      fromFloor: fromFloor || '',
+      fromHasElevator,
+      fromHasBalcony,
+      toHousingType: toHousingType || '',
+      toSquareMeters: toSquareMeters || '',
+      toFloor: toFloor || '',
+      toHasElevator,
+      toHasBalcony,
+      // Single housing info for cleaning services
       housingType: housingType || '',
       squareMeters: squareMeters || '',
       floor: floor || '',

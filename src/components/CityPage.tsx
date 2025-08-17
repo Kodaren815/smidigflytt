@@ -12,6 +12,7 @@ interface CityData {
   services: string[]
   specialties: string[]
   areas: string[]
+  serviceType?: 'flyttfirma' | 'städfirma'
 }
 
 interface CityPageProps {
@@ -19,6 +20,11 @@ interface CityPageProps {
 }
 
 export default function CityPage({ city }: CityPageProps) {
+  const serviceTypeText = city.serviceType === 'städfirma' ? 'Städfirma' : 'Flyttfirma';
+  const serviceDescription = city.serviceType === 'städfirma' 
+    ? `Trygg städservice i ${city.name}` 
+    : `Trygg flytthjälp & städning i ${city.name}`;
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -34,16 +40,16 @@ export default function CityPage({ city }: CityPageProps) {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-smidig-yellow/20 text-white text-sm font-medium mb-6">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-yellow-400/20 text-white text-sm font-medium mb-6">
               <MapPin className="h-4 w-4 mr-2" />
               {city.region}
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Flyttfirma i <span className="text-white">{city.name}</span>
+              {serviceTypeText} i <span className="text-white">{city.name}</span>
             </h1>
             <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Trygg flytthjälp & städning i {city.name}
+              {serviceDescription}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -87,7 +93,7 @@ export default function CityPage({ city }: CityPageProps) {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-                Flyttfirma i {city.name} - Vi känner staden
+                {serviceTypeText} i {city.name} - Vi känner staden
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 {city.description}
@@ -98,7 +104,12 @@ export default function CityPage({ city }: CityPageProps) {
               
               <div className="bg-gradient-primary rounded-2xl p-6 text-white">
                 <h3 className="text-xl font-bold mb-3">Professionell service</h3>
-                <p className="text-white/90">Flytthjälp i {city.name} med RUT-avdrag och försäkring</p>
+                <p className="text-white/90">
+                  {city.serviceType === 'städfirma' 
+                    ? `Städtjänster i ${city.name} med RUT-avdrag och försäkring`
+                    : `Flytthjälp i ${city.name} med RUT-avdrag och försäkring`
+                  }
+                </p>
               </div>
             </motion.div>
 
@@ -109,7 +120,7 @@ export default function CityPage({ city }: CityPageProps) {
               viewport={{ once: true }}
               className="mt-12 lg:mt-0"
             >
-              <div className="bg-gradient-to-br from-smidig-lightgray to-white rounded-3xl p-8">
+              <div className="bg-gradient-to-br from-gray-100 to-white rounded-3xl p-8">
                 <h3 className="text-xl font-bold text-black mb-6">Våra specialiteter i {city.name}:</h3>
                 <div className="space-y-4">
                   {city.specialties.map((specialty, index) => (
@@ -126,7 +137,7 @@ export default function CityPage({ city }: CityPageProps) {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gradient-to-br from-smidig-lightgray to-white">
+      <section className="py-20 bg-gradient-to-br from-gray-100 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -135,68 +146,133 @@ export default function CityPage({ city }: CityPageProps) {
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
               Tjänster vi erbjuder i {city.name}
             </h2>
             <p className="text-xl text-white max-w-3xl mx-auto">
-              Vi är din kompletta partner för alla flyttbehov i {city.name}
+              {city.serviceType === 'städfirma'
+                ? `Vi är din kompletta partner för alla städbehov i ${city.name}`
+                : `Vi är din kompletta partner för alla flyttbehov i ${city.name}`
+              }
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-black">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-              viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <Home className="h-12 w-12 text-smidig-blue mb-6" />
-              <h3 className="text-xl font-bold text-smidig-darkblue mb-4">Flytthjälp</h3>
-              <p className="text-gray-600 mb-4">Professionell flytthjälp i hela {city.name}</p>
-              <Link 
-                href="/tjanster/flytthjalp"
-                className="inline-flex items-center text-smidig-blue font-semibold hover:text-smidig-darkblue transition-colors"
-              >
-                Läs mer <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </motion.div>
+            {city.serviceType === 'städfirma' ? (
+              // Städfirma service boxes
+              <>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <Sparkles className="h-12 w-12 text-blue-600 mb-6" />
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">Hemstädning</h3>
+                  <p className="text-gray-600 mb-4">Professionell hemstädning i {city.name}</p>
+                  <Link 
+                    href="/tjanster/hemstadning"
+                    className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+                  >
+                    Läs mer <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-              viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <Sparkles className="h-12 w-12 text-smidig-blue mb-6" />
-              <h3 className="text-xl font-bold text-smidig-darkblue mb-4">Flyttstädning</h3>
-              <p className="text-gray-600 mb-4">Garanterad godkänd städning i {city.name}</p>
-              <Link 
-                href="/tjanster/flyttstadning"
-                className="inline-flex items-center text-smidig-blue font-semibold hover:text-smidig-darkblue transition-colors"
-              >
-                Läs mer <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <Home className="h-12 w-12 text-blue-600 mb-6" />
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">Flyttstädning</h3>
+                  <p className="text-gray-600 mb-4">Garanterad godkänd flyttstädning i {city.name}</p>
+                  <Link 
+                    href="/tjanster/flyttstadning"
+                    className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+                  >
+                    Läs mer <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-              viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <Package className="h-12 w-12 text-smidig-blue mb-6" />
-              <h3 className="text-xl font-bold text-smidig-darkblue mb-4">Magasinering</h3>
-              <p className="text-gray-600 mb-4">Säker förvaring i {city.name}</p>
-              <Link 
-                href="/tjanster/magasinering"
-                className="inline-flex items-center text-smidig-blue font-semibold hover:text-smidig-darkblue transition-colors"
-              >
-                Läs mer <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <Package className="h-12 w-12 text-blue-600 mb-6" />
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">Kontorsstädning</h3>
+                  <p className="text-gray-600 mb-4">Städtjänster för företag i {city.name}</p>
+                  <Link 
+                    href="/tjanster/kontorsstadning"
+                    className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+                  >
+                    Läs mer <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </motion.div>
+              </>
+            ) : (
+              // Flyttfirma service boxes
+              <>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <Home className="h-12 w-12 text-blue-600 mb-6" />
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">Flytthjälp</h3>
+                  <p className="text-gray-600 mb-4">Professionell flytthjälp i hela {city.name}</p>
+                  <Link 
+                    href="/tjanster/flytthjalp"
+                    className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+                  >
+                    Läs mer <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <Sparkles className="h-12 w-12 text-blue-600 mb-6" />
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">Flyttstädning</h3>
+                  <p className="text-gray-600 mb-4">Garanterad godkänd flyttstädning i {city.name}</p>
+                  <Link 
+                    href="/tjanster/flyttstadning"
+                    className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+                  >
+                    Läs mer <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <Package className="h-12 w-12 text-blue-600 mb-6" />
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">Magasinering</h3>
+                  <p className="text-gray-600 mb-4">Säker förvaring i {city.name}</p>
+                  <Link 
+                    href="/tjanster/magasinering"
+                    className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+                  >
+                    Läs mer <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </motion.div>
+              </>
+            )}
           </div>
 
           <motion.div
@@ -229,7 +305,7 @@ export default function CityPage({ city }: CityPageProps) {
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <h2 className="text-black text-3xl md:text-4xl font-bold text-smidig-darkblue mb-6">
+            <h2 className="text-black text-3xl md:text-4xl font-bold text-blue-900 mb-6">
               Områden vi täcker i {city.name}
             </h2>
             <p className="text-xl text-gray-600">
@@ -242,7 +318,7 @@ export default function CityPage({ city }: CityPageProps) {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-smidig-lightgray to-white rounded-3xl p-8"
+            className="bg-gradient-to-br from-gray-100 to-white rounded-3xl p-8"
           >
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {city.areas.map((area, index) => (
@@ -250,7 +326,7 @@ export default function CityPage({ city }: CityPageProps) {
                   key={index}
                   className="text-black bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
-                  <span className="text-smidig-darkblue font-medium">{area}</span>
+                  <span className="text-blue-900 font-medium">{area}</span>
                 </div>
               ))}
             </div>
@@ -268,7 +344,10 @@ export default function CityPage({ city }: CityPageProps) {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Redo för din flytt i {city.name}?
+              {city.serviceType === 'städfirma' 
+                ? `Redo för städning i ${city.name}?`
+                : `Redo för din flytt i ${city.name}?`
+              }
             </h2>
             <p className="text-xl text-gray-200 mb-8">
               Kontakta oss idag för en offert anpassad för {city.name}
@@ -277,7 +356,7 @@ export default function CityPage({ city }: CityPageProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Link
                 href="/offert"
-                className="bg-gradient-cta text-smidig-darkblue px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                className="bg-gradient-cta text-blue-900 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
                 Begär offert nu
               </Link>
@@ -291,17 +370,17 @@ export default function CityPage({ city }: CityPageProps) {
 
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/20">
               <div className="text-center">
-                <Phone className="h-8 w-8 mx-auto mb-2 text-smidig-lightyellow" />
+                <Phone className="h-8 w-8 mx-auto mb-2 text-yellow-400" />
                 <div className="font-semibold">Ring direkt</div>
                 <div className="text-sm text-gray-300">Svar samma dag</div>
               </div>
               <div className="text-center">
-                <Mail className="h-8 w-8 mx-auto mb-2 text-smidig-lightyellow" />
+                <Mail className="h-8 w-8 mx-auto mb-2 text-yellow-400" />
                 <div className="font-semibold">Skicka mail</div>
                 <div className="text-sm text-gray-300">Svar inom 24h</div>
               </div>
               <div className="text-center">
-                <CheckCircle className="h-8 w-8 mx-auto mb-2 text-smidig-lightyellow" />
+                <CheckCircle className="h-8 w-8 mx-auto mb-2 text-yellow-400" />
                 <div className="font-semibold">Boka online</div>
                 <div className="text-sm text-gray-300">Direkt bekräftelse</div>
               </div>

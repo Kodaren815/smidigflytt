@@ -1,26 +1,54 @@
 import CityPage from '@/components/CityPage'
 
-export async function generateMetadata() {
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
   return {
-    title: "Flen Flyttfirma - Professionell flytthjälp i Flen | Smidigflytt",
-    description: "Letar du efter en pålitlig flyttfirma i Flen? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering. RUT-avdrag och försäkring ingår.",
-    keywords: "flen flyttfirma, flytthjälp flen, flyttstädning flen, flytt flen",
+    title: `${serviceType} Flen - Professionell ${serviceDescription} i Flen | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Flen? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Flen. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} flen, ${serviceDescription} flen, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} flen, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} flen`,
     openGraph: {
-      title: "Flen Flyttfirma - Professionell flytthjälp i Flen | Smidigflytt",
-      description: "Trygg flytthjälp och städservice i Flen. RUT-avdrag och försäkring ingår.",
+      title: `${serviceType} Flen - Professionell ${serviceDescription} i Flen | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Flen. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default function FlenPage() {
+export default async function FlenPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Flen",
     region: "Södermanlands län",
-    description: "Flen är en tätort i Sörmlands inland med närhet till både natur och större städer. Vi erbjuder professionella flyttjänster och städservice i hela Flen kommun.",
-    localInfo: "I Flen täcker vi alla områden från centrala tätorten till omkringliggande landsbygd. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både urban och rural miljö.",
-    services: [
+    description: isStadfirma
+      ? "Flen är en tätort i Sörmlands inland med närhet till både natur och större städer. Vi erbjuder professionella städtjänster i hela Flen kommun."
+      : "Flen är en tätort i Sörmlands inland med närhet till både natur och större städer. Vi erbjuder professionella flyttjänster i hela Flen kommun.",
+    localInfo: isStadfirma
+      ? "I Flen täcker vi alla områden från centrala tätorten till omkringliggande landsbygd. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både urban och rural miljö."
+      : "I Flen täcker vi alla områden från centrala tätorten till omkringliggande landsbygd. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både urban och rural miljö.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt i hela Flen kommun",
       "Företagsflytt för lokala företag",
       "Utlandsflytt från Flen",
@@ -32,18 +60,29 @@ export default function FlenPage() {
       "Byggstädning efter renovering",
       "Hemstädning för privatpersoner",
       "Kontorsstädning för företag"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Flexibla lösningar för mindre tätorter",
+      "Lokalkännedom i Sörmlands inland", 
+      "Personlig service i lantlig miljö",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Flexibla lösningar för mindre tätorter",
       "Lokalkännedom i Sörmlands inland", 
       "Personlig service i lantlig miljö",
       "Snabba transporter till större städer"
+    
     ],
     areas: [
+
       "Flen centrum", "Malmköping", "Sparreholm", "Bettna", 
       "Vadsbro", "Hälleforsnäs", "Blacksta", "Dunker",
       "Nyfors", "Hällbybrunn", "Skiftinge"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
   return <CityPage city={cityData} />

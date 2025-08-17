@@ -1,26 +1,54 @@
 import CityPage from '@/components/CityPage'
 
-export async function generateMetadata() {
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
   return {
-    title: "Karlskoga Flyttfirma - Professionell flytthjälp i Karlskoga | Smidigflytt",
-    description: "Letar du efter en pålitlig flyttfirma i Karlskoga? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering. RUT-avdrag och försäkring ingår.",
-    keywords: "karlskoga flyttfirma, flytthjälp karlskoga, flyttstädning karlskoga, flytt karlskoga",
+    title: `${serviceType} Karlskoga - Professionell ${serviceDescription} i Karlskoga | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Karlskoga? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Karlskoga. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} karlskoga, ${serviceDescription} karlskoga, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} karlskoga, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} karlskoga`,
     openGraph: {
-      title: "Karlskoga Flyttfirma - Professionell flytthjälp i Karlskoga | Smidigflytt",
-      description: "Trygg flytthjälp och städservice i Karlskoga. RUT-avdrag och försäkring ingår.",
+      title: `${serviceType} Karlskoga - Professionell ${serviceDescription} i Karlskoga | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Karlskoga. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default function KarlskogaPage() {
+export default async function KarlskogaPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Karlskoga",
     region: "Örebro län",
-    description: "Karlskoga är känt för sitt industriarv och Alfred Nobels koppling till staden. Vi erbjuder professionella flyttjänster och städservice i hela Karlskoga kommun.",
-    localInfo: "I Karlskoga täcker vi alla områden från industrikvarteren till bostadsområden vid sjöarna. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både industri- och naturmiljöer.",
-    services: [
+    description: isStadfirma
+      ? "Karlskoga är känt för sitt industriarv och Alfred Nobels koppling till staden. Vi erbjuder professionella städtjänster i hela Karlskoga kommun."
+      : "Karlskoga är känt för sitt industriarv och Alfred Nobels koppling till staden. Vi erbjuder professionella flyttjänster i hela Karlskoga kommun.",
+    localInfo: isStadfirma
+      ? "I Karlskoga täcker vi alla områden från industrikvarteren till bostadsområden vid sjöarna. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både industri- och naturmiljöer."
+      : "I Karlskoga täcker vi alla områden från industrikvarteren till bostadsområden vid sjöarna. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både industri- och naturmiljöer.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt i hela Karlskoga kommun",
       "Företagsflytt för industri och kontor",
       "Utlandsflytt från Karlskoga",
@@ -32,18 +60,29 @@ export default function KarlskogaPage() {
       "Byggstädning efter renovering",
       "Hemstädning för privatpersoner",
       "Kontorsstädning för företag"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Expertis på städning i industristädning och tung utrustning",
+      "Lokalkännedom i Nobels hemstad", 
+      "Flexibla lösningar vid sjömiljöer",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Expertis på industriflytt och tung utrustning",
       "Lokalkännedom i Nobels hemstad", 
       "Flexibla lösningar vid sjömiljöer",
       "Specialiserade på skiftarbetares behov"
+    
     ],
     areas: [
+
       "Karlskoga centrum", "Bofors", "Björkborn", "Degerfors", 
       "Kristinehamn", "Laxå", "Filipstad", "Storfors",
       "Nyfors", "Hällbybrunn", "Skiftinge"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
   return <CityPage city={cityData} />

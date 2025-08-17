@@ -1,26 +1,54 @@
 import CityPage from '@/components/CityPage'
 
-export async function generateMetadata() {
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
   return {
-    title: "Flyttfirma Norberg - Professionell flytthjälp i Norberg | Smidigflytt",
-    description: "Letar du efter en pålitlig flyttfirma i Norberg? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering i hela Norberg. RUT-avdrag och försäkring ingår.",
-    keywords: "flyttfirma norberg, flytthjälp norberg, flyttstädning norberg, flytt norberg",
+    title: `${serviceType} Norberg - Professionell ${serviceDescription} i Norberg | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Norberg? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Norberg. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} norberg, ${serviceDescription} norberg, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} norberg, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} norberg`,
     openGraph: {
-      title: "Flyttfirma Norberg - Professionell flytthjälp i Norberg | Smidigflytt",
-      description: "Trygg flytthjälp och städservice i Norberg. RUT-avdrag och försäkring ingår.",
+      title: `${serviceType} Norberg - Professionell ${serviceDescription} i Norberg | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Norberg. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default function NorbergPage() {
+export default async function NorbergPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Norberg",
     region: "Västmanlands län",
-    description: "Norberg är en historisk gruvstad med rikt kulturarv och vacker bergslandskap. Vi erbjuder professionella flyttjänster och städservice i hela Norberg kommun.",
-    localInfo: "I Norberg täcker vi alla områden från den historiska stadskärnan till omgivande bergsbyar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens industrihistoriska arv.",
-    services: [
+    description: isStadfirma
+      ? "Norberg är en historisk gruvstad med rikt kulturarv och vacker bergslandskap. Vi erbjuder professionella städtjänster i hela Norberg kommun."
+      : "Norberg är en historisk gruvstad med rikt kulturarv och vacker bergslandskap. Vi erbjuder professionella flyttjänster i hela Norberg kommun.",
+    localInfo: isStadfirma
+      ? "I Norberg täcker vi alla områden från den historiska stadskärnan till omgivande bergsbyar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens industrihistoriska arv."
+      : "I Norberg täcker vi alla områden från den historiska stadskärnan till omgivande bergsbyar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens industrihistoriska arv.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt i hela Norberg kommun",
       "Företagsflytt för lokala företag",
       "Utlandsflytt från Norberg",
@@ -32,18 +60,29 @@ export default function NorbergPage() {
       "Byggstädning efter renovering",
       "Hemstädning för privatpersoner",
       "Kontorsstädning för företag"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Specialister på bergsområdenes utmaningar",
+      "Lokalkännedom i gruv- och industrihistoriska områden", 
+      "Flexibla lösningar för kuperad terräng",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Specialister på bergsområdenes utmaningar",
       "Lokalkännedom i gruv- och industrihistoriska områden", 
       "Flexibla lösningar för kuperad terräng",
       "Erfarna med kulturhistoriska byggnader"
+    
     ],
     areas: [
+
       "Norberg centrum", "Kloten", "Kärrgruvan", "Tobo", 
       "Riddarhyttan", "Karaktären", "Rådansberg", "Järnskäl",
       "Nyfors", "Hällbybrunn", "Skiftinge"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
   return <CityPage city={cityData} />

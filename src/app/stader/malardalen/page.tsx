@@ -1,20 +1,54 @@
 import CityPage from '@/components/CityPage'
-import SEO from '@/components/SEO'
-import { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: "Flyttfirma Mälardalen - Lokala Flyttjänster | Smidigflytt",
-  description: "Professionell flyttfirma i Mälardalen. Vi erbjuder lokala flyttjänster anpassade efter regionens unika förutsättningar.",
-  keywords: "flyttfirma mälardalen, flytt mälardalen, flytthjälp mälardalen"
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
 }
 
-export default function MalardalenPage() {
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
+  return {
+    title: `${serviceType} Mälardalen - Professionell ${serviceDescription} i Mälardalen | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Mälardalen? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Mälardalen. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} mälardalen, ${serviceDescription} mälardalen, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} mälardalen, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} mälardalen`,
+    openGraph: {
+      title: `${serviceType} Mälardalen - Professionell ${serviceDescription} i Mälardalen | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Mälardalen. RUT-avdrag och försäkring ingår.`,
+      type: "website",
+      locale: "sv_SE",
+    },
+  }
+}
+
+export default async function MlardalenPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Mälardalen",
-    region: "Mälardalsregionen", 
-    description: "Mälardalen är Sveriges mest centrala region med dess unika kombination av städer, industriområden och natursköna miljöer. Som vår hemmaregion känner vi varje krok och vrå.",
-    localInfo: "I Mälardalen är vi experter på både de större städerna som Stockholm, Västerås och Uppsala, samt alla mindre orter däremellan. Vår lokala kunskap ger oss en unik fördel när det gäller att planera effektiva och smidiga flyttar i hela regionen.",
-    services: [
+    region: "Mälardalsregionen",
+    description: isStadfirma
+      ? "Mälardalen är Sveriges mest centrala region med dess unika kombination av städer, industriområden och natursköna miljöer. Som vår hemmaregion känner vi varje krok och vrå."
+      : "Mälardalen är Sveriges mest centrala region med dess unika kombination av städer, industriområden och natursköna miljöer. Som vår hemmaregion känner vi varje krok och vrå.",
+    localInfo: isStadfirma
+      ? "I Mälardalen är vi experter på både de större städerna som Stockholm, Västerås och Uppsala, samt alla mindre orter däremellan. Vår lokala kunskap ger oss en unik fördel när det gäller att planera effektiva och smidiga städningar i hela regionen."
+      : "I Mälardalen är vi experter på både de större städerna som Stockholm, Västerås och Uppsala, samt alla mindre orter däremellan. Vår lokala kunskap ger oss en unik fördel när det gäller att planera effektiva och smidiga flyttar i hela regionen.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt inom hela Mälardalen",
       "Företagsflytt för regionens näringsliv",
       "Utlandsflytt från Mälardalen",
@@ -25,29 +59,31 @@ export default function MalardalenPage() {
       "Flyttstädning för hem och företag",
       "Byggstädning efter renovering",
       "Fönsterputsning för alla typer av fastigheter"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Hemmaplansfördel med djup regional kunskap",
+      "Expertis på både städer och landsbygd", 
+      "Lokala kontakter och nätverk",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Hemmaplansfördel med djup regional kunskap",
       "Expertis på både städer och landsbygd",
       "Lokala kontakter och nätverk",
       "Anpassning till regionens trafikmönster"
+    
     ],
     areas: [
+
       "Stockholm", "Västerås", "Uppsala", "Enköping", 
       "Strängnäs", "Mariefred", "Eskilstuna", "Köping",
       "Sala", "Sandviken", "Gävle", "Södertälje",
       "Nyköping", "Katrineholm", "Flen", "Torshälla"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return (
-    <>
-      <SEO
-        title="Flyttfirma Mälardalen - Professionell flytthjälp i regionen | Smidigflytt"
-        description="Letar du efter en pålitlig flyttfirma i Mälardalen? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering i hela Mälardalsregionen. Lokal expertis och RUT-avdrag."
-        keywords="flyttfirma mälardalen, flytthjälp mälardalen, flyttstädning mälardalen, flytt mälardalen"
-      />
-      <CityPage city={cityData} />
-    </>
-  )
+  return <CityPage city={cityData} />
 }

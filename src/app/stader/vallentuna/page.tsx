@@ -1,26 +1,54 @@
 import CityPage from '@/components/CityPage'
 
-export async function generateMetadata() {
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
   return {
-    title: "Vallentuna Flyttfirma - Professionell flytthjälp i Vallentuna | Smidigflytt",
-    description: "Letar du efter en pålitlig flyttfirma i Vallentuna? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering. RUT-avdrag och försäkring ingår.",
-    keywords: "vallentuna flyttfirma, flytthjälp vallentuna, flyttstädning vallentuna, flytt vallentuna",
+    title: `${serviceType} Vallentuna - Professionell ${serviceDescription} i Vallentuna | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Vallentuna? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Vallentuna. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} vallentuna, ${serviceDescription} vallentuna, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} vallentuna, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} vallentuna`,
     openGraph: {
-      title: "Vallentuna Flyttfirma - Professionell flytthjälp i Vallentuna | Smidigflytt",
-      description: "Trygg flytthjälp och städservice i Vallentuna. RUT-avdrag och försäkring ingår.",
+      title: `${serviceType} Vallentuna - Professionell ${serviceDescription} i Vallentuna | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Vallentuna. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default function VallentunaPage() {
+export default async function VallentunaPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Vallentuna",
     region: "Stockholm",
-    description: "Vallentuna är en kommun nordost om Stockholm med över 34 000 invånare, känd för sina gröna miljöer och villaområden. Vi erbjuder professionella flyttjänster och städservice i hela Vallentuna kommun.",
-    localInfo: "I Vallentuna täcker vi alla områden från centrum och Lindholmen till Brottby och Kårsta. Vi har stor erfarenhet av flytt i villaområden och lantliga miljöer.",
-    services: [
+    description: isStadfirma
+      ? "Vallentuna är en kommun nordost om Stockholm med över 34 000 invånare, känd för sina gröna miljöer och villaområden. Vi erbjuder professionella städtjänster i hela Vallentuna kommun."
+      : "Vallentuna är en kommun nordost om Stockholm med över 34 000 invånare, känd för sina gröna miljöer och villaområden. Vi erbjuder professionella flyttjänster i hela Vallentuna kommun.",
+    localInfo: isStadfirma
+      ? "I Vallentuna täcker vi alla områden från centrum och Lindholmen till Brottby och Kårsta. Vi har stor erfarenhet av städning i villaområden och lantliga miljöer."
+      : "I Vallentuna täcker vi alla områden från centrum och Lindholmen till Brottby och Kårsta. Vi har stor erfarenhet av flytt i villaområden och lantliga miljöer.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt i hela Vallentuna kommun",
       "Företagsflytt för alla typer av verksamheter",
       "Utlandsflytt från Vallentuna",
@@ -33,18 +61,29 @@ export default function VallentunaPage() {
       "Byggstädning efter renovering",
       "Hemstädning för privatpersoner",
       "Kontorsstädning för företag"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Expertis på städning i villaområden",
+      "Specialiserade på lantliga miljöer", 
+      "Professionell hantering av större fastigheter",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Expertis på villaområden",
       "Specialiserade på lantliga miljöer", 
       "Professionell hantering av större fastigheter",
       "Erfarenhet av gröna förorter"
+    
     ],
     areas: [
+
       "Vallentuna centrum", "Lindholmen", "Brottby", "Kårsta", 
       "Rickeby", "Angarn", "Sågarbo", "Karby",
       "Välsta", "Haga", "Viksta", "Rydbo"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
   return <CityPage city={cityData} />

@@ -1,26 +1,54 @@
 import CityPage from '@/components/CityPage'
 
-export async function generateMetadata() {
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
   return {
-    title: "Nyköping Flyttfirma - Professionell flytthjälp i Nyköping | Smidigflytt",
-    description: "Letar du efter en pålitlig flyttfirma i Nyköping? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering. RUT-avdrag och försäkring ingår.",
-    keywords: "nyköping flyttfirma, flytthjälp nyköping, flyttstädning nyköping, flytt nyköping",
+    title: `${serviceType} Nyköping - Professionell ${serviceDescription} i Nyköping | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Nyköping? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Nyköping. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} nyköping, ${serviceDescription} nyköping, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} nyköping, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} nyköping`,
     openGraph: {
-      title: "Nyköping Flyttfirma - Professionell flytthjälp i Nyköping | Smidigflytt",
-      description: "Trygg flytthjälp och städservice i Nyköping. RUT-avdrag och försäkring ingår.",
+      title: `${serviceType} Nyköping - Professionell ${serviceDescription} i Nyköping | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Nyköping. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default function NykopingPage() {
+export default async function NykpingPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Nyköping",
     region: "Södermanlands län",
-    description: "Nyköping är en historisk stad vid Östersjökusten med charmig atmosfär och närhet till både Stockholm och Skavsta flygplats. Vi erbjuder professionella flyttjänster och städservice i hela Nyköping kommun.",
-    localInfo: "I Nyköping täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både kust- och inlandsmiljöer.",
-    services: [
+    description: isStadfirma
+      ? "Nyköping är en historisk stad vid Östersjökusten med charmig atmosfär och närhet till både Stockholm och Skavsta flygplats. Vi erbjuder professionella städtjänster i hela Nyköping kommun."
+      : "Nyköping är en historisk stad vid Östersjökusten med charmig atmosfär och närhet till både Stockholm och Skavsta flygplats. Vi erbjuder professionella flyttjänster i hela Nyköping kommun.",
+    localInfo: isStadfirma
+      ? "I Nyköping täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både kust- och inlandsmiljöer."
+      : "I Nyköping täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både kust- och inlandsmiljöer.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt i hela Nyköping kommun",
       "Företagsflytt för lokala företag",
       "Utlandsflytt från Nyköping",
@@ -33,18 +61,29 @@ export default function NykopingPage() {
       "Byggstädning efter renovering",
       "Hemstädning för privatpersoner",
       "Kontorsstädning för företag"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Expertis på städning i flygplatstransporter",
+      "Lokalkännedom i kustnära miljöer", 
+      "Flexibla lösningar för semester- och fritidshus",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Expertis på flygplatstransporter",
       "Lokalkännedom i kustnära miljöer", 
       "Flexibla lösningar för semester- och fritidshus",
       "Snabba transporter till Stockholm"
+    
     ],
     areas: [
+
       "Nyköping centrum", "Högbrunn", "Brandkärr", "Arnö", 
       "Stigtomta", "Jönåker", "Tystberga", "Lästringe",
       "Nyfors", "Hällbybrunn", "Skiftinge"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
   return <CityPage city={cityData} />

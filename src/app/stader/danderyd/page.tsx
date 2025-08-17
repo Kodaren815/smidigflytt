@@ -1,26 +1,54 @@
 import CityPage from '@/components/CityPage'
 
-export async function generateMetadata() {
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
   return {
-    title: "Danderyd Flyttfirma - Professionell flytthjälp i Danderyd | Smidigflytt",
-    description: "Letar du efter en pålitlig flyttfirma i Danderyd? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering. RUT-avdrag och försäkring ingår.",
-    keywords: "danderyd flyttfirma, flytthjälp danderyd, flyttstädning danderyd, flytt danderyd",
+    title: `${serviceType} Danderyd - Professionell ${serviceDescription} i Danderyd | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Danderyd? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Danderyd. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} danderyd, ${serviceDescription} danderyd, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} danderyd, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} danderyd`,
     openGraph: {
-      title: "Danderyd Flyttfirma - Professionell flytthjälp i Danderyd | Smidigflytt",
-      description: "Trygg flytthjälp och städservice i Danderyd. RUT-avdrag och försäkring ingår.",
+      title: `${serviceType} Danderyd - Professionell ${serviceDescription} i Danderyd | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Danderyd. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default function DanderydsPage() {
+export default async function DanderydPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Danderyd",
     region: "Stockholm",
-    description: "Danderyd är en välmående kommun norr om Stockholm med nästan 34 000 invånare, känd för sina villaområden och närhet till naturen. Vi erbjuder professionella flyttjänster och städservice i hela Danderyds kommun.",
-    localInfo: "I Danderyd täcker vi alla områden från Stocksund till Djursholm och Enebyberg. Vi har mångårig erfarenhet av flytt i villaområden och känner väl till kommunens karaktär med stora fastigheter och kräsna kunder.",
-    services: [
+    description: isStadfirma
+      ? "Danderyd är en välmående kommun norr om Stockholm med nästan 34 000 invånare, känd för sina villaområden och närhet till naturen. Vi erbjuder professionella städtjänster i hela Danderyds kommun."
+      : "Danderyd är en välmående kommun norr om Stockholm med nästan 34 000 invånare, känd för sina villaområden och närhet till naturen. Vi erbjuder professionella flyttjänster i hela Danderyds kommun.",
+    localInfo: isStadfirma
+      ? "I Danderyd täcker vi alla områden från Stocksund till Djursholm och Enebyberg. Vi har mångårig erfarenhet av städning i villaområden och känner väl till kommunens karaktär med stora fastigheter och kräsna kunder."
+      : "I Danderyd täcker vi alla områden från Stocksund till Djursholm och Enebyberg. Vi har mångårig erfarenhet av flytt i villaområden och känner väl till kommunens karaktär med stora fastigheter och kräsna kunder.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt i hela Danderyds kommun",
       "Företagsflytt för alla typer av verksamheter",
       "Utlandsflytt från Danderyd",
@@ -33,18 +61,29 @@ export default function DanderydsPage() {
       "Byggstädning efter renovering",
       "Hemstädning för privatpersoner",
       "Kontorsstädning för företag"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Expertis på städning i exklusiva villaområden",
+      "Specialiserade på värdefullt gods", 
+      "Diskret och professionell service",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Expertis på exklusiva villaområden",
       "Specialiserade på värdefullt gods", 
       "Diskret och professionell service",
       "Erfarenhet av stora fastigheter"
+    
     ],
     areas: [
+
       "Djursholm", "Stocksund", "Enebyberg", "Danderyds kyrka", 
       "Rinkebyholm", "Mörby", "Täby", "Lidingö",
       "Österåker", "Sollentuna", "Stockholm", "Solna"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
   return <CityPage city={cityData} />

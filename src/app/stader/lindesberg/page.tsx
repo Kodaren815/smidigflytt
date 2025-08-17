@@ -1,26 +1,54 @@
 import CityPage from '@/components/CityPage'
 
-export async function generateMetadata() {
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
   return {
-    title: "Lindesberg Flyttfirma - Professionell flytthjälp i Lindesberg | Smidigflytt",
-    description: "Letar du efter en pålitlig flyttfirma i Lindesberg? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering. RUT-avdrag och försäkring ingår.",
-    keywords: "lindesberg flyttfirma, flytthjälp lindesberg, flyttstädning lindesberg, flytt lindesberg",
+    title: `${serviceType} Lindesberg - Professionell ${serviceDescription} i Lindesberg | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Lindesberg? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Lindesberg. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} lindesberg, ${serviceDescription} lindesberg, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} lindesberg, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} lindesberg`,
     openGraph: {
-      title: "Lindesberg Flyttfirma - Professionell flytthjälp i Lindesberg | Smidigflytt",
-      description: "Trygg flytthjälp och städservice i Lindesberg. RUT-avdrag och försäkring ingår.",
+      title: `${serviceType} Lindesberg - Professionell ${serviceDescription} i Lindesberg | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Lindesberg. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default function LindesbergPage() {
+export default async function LindesbergPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Lindesberg",
     region: "Örebro län",
-    description: "Lindesberg är en historisk bergslingsstad med rikt kulturarv och vacker bebyggelse. Vi erbjuder professionella flyttjänster och städservice i hela Lindesberg kommun.",
-    localInfo: "I Lindesberg täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens historiska värden.",
-    services: [
+    description: isStadfirma
+      ? "Lindesberg är en historisk bergslingsstad med rikt kulturarv och vacker bebyggelse. Vi erbjuder professionella städtjänster i hela Lindesberg kommun."
+      : "Lindesberg är en historisk bergslingsstad med rikt kulturarv och vacker bebyggelse. Vi erbjuder professionella flyttjänster i hela Lindesberg kommun.",
+    localInfo: isStadfirma
+      ? "I Lindesberg täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens historiska värden."
+      : "I Lindesberg täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens historiska värden.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt i hela Lindesberg kommun",
       "Företagsflytt för lokala företag",
       "Utlandsflytt från Lindesberg",
@@ -32,18 +60,29 @@ export default function LindesbergPage() {
       "Byggstädning efter renovering",
       "Hemstädning för privatpersoner",
       "Kontorsstädning för företag"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Specialister på bergslingstäder och kulturmiljöer",
+      "Lokalkännedom i historiska stadskärnor", 
+      "Varsam hantering av äldre byggnader",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Specialister på bergslingstäder och kulturmiljöer",
       "Lokalkännedom i historiska stadskärnor", 
       "Varsam hantering av äldre byggnader",
       "Expertis på medeltida arkitektur"
+    
     ],
     areas: [
+
       "Lindesberg centrum", "Frövi", "Gusselby", "Vedevåg", 
       "Ramsberg", "Ljusnarsberg", "Fellingsbro", "Kårsta",
       "Nyfors", "Hällbybrunn", "Skiftinge"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
   return <CityPage city={cityData} />

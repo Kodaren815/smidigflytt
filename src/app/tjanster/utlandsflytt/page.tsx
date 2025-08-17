@@ -13,7 +13,7 @@ export default function UtlandsflyttPage() {
     subtitle: "Komplett flytthjälp utomlands för hela hushåll",
     description: "Vi erbjuder professionell flytthjälp utomlands för hela bohaget. Vi flyttar inte bara enskilda möbler eller föremål, utan hjälper dig med kompletta hushållsflyttar till utlandet. Med vår expertis inom internationella flyttar ser vi till att hela ditt bohag kommer trygt fram till destinationen.",
     hero_image: "/utlandsflytt-hero.jpg",
-    duration: "2-6 veckor",
+    duration: "1-2 dagar",
     features: [
       "Komplett bohagsflytt utomlands - hela hushåll",
       "Flytthjälp utomlands, inte transport av enskilda möbler",
@@ -67,7 +67,7 @@ export default function UtlandsflyttPage() {
       },
       {
         question: "Hur lång tid tar en komplett hushållsflytt utomlands?",
-        answer: "Det beror på destination och omfattning av bohaget. Inom Europa tar det oftast 1-2 veckor, medan intercontinentala flyttar kan ta 4-6 veckor."
+        answer: "Det beror på destination och omfattning av bohaget. Eftersom vi flyttar hela bohag och inte bara fraktar saker, tar flytten normalt bara 1-2 dagar beroende på land och destination."
       },
       {
         question: "Erbjuder ni bara transport eller även flytthjälp utomlands?",

@@ -113,13 +113,13 @@ export default function CustomerReviews() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-            Vad våra <span className="text-smidig-blue">kunder säger</span>
+            Vad våra <span className="text-blue-600">kunder säger</span>
           </h2>
           <div className="flex items-center justify-center space-x-2 mb-4 text-black">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="h-8 w-8 fill-yellow-500 text-yellow-200" />
             ))}
-            <span className="text-2xl font-bold text-smidig-darkblue ml-4">4.8/5</span>
+            <span className="text-2xl font-bold text-blue-900 ml-4">4.8/5</span>
           </div>
           <p className="text-lg text-gray-600">
             Baserat på <span className="font-semibold"></span> verifierade recensioner
@@ -132,7 +132,7 @@ export default function CustomerReviews() {
             
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
-            <Quote className="absolute top-8 left-8 h-12 w-12 text-smidig-lightyellow opacity-50" />
+            <Quote className="absolute top-8 left-8 h-12 w-12 text-yellow-300 opacity-50" />
 
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
@@ -167,7 +167,7 @@ export default function CustomerReviews() {
                       <div className="flex items-center justify-center md:justify-start space-x-2 mb-2">
                         <div className="text-lg font-bold">{currentReview.name}</div>
                         {currentReview.verified && (
-                          <div className="bg-smidig-yellow text-smidig-darkblue text-xs px-2 py-1 rounded-full font-semibold">
+                          <div className="bg-yellow-500 text-blue-900 text-xs px-2 py-1 rounded-full font-semibold">
                             Verifierad
                           </div>
                         )}
@@ -211,7 +211,7 @@ export default function CustomerReviews() {
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'bg-smidig-blue w-8'
+                    ? 'bg-blue-600 w-8'
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
               />
@@ -228,19 +228,19 @@ export default function CustomerReviews() {
           viewport={{ once: true }}
         >
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-smidig-blue mb-2">Kvalite</div>
+            <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">Kvalite</div>
             <div className="text-gray-600">Nöjda kunder</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-smidig-blue mb-2">4.8/5</div>
+            <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">4.8/5</div>
             <div className="text-gray-600">Medelbetyg</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-smidig-blue mb-2">98%</div>
+            <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">98%</div>
             <div className="text-gray-600">Rekommenderar oss</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-smidig-blue mb-2">10+</div>
+            <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">10+</div>
             <div className="text-gray-600">År i branschen</div>
           </div>
         </motion.div>

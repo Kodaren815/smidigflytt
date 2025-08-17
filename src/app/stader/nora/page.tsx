@@ -1,26 +1,54 @@
 import CityPage from '@/components/CityPage'
 
-export async function generateMetadata() {
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
   return {
-    title: "Nora Flyttfirma - Professionell flytthjälp i Nora | Smidigflytt",
-    description: "Letar du efter en pålitlig flyttfirma i Nora? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering. RUT-avdrag och försäkring ingår.",
-    keywords: "nora flyttfirma, flytthjälp nora, flyttstädning nora, flytt nora",
+    title: `${serviceType} Nora - Professionell ${serviceDescription} i Nora | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Nora? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Nora. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} nora, ${serviceDescription} nora, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} nora, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} nora`,
     openGraph: {
-      title: "Nora Flyttfirma - Professionell flytthjälp i Nora | Smidigflytt",
-      description: "Trygg flytthjälp och städservice i Nora. RUT-avdrag och försäkring ingår.",
+      title: `${serviceType} Nora - Professionell ${serviceDescription} i Nora | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Nora. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default function NoraPage() {
+export default async function NoraPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Nora",
     region: "Örebro län",
-    description: "Nora är en välbevarad trästad med charmig småstadskänsla och rikt kulturarv. Vi erbjuder professionella flyttjänster och städservice i hela Nora kommun.",
-    localInfo: "I Nora täcker vi alla områden från den bevarade trästadsmiljön till omgivande naturområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens kulturhistoriska värden.",
-    services: [
+    description: isStadfirma
+      ? "Nora är en välbevarad trästad med charmig småstadskänsla och rikt kulturarv. Vi erbjuder professionella städtjänster i hela Nora kommun."
+      : "Nora är en välbevarad trästad med charmig småstadskänsla och rikt kulturarv. Vi erbjuder professionella flyttjänster i hela Nora kommun.",
+    localInfo: isStadfirma
+      ? "I Nora täcker vi alla områden från den bevarade trästadsmiljön till omgivande naturområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens kulturhistoriska värden."
+      : "I Nora täcker vi alla områden från den bevarade trästadsmiljön till omgivande naturområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens kulturhistoriska värden.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt i hela Nora kommun",
       "Företagsflytt för lokala företag",
       "Utlandsflytt från Nora",
@@ -32,18 +60,29 @@ export default function NoraPage() {
       "Byggstädning efter renovering",
       "Hemstädning för privatpersoner",
       "Kontorsstädning för företag"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Specialister på träbyggnader och kulturmiljöer",
+      "Lokalkännedom i historiska småstäder", 
+      "Varsam hantering av äldre arkitektur",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Specialister på träbyggnader och kulturmiljöer",
       "Lokalkännedom i historiska småstäder", 
       "Varsam hantering av äldre arkitektur",
       "Personlig service i välbevarad miljö"
+    
     ],
     areas: [
+
       "Nora centrum", "Gamla staden", "Järle", "Vikers", 
       "Gyttorp", "Hidinge", "Lindesberg", "Örebro",
       "Nyfors", "Hällbybrunn", "Skiftinge"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
   return <CityPage city={cityData} />

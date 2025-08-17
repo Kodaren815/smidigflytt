@@ -1,26 +1,54 @@
 import CityPage from '@/components/CityPage'
 
-export async function generateMetadata() {
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
   return {
-    title: "Katrineholm Flyttfirma - Professionell flytthjälp i Katrineholm | Smidigflytt",
-    description: "Letar du efter en pålitlig flyttfirma i Katrineholm? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering. RUT-avdrag och försäkring ingår.",
-    keywords: "katrineholm flyttfirma, flytthjälp katrineholm, flyttstädning katrineholm, flytt katrineholm",
+    title: `${serviceType} Katrineholm - Professionell ${serviceDescription} i Katrineholm | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Katrineholm? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Katrineholm. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} katrineholm, ${serviceDescription} katrineholm, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} katrineholm, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} katrineholm`,
     openGraph: {
-      title: "Katrineholm Flyttfirma - Professionell flytthjälp i Katrineholm | Smidigflytt",
-      description: "Trygg flytthjälp och städservice i Katrineholm. RUT-avdrag och försäkring ingår.",
+      title: `${serviceType} Katrineholm - Professionell ${serviceDescription} i Katrineholm | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Katrineholm. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default function KatrineholmPage() {
+export default async function KatrineholmPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Katrineholm",
     region: "Södermanlands län",
-    description: "Katrineholm är en järnvägsknut med rik historia och strategiskt läge i Sörmland. Vi erbjuder professionella flyttjänster och städservice i hela Katrineholm kommun.",
-    localInfo: "I Katrineholm täcker vi alla områden från järnvägsstaden till omgivande landsbygd. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kunskap om logistik tack vare stadens järnvägshistoria.",
-    services: [
+    description: isStadfirma
+      ? "Katrineholm är en järnvägsknut med rik historia och strategiskt läge i Sörmland. Vi erbjuder professionella städtjänster i hela Katrineholm kommun."
+      : "Katrineholm är en järnvägsknut med rik historia och strategiskt läge i Sörmland. Vi erbjuder professionella flyttjänster i hela Katrineholm kommun.",
+    localInfo: isStadfirma
+      ? "I Katrineholm täcker vi alla områden från järnvägsstaden till omgivande landsbygd. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kunskap om logistik tack vare stadens järnvägshistoria."
+      : "I Katrineholm täcker vi alla områden från järnvägsstaden till omgivande landsbygd. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kunskap om logistik tack vare stadens järnvägshistoria.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt i hela Katrineholm kommun",
       "Företagsflytt för lokala företag",
       "Utlandsflytt från Katrineholm",
@@ -33,18 +61,29 @@ export default function KatrineholmPage() {
       "Byggstädning efter renovering",
       "Hemstädning för privatpersoner",
       "Kontorsstädning för företag"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Expertis på städning i järnvägstransporter",
+      "Lokalkännedom i Sörmlands inland", 
+      "Flexibla lösningar för pendlarfamiljer",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Expertis på järnvägstransporter",
       "Lokalkännedom i Sörmlands inland", 
       "Flexibla lösningar för pendlarfamiljer",
       "Logistikkunnande från järnvägshistoria"
+    
     ],
     areas: [
+
       "Katrineholm centrum", "Björkvik", "Valla", "Åker", 
       "Bie", "Julita", "Sköldinge", "Rönö",
       "Nyfors", "Hällbybrunn", "Skiftinge"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
   return <CityPage city={cityData} />

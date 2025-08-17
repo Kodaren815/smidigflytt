@@ -9,7 +9,7 @@ const services = [
     description: "Professionell bohagsflytt för privatpersoner. Vi tar hand om allt från packning till upppackning.",
     features: ["Packning & uppackning", "Transport", "Möbelmontering", "Försäkring"],
     link: "/tjanster/bohagsflytt-privatflytt",
-    gradient: "from-smidig-blue to-smidig-darkblue",
+    gradient: "from-[#2563eb] to-[#1e293b]", // blue to dark blue
     image: "/bohagsflytt-service.jpg"
   },
   {
@@ -18,7 +18,7 @@ const services = [
     description: "Specialiserade på företagsflytt med minimal störning av er verksamhet. Vi planerar allt i detalj.",
     features: ["Projektledning", "IT-support", "Möbelmontering", "Helglösningar"],
     link: "/tjanster/foretagsflytt",
-    gradient: "from-smidig-yellow to-smidig-lightyellow",
+    gradient: "from-[#facc15] to-[#fef08a]", // yellow to light yellow
     image: "/foretagsflytt-service.jpg"
   },
   {
@@ -27,7 +27,7 @@ const services = [
     description: "Internationella flyttar med expertis inom tullformaliteter och säker transport över gränserna.",
     features: ["Tullformaliteter", "Försäkring", "Packning", "Door-to-door service"],
     link: "/tjanster/utlandsflytt",
-    gradient: "from-smidig-blue to-smidig-lightyellow",
+    gradient: "from-[#2563eb] to-[#fef08a]", // blue to light yellow
     image: "/utlandsflytt-service.jpg"
   },
   {
@@ -36,7 +36,7 @@ const services = [
     description: "Professionell bärhjälp när du behöver extra händer för tunga lyft och transport.",
     features: ["Professionella bärare", "Säker hantering", "Flexibla tider", "Försäkring"],
     link: "/tjanster/barhjalp",
-    gradient: "from-smidig-darkblue to-smidig-blue",
+    gradient: "from-[#1e293b] to-[#2563eb]", // dark blue to blue
     image: "/barhjalp-service.jpg"
   },
   {
@@ -45,7 +45,7 @@ const services = [
     description: "Låt våra experter packa dina tillhörigheter säkert och effektivt med professionellt material.",
     features: ["Professionell packning", "Kvalitetsmaterial", "Märkning & inventering", "Försäkring"],
     link: "/tjanster/packhjalp-vid-flytt",
-    gradient: "from-smidig-blue to-smidig-lightyellow",
+    gradient: "from-[#2563eb] to-[#fef08a]", // blue to light yellow
     image: "/packhjalp-service.jpg"
   },
   {
@@ -54,7 +54,7 @@ const services = [
     description: "Miljövänlig bortforsling av möbler och bohag. Vi ser till att allt återvinns på rätt sätt.",
     features: ["Miljövänlig hantering", "Återvinning", "Sortering", "Hämtning"],
     link: "/tjanster/bortforsling-av-mobler",
-    gradient: "from-smidig-yellow to-smidig-darkblue",
+    gradient: "from-[#facc15] to-[#1e293b]", // yellow to dark blue
     image: "/bortforsling-service.jpg"
   },
   {
@@ -63,7 +63,7 @@ const services = [
     description: "Säker förvaring av dina möbler i våra moderna och bevakade magasin.",
     features: ["Bevakade lokaler", "Klimatkontroll", "Flexibla avtal", "Försäkring ingår"],
     link: "/tjanster/magasinering-av-mobler",
-    gradient: "from-smidig-darkblue to-smidig-deepblue",
+    gradient: "from-[#1e293b] to-[#0f172a]", // dark blue to deep blue
     image: "/magasinering-service.jpg"
   },
   {
@@ -72,7 +72,7 @@ const services = [
     description: "Garanterad godkänd flyttstädning som sparar dig tid och pengar. Vi städar så det glänser!",
     features: ["Grund- & toppstädning", "Fönsterputs", "Ugn & kylskåp", "Garanti på resultatet"],
     link: "/tjanster/flyttstadning",
-    gradient: "from-smidig-lightyellow to-smidig-yellow",
+    gradient: "from-[#fef08a] to-[#facc15]", // light yellow to yellow
     image: "/stadning-service.jpg"
   },
   {
@@ -81,7 +81,7 @@ const services = [
     description: "Professionell byggstädning efter renovering eller nybyggnation. Vi tar hand om allt damm och skräp.",
     features: ["Grovstädning", "Finstädning", "Fönsterputs", "Specialutrustning"],
     link: "/tjanster/byggstadning",
-    gradient: "from-smidig-blue to-smidig-yellow",
+    gradient: "from-[#2563eb] to-[#facc15]", // blue to yellow
     image: "/byggstadning-service.jpg"
   },
   {
@@ -90,7 +90,7 @@ const services = [
     description: "Kristallklara fönster för hem och företag. Vi putsar så att ljuset strömmar in!",
     features: ["In- & utsida", "Professionell utrustning", "Regelbundna besök", "Försäkring"],
     link: "/tjanster/fonsterputsning",
-    gradient: "from-smidig-lightyellow to-smidig-blue",
+    gradient: "from-[#fef08a] to-[#2563eb]", // light yellow to blue
     image: "/fonsterputsning-service.jpg"
   }
 ]
@@ -106,11 +106,11 @@ export default function TjansterPage() {
       
       <div className="min-h-screen text-black">
         {/* Hero Section */}
-        <section className="bg-gradient-secondary py-20 text-white">
+        <section className="bg-gradient-to-br from-[#fef08a] to-[#2563eb] py-20 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Våra <span className="text-smidig-lightyellow">Tjänster</span>
+                Våra <span style={{ color: '#fef08a' }}>Tjänster</span>
               </h1>
               <p className="text-xl text-black-200 max-w-3xl mx-auto mb-8">
                 Vi erbjuder kompletta lösningar för alla dina flytt- och städbehov. 
@@ -119,7 +119,7 @@ export default function TjansterPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center text-black">
                 <Link
                   href="/offert"
-                  className="bg-gradient-cta text-smidig-darkblue px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                  className="bg-gradient-to-r from-[#fef08a] to-[#facc15] text-[#1e293b] px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
                   Begär offert
                 </Link>
@@ -160,7 +160,7 @@ export default function TjansterPage() {
                     <ul className="space-y-3 mb-8">
                       {service.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center text-sm text-gray-700">
-                          <div className="w-2 h-2 bg-smidig-blue rounded-full mr-3 flex-shrink-0"></div>
+                          <div className="w-2 h-2" style={{ backgroundColor: '#2563eb', borderRadius: '9999px', marginRight: '0.75rem', flexShrink: 0 }}></div>
                           {feature}
                         </li>
                       ))}
@@ -182,7 +182,7 @@ export default function TjansterPage() {
         </section>
 
         {/* Why Choose Us Section */}
-        <section style={{ color: 'black !important'}} className="py-20 bg-gradient-to-br from-smidig-lightgray to-white">
+        <section style={{ color: 'black !important'}} className="py-20 bg-gradient-to-br from-[#f3f4f6] to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-black">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
@@ -195,7 +195,7 @@ export default function TjansterPage() {
 
             <div className="WhyUs grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-black">
               <div className="text-center">
-                <div className="w-16 h-16 bg-smidig-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16" style={{ backgroundColor: 'rgba(37,99,235,0.1)', borderRadius: '9999px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem auto' }}>
                   <span className="text-2xl">🛡️</span>
                 </div>
                 <h3 className="text-xl font-bold text-black mb-2">Fullständigt försäkrade</h3>
@@ -203,7 +203,7 @@ export default function TjansterPage() {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-smidig-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16" style={{ backgroundColor: 'rgba(37,99,235,0.1)', borderRadius: '9999px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem auto' }}>
                   <span className="text-2xl">💳</span>
                 </div>
                 <h3 className="text-xl font-bold text-black mb-2">RUT-avdrag</h3>
@@ -211,7 +211,7 @@ export default function TjansterPage() {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-smidig-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16" style={{ backgroundColor: 'rgba(37,99,235,0.1)', borderRadius: '9999px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem auto' }}>
                   <span className="text-2xl">⭐</span>
                 </div>
                 <h3 className="text-xl font-bold text-black mb-2">F-skatt & tillstånd</h3>
@@ -219,7 +219,7 @@ export default function TjansterPage() {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-smidig-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16" style={{ backgroundColor: 'rgba(37,99,235,0.1)', borderRadius: '9999px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem auto' }}>
                   <span className="text-2xl">🏆</span>
                 </div>
                 <h3 className="text-xl font-bold text-black mb-2">Kvalitetsgaranti</h3>
@@ -230,7 +230,7 @@ export default function TjansterPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-secondary">
+        <section className="py-20 bg-gradient-to-br from-[#fef08a] to-[#2563eb]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Redo att komma igång?
@@ -241,13 +241,13 @@ export default function TjansterPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/offert"
-                className="bg-gradient-cta text-smidig-darkblue px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-[#fef08a] to-[#facc15] text-[#1e293b] px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
                 Begär offert
               </Link>
               <Link
                 href="/kontakt"
-                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-smidig-darkblue transition-all duration-300"
+                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-[#1e293b] transition-all duration-300"
               >
                 Kontakta oss
               </Link>

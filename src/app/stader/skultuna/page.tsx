@@ -1,26 +1,54 @@
 import CityPage from '@/components/CityPage'
 
-export async function generateMetadata() {
+interface Props {
+  searchParams: Promise<{
+    type?: 'flyttfirma' | 'stadfirma'
+  }>
+}
+
+export async function generateMetadata({ searchParams }: Props) {
+  
+  const resolvedSearchParams = await searchParams
+  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  
   return {
-    title: "Flyttfirma Skultuna - Professionell flytthjälp i Skultuna | Smidigflytt",
-    description: "Letar du efter en pålitlig flyttfirma i Skultuna? Smidigflytt erbjuder trygg flytthjälp, flyttstädning och magasinering i hela Skultuna. RUT-avdrag och försäkring ingår.",
-    keywords: "flyttfirma skultuna, flytthjälp skultuna, flyttstädning skultuna, flytt skultuna",
+    title: `${serviceType} Skultuna - Professionell ${serviceDescription} i Skultuna | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Skultuna? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Skultuna. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} skultuna, ${serviceDescription} skultuna, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} skultuna, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} skultuna`,
     openGraph: {
-      title: "Flyttfirma Skultuna - Professionell flytthjälp i Skultuna | Smidigflytt",
-      description: "Trygg flytthjälp och städservice i Skultuna. RUT-avdrag och försäkring ingår.",
+      title: `${serviceType} Skultuna - Professionell ${serviceDescription} i Skultuna | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Skultuna. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default function SkultunaPage() {
+export default async function SkultunaPage({ searchParams }: Props) {
+  const resolvedSearchParams = await searchParams
+
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  
   const cityData = {
     name: "Skultuna",
     region: "Västmanlands län",
-    description: "Skultuna är känt för sin traditionella mässingsbruk och hantverkstradition. Vi erbjuder professionella flyttjänster och städservice i hela Skultuna med respekt för stadens kulturarv.",
-    localInfo: "I Skultuna täcker vi alla områden från den historiska bruksmiljön till moderna bostadskvarter. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens hantverkstraditioner.",
-    services: [
+    description: isStadfirma
+      ? "Skultuna är känt för sin traditionella mässingsbruk och hantverkstradition. Vi erbjuder professionella städtjänster i hela Skultuna med respekt för stadens kulturarv."
+      : "Skultuna är känt för sin traditionella mässingsbruk och hantverkstradition. Vi erbjuder professionella flyttjänster i hela Skultuna med respekt för stadens kulturarv.",
+    localInfo: isStadfirma
+      ? "I Skultuna täcker vi alla områden från den historiska bruksmiljön till moderna bostadskvarter. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens hantverkstraditioner."
+      : "I Skultuna täcker vi alla områden från den historiska bruksmiljön till moderna bostadskvarter. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens hantverkstraditioner.",
+    services: isStadfirma ? [
+      "Flyttstädning för villa och lägenhet", 
+      "Byggstädning efter renovering",
+      "Hemstädning för privatpersoner",
+      "Kontorsstädning för företag",
+      "Fönsterputsning",
+      "Djuprengöring av hushåll",
+      "Periodisk städning och underhåll"
+    ] : [
+
       "Bohagsflytt privatflytt i hela Skultuna kommun",
       "Företagsflytt för lokala företag",
       "Utlandsflytt från Skultuna",
@@ -32,18 +60,29 @@ export default function SkultunaPage() {
       "Byggstädning efter renovering",
       "Hemstädning för privatpersoner",
       "Kontorsstädning för företag"
+    
     ],
-    specialties: [
+    specialties: isStadfirma ? [
+      "Specialister på bruksmiljöer och hantverkstradition",
+      "Varsam hantering av konsthantverk och antikviteter", 
+      "Lokalkännedom i Sveriges mässingsbruksområden",
+      "Miljövänliga städmetoder"
+    ] : [
+
       "Specialister på bruksmiljöer och hantverkstradition",
       "Varsam hantering av konsthantverk och antikviteter", 
       "Lokalkännedom i Sveriges mässingsbruksområden",
       "Respektfull service i kulturhistoriska miljöer"
+    
     ],
     areas: [
+
       "Skultuna centrum", "Skultuna bruksområde", "Enviken", "Kärrbo", 
       "Tortuna", "Ängelsberg", "Virsbo", "Strömsholm",
       "Nyfors", "Hällbybrunn", "Skiftinge"
-    ]
+    
+    ],
+    serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
   return <CityPage city={cityData} />

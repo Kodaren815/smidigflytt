@@ -35,6 +35,18 @@ interface Message {
   fromPostalCode?: string
   toAddress?: string
   toPostalCode?: string
+  // Dual housing info for moving services
+  fromHousingType?: string
+  fromSquareMeters?: string
+  fromFloor?: string
+  fromHasElevator?: boolean | null
+  fromHasBalcony?: boolean | null
+  toHousingType?: string
+  toSquareMeters?: string
+  toFloor?: string
+  toHasElevator?: boolean | null
+  toHasBalcony?: boolean | null
+  // Single housing info for cleaning services
   housingType?: string
   squareMeters?: string
   floor?: string
@@ -466,36 +478,117 @@ export default function AdminPage() {
                             )}
                           </>
                         )}
-                        {selectedMessage.housingType && (
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Bostadstyp</label>
-                            <p className="text-gray-900">{selectedMessage.housingType}</p>
-                          </div>
+                        
+                        {selectedMessage.serviceType === 'städtjänster' ? (
+                          // Single address housing info for cleaning services
+                          <>
+                            {selectedMessage.housingType && (
+                              <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Bostadstyp</label>
+                                <p className="text-gray-900">{selectedMessage.housingType}</p>
+                              </div>
+                            )}
+                            {selectedMessage.squareMeters && (
+                              <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Kvadratmeter</label>
+                                <p className="text-gray-900">{selectedMessage.squareMeters} m²</p>
+                              </div>
+                            )}
+                            {selectedMessage.floor && (
+                              <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Våning</label>
+                                <p className="text-gray-900">{selectedMessage.floor}</p>
+                              </div>
+                            )}
+                            {selectedMessage.hasElevator !== null && (
+                              <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Hiss</label>
+                                <p className="text-gray-900">{selectedMessage.hasElevator ? 'Ja' : 'Nej'}</p>
+                              </div>
+                            )}
+                            {selectedMessage.hasBalcony !== null && (
+                              <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Balkong</label>
+                                <p className="text-gray-900">{selectedMessage.hasBalcony ? 'Ja' : 'Nej'}</p>
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          // Dual address housing info for moving services
+                          <>
+                            {selectedMessage.fromHousingType && (
+                              <div className="border-t pt-4">
+                                <h4 className="font-semibold text-gray-900 mb-3">Ursprungsadress information</h4>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                  <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Bostadstyp</label>
+                                    <p className="text-gray-900">{selectedMessage.fromHousingType}</p>
+                                  </div>
+                                  {selectedMessage.fromSquareMeters && (
+                                    <div>
+                                      <label className="block text-sm font-medium text-gray-700 mb-1">Kvadratmeter</label>
+                                      <p className="text-gray-900">{selectedMessage.fromSquareMeters} m²</p>
+                                    </div>
+                                  )}
+                                  {selectedMessage.fromFloor && (
+                                    <div>
+                                      <label className="block text-sm font-medium text-gray-700 mb-1">Våning</label>
+                                      <p className="text-gray-900">{selectedMessage.fromFloor}</p>
+                                    </div>
+                                  )}
+                                  {selectedMessage.fromHasElevator !== null && (
+                                    <div>
+                                      <label className="block text-sm font-medium text-gray-700 mb-1">Hiss</label>
+                                      <p className="text-gray-900">{selectedMessage.fromHasElevator ? 'Ja' : 'Nej'}</p>
+                                    </div>
+                                  )}
+                                  {selectedMessage.fromHasBalcony !== null && (
+                                    <div>
+                                      <label className="block text-sm font-medium text-gray-700 mb-1">Balkong</label>
+                                      <p className="text-gray-900">{selectedMessage.fromHasBalcony ? 'Ja' : 'Nej'}</p>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            )}
+                            {selectedMessage.toHousingType && (
+                              <div className="border-t pt-4">
+                                <h4 className="font-semibold text-gray-900 mb-3">Destinationsadress information</h4>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                  <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Bostadstyp</label>
+                                    <p className="text-gray-900">{selectedMessage.toHousingType}</p>
+                                  </div>
+                                  {selectedMessage.toSquareMeters && (
+                                    <div>
+                                      <label className="block text-sm font-medium text-gray-700 mb-1">Kvadratmeter</label>
+                                      <p className="text-gray-900">{selectedMessage.toSquareMeters} m²</p>
+                                    </div>
+                                  )}
+                                  {selectedMessage.toFloor && (
+                                    <div>
+                                      <label className="block text-sm font-medium text-gray-700 mb-1">Våning</label>
+                                      <p className="text-gray-900">{selectedMessage.toFloor}</p>
+                                    </div>
+                                  )}
+                                  {selectedMessage.toHasElevator !== null && (
+                                    <div>
+                                      <label className="block text-sm font-medium text-gray-700 mb-1">Hiss</label>
+                                      <p className="text-gray-900">{selectedMessage.toHasElevator ? 'Ja' : 'Nej'}</p>
+                                    </div>
+                                  )}
+                                  {selectedMessage.toHasBalcony !== null && (
+                                    <div>
+                                      <label className="block text-sm font-medium text-gray-700 mb-1">Balkong</label>
+                                      <p className="text-gray-900">{selectedMessage.toHasBalcony ? 'Ja' : 'Nej'}</p>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            )}
+                          </>
                         )}
-                        {selectedMessage.squareMeters && (
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Kvadratmeter</label>
-                            <p className="text-gray-900">{selectedMessage.squareMeters} m²</p>
-                          </div>
-                        )}
-                        {selectedMessage.floor && (
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Våning</label>
-                            <p className="text-gray-900">{selectedMessage.floor}</p>
-                          </div>
-                        )}
-                        {selectedMessage.hasElevator !== null && (
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Hiss</label>
-                            <p className="text-gray-900">{selectedMessage.hasElevator ? 'Ja' : 'Nej'}</p>
-                          </div>
-                        )}
-                        {selectedMessage.hasBalcony !== null && (
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Balkong</label>
-                            <p className="text-gray-900">{selectedMessage.hasBalcony ? 'Ja' : 'Nej'}</p>
-                          </div>
-                        )}
+                        
                         {selectedMessage.extraInfo && (
                           <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Extra information</label>

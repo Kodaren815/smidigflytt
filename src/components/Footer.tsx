@@ -12,11 +12,11 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-cta rounded-lg flex items-center justify-center">
-                <span className="text-smidig-darkblue font-bold text-xl">S</span>
+                <span className="text-blue-900 font-bold text-xl">S</span>
               </div>
               <div>
                 <div className="text-xl font-bold">Smidigflytt</div>
-                <div className="text-sm text-smidig-lightyellow">Din flyttpartner i Mälardalen</div>
+                <div className="text-sm text-yellow-300">Din flyttpartner i Mälardalen</div>
               </div>
             </div>
             <p className="text-gray-700 text-sm leading-relaxed">
@@ -70,7 +70,7 @@ export default function Footer() {
 
           {/* Popular Cities */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-smidig-lightyellow">Populära städer</h3>
+            <h3 className="text-lg font-semibold text-yellow-300">Populära städer</h3>
             <nav className="space-y-2">
               <Link href="/stader/stockholm" className="block text-black hover:text-white transition-colors text-sm">
                 Flyttfirma Stockholm
@@ -84,6 +84,9 @@ export default function Footer() {
               <Link href="/stader/vasteras" className="block text-black hover:text-white transition-colors text-sm">
                 Flyttfirma Västerås
               </Link>
+              <Link href="/stader/eskilstuna" className="block text-black hover:text-white transition-colors text-sm">
+                Flyttfirma Eskilstuna
+              </Link>
               <Link href="/stader/uppsala" className="block text-black hover:text-white transition-colors text-sm">
                 Flyttfirma Uppsala
               </Link>
@@ -95,22 +98,22 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-smidig-lightyellow">Kontaktuppgifter</h3>
+            <h3 className="text-lg font-semibold text-yellow-300">Kontaktuppgifter</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-smidig-yellow" />
+                <Phone className="h-5 w-5 text-yellow-500" />
                 <a href="tel:+46-10-544-05-77" className="text-black hover:text-white transition-colors text-sm">
                   Kommer snart
                 </a>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-smidig-yellow" />
+                <Mail className="h-5 w-5 text-yellow-500" />
                 <a href="mailto:info@smidigflytt365.nu" className="text-black hover:text-white transition-colors text-sm">
                   info@smidigflytt365.nu
                 </a>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-smidig-yellow mt-0.5" />
+                <MapPin className="h-5 w-5 text-yellow-500 mt-0.5" />
                 <div className="text-black text-sm">
                   <div>Täcker hela Sverige</div>
                   <div className="text-xs text-gray-400 mt-1">
@@ -124,7 +127,7 @@ export default function Footer() {
             <div className="pt-2">
               <Link
                 href="/offert"
-                className="block w-full bg-gradient-cta text-smidig-darkblue text-center px-6 py-3 rounded-full text-sm font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                className="block w-full bg-gradient-cta text-blue-900 text-center px-6 py-3 rounded-full text-sm font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
                 Begär Offert
               </Link>
@@ -134,7 +137,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom footer */}
-      <div className="border-t border-smidig-blue">
+      <div className="border-t border-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-gray-400">

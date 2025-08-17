@@ -21,65 +21,70 @@ interface NavigationItem {
 const navigation: NavigationItem[] = [
   { name: 'Hem', href: '/' },
   { 
-    name: 'Flyttjänster', 
+    name: 'Tjänster',
+    href: '/tjanster'
+  },
+  { 
+    name: 'Flyttfirma', 
     href: '/tjanster',
     submenu: [
       { 
         name: 'Västmanland', 
-        href: '/stader/vastmanland',
+        href: '/stader/vastmanland?type=flyttfirma',
         description: 'Flyttjänster i Västerås, Köping och Sala med omnejd.',
         services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
       },
       { 
         name: 'Stockholm', 
-        href: '/stader/stockholm',
+        href: '/stader/stockholm?type=flyttfirma',
         description: 'Smidig flytt i hela Storstockholm – från city till förort.',
         services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
       },
       { 
         name: 'Örebro län', 
-        href: '/stader/orebro-lan',
+        href: '/stader/orebro-lan?type=flyttfirma',
         description: 'Vi hjälper dig med flytt i Örebro, Kumla och Hallsberg.',
         services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
       },
       { 
         name: 'Södermanland', 
-        href: '/stader/sodermanland',
+        href: '/stader/sodermanland?type=flyttfirma',
         description: 'Flyttjänster i Eskilstuna, Strängnäs och Katrineholm.',
         services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
       },
     ]
   },
   { 
-    name: 'Städtjänster', 
+    name: 'Städfirma', 
     href: '/tjanster/stadning',
     submenu: [
       { 
         name: 'Västmanland', 
-        href: '/stader/vastmanland',
+        href: '/stader/vastmanland?type=stadfirma',
         description: 'Flyttstäd och hemstäd i Västerås, Köping och Sala.',
         services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
       },
       { 
         name: 'Stockholm', 
-        href: '/stader/stockholm',
+        href: '/stader/stockholm?type=stadfirma',
         description: 'Städtjänster för hem och kontor i hela Stockholm.',
         services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
       },
       { 
         name: 'Örebro län', 
-        href: '/stader/orebro-lan',
+        href: '/stader/orebro-lan?type=stadfirma',
         description: 'Städning vid flytt och vardag i Örebro, Kumla och Hallsberg.',
         services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
       },
       { 
         name: 'Södermanland', 
-        href: '/stader/sodermanland',
+        href: '/stader/sodermanland?type=stadfirma',
         description: 'Professionell städservice i Eskilstuna, Strängnäs och Katrineholm.',
         services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
       },
     ]
   },
+  { name: 'Om oss', href: '/om-oss' },
   { name: 'Reklamera', href: '/reklamation' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Kontakt', href: '/kontakt' },
