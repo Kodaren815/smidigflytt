@@ -96,7 +96,7 @@ export default async function UpplandsVsbyPage({ searchParams }: Props) {
         title={`${serviceType} Upplands-Vasby - Professionell ${serviceDescription} i Upplands-Vasby | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Upplands-Vasby? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Upplands-Vasby. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} upplands-vasby, ${serviceDescription} upplands-vasby, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} upplands-vasby, ${isStadfirma ? 'städning' : 'flytt'} upplands-vasby`}
-        url={`https://smidigflytt.se/stader/upplands-vasby${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/upplands-vasby${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

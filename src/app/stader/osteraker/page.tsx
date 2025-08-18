@@ -97,7 +97,7 @@ export default async function sterkerPage({ searchParams }: Props) {
         title={`${serviceType} Österåker - Professionell ${serviceDescription} i Österåker | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Österåker? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Österåker. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} osteraker, ${serviceDescription} osteraker, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} osteraker, ${isStadfirma ? 'städning' : 'flytt'} osteraker`}
-        url={`https://smidigflytt.se/stader/osteraker${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/osteraker${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

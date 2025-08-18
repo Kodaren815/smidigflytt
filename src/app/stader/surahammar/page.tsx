@@ -95,7 +95,7 @@ export default async function SurahammarPage({ searchParams }: Props) {
         title={`${serviceType} Surahammar - Professionell ${serviceDescription} i Surahammar | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Surahammar? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Surahammar. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} surahammar, ${serviceDescription} surahammar, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} surahammar, ${isStadfirma ? 'städning' : 'flytt'} surahammar`}
-        url={`https://smidigflytt.se/stader/surahammar${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/surahammar${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

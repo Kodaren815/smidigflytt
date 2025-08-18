@@ -97,7 +97,7 @@ export default async function VrmdPage({ searchParams }: Props) {
         title={`${serviceType} Värmdö - Professionell ${serviceDescription} i Värmdö | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Värmdö? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Värmdö. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} varmdo, ${serviceDescription} varmdo, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} varmdo, ${isStadfirma ? 'städning' : 'flytt'} varmdo`}
-        url={`https://smidigflytt.se/stader/varmdo${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/varmdo${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

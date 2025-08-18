@@ -129,7 +129,7 @@ export default async function VasterasPage({ searchParams }: Props) {
         title={`${serviceType} Västerås - Professionell ${serviceDescription} i Västerås | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Västerås? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Västerås. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} vasteras, ${serviceDescription} vasteras, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} vasteras, ${isStadfirma ? 'städning' : 'flytt'} vasteras`}
-        url={`https://smidigflytt.se/stader/vasteras${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/vasteras${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

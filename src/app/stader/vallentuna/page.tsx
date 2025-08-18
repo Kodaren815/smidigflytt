@@ -96,7 +96,7 @@ export default async function VallentunaPage({ searchParams }: Props) {
         title={`${serviceType} Vallentuna - Professionell ${serviceDescription} i Vallentuna | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Vallentuna? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Vallentuna. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} vallentuna, ${serviceDescription} vallentuna, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} vallentuna, ${isStadfirma ? 'städning' : 'flytt'} vallentuna`}
-        url={`https://smidigflytt.se/stader/vallentuna${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/vallentuna${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

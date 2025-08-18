@@ -95,7 +95,7 @@ export default async function MlardalenPage({ searchParams }: Props) {
         title={`${serviceType} Malardalen - Professionell ${serviceDescription} i Malardalen | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Malardalen? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Malardalen. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} malardalen, ${serviceDescription} malardalen, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} malardalen, ${isStadfirma ? 'städning' : 'flytt'} malardalen`}
-        url={`https://smidigflytt.se/stader/malardalen${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/malardalen${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

@@ -97,7 +97,7 @@ export default async function HuddingePage({ searchParams }: Props) {
         title={`${serviceType} Huddinge - Professionell ${serviceDescription} i Huddinge | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Huddinge? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Huddinge. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} huddinge, ${serviceDescription} huddinge, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} huddinge, ${isStadfirma ? 'städning' : 'flytt'} huddinge`}
-        url={`https://smidigflytt.se/stader/huddinge${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/huddinge${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

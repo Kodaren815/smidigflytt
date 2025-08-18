@@ -95,7 +95,7 @@ export default async function KpingPage({ searchParams }: Props) {
         title={`${serviceType} Koping - Professionell ${serviceDescription} i Koping | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Koping? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Koping. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} koping, ${serviceDescription} koping, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} koping, ${isStadfirma ? 'städning' : 'flytt'} koping`}
-        url={`https://smidigflytt.se/stader/koping${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/koping${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

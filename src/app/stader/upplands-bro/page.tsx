@@ -96,7 +96,7 @@ export default async function UpplandsBroPage({ searchParams }: Props) {
         title={`${serviceType} Upplands-Bro - Professionell ${serviceDescription} i Upplands-Bro | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Upplands-Bro? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Upplands-Bro. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} upplands-bro, ${serviceDescription} upplands-bro, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} upplands-bro, ${isStadfirma ? 'städning' : 'flytt'} upplands-bro`}
-        url={`https://smidigflytt.se/stader/upplands-bro${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/upplands-bro${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

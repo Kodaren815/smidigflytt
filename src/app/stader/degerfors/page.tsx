@@ -86,7 +86,7 @@ export default async function DegerforsPage({ searchParams }: Props) {
         title={`${serviceType} Degerfors - Professionell ${serviceDescription} i Degerfors | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Degerfors? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Degerfors. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} degerfors, ${serviceDescription} degerfors, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} degerfors, ${isStadfirma ? 'städning' : 'flytt'} degerfors`}
-        url={`https://smidigflytt.se/stader/degerfors${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/degerfors${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

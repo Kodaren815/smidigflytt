@@ -96,7 +96,7 @@ export default async function TrosaPage({ searchParams }: Props) {
         title={`${serviceType} Trosa - Professionell ${serviceDescription} i Trosa | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Trosa? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Trosa. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} trosa, ${serviceDescription} trosa, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} trosa, ${isStadfirma ? 'städning' : 'flytt'} trosa`}
-        url={`https://smidigflytt.se/stader/trosa${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/trosa${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

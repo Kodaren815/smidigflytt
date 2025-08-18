@@ -152,7 +152,7 @@ export default async function RegionPage({ params, searchParams }: Props) {
         title={`${serviceTitle} ${region.name} - Professionell ${isStadfirma ? 'städservice' : 'flyttservice'} | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceTitle.toLowerCase()} i ${region.name}? Smidigflytt erbjuder trygg ${isStadfirma ? 'städservice' : 'flyttservice'}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela ${region.name}. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceTitle.toLowerCase()} ${region.name.toLowerCase()}, ${isStadfirma ? 'städservice' : 'flyttservice'} ${region.name.toLowerCase()}, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} ${region.name.toLowerCase()}`}
-        url={`https://smidigflytt.se/stader/${resolvedParams.region}${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/${resolvedParams.region}${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -343,7 +343,7 @@ export default async function RegionPage({ params, searchParams }: Props) {
             "@type": "LocalBusiness",
             "name": `Smidigflytt - ${serviceTitle} ${region.name}`,
             "description": `Professionell ${isStadfirma ? 'städservice' : 'flyttservice'} med RUT-avdrag och försäkring i ${region.name}`,
-            "url": `https://smidigflytt.se/stader/${resolvedParams.region}${isStadfirma ? '?type=stadfirma' : ''}`,
+            "url": `https://smidigflytt365.se/stader/${resolvedParams.region}${isStadfirma ? '?type=stadfirma' : ''}`,
             "telephone": "+46-10-544-05-77",
             "priceRange": "$$",
             "areaServed": {

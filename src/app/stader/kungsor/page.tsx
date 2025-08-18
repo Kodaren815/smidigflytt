@@ -95,7 +95,7 @@ export default async function KungsrPage({ searchParams }: Props) {
         title={`${serviceType} Kungsor - Professionell ${serviceDescription} i Kungsor | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Kungsor? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Kungsor. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} kungsor, ${serviceDescription} kungsor, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} kungsor, ${isStadfirma ? 'städning' : 'flytt'} kungsor`}
-        url={`https://smidigflytt.se/stader/kungsor${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/kungsor${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

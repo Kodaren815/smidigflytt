@@ -96,7 +96,7 @@ export default async function SolnaPage({ searchParams }: Props) {
         title={`${serviceType} Solna - Professionell ${serviceDescription} i Solna | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Solna? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Solna. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} solna, ${serviceDescription} solna, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} solna, ${isStadfirma ? 'städning' : 'flytt'} solna`}
-        url={`https://smidigflytt.se/stader/solna${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/solna${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

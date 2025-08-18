@@ -95,7 +95,7 @@ export default async function HallstahammarPage({ searchParams }: Props) {
         title={`${serviceType} Hallstahammar - Professionell ${serviceDescription} i Hallstahammar | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Hallstahammar? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Hallstahammar. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} hallstahammar, ${serviceDescription} hallstahammar, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} hallstahammar, ${isStadfirma ? 'städning' : 'flytt'} hallstahammar`}
-        url={`https://smidigflytt.se/stader/hallstahammar${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/hallstahammar${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

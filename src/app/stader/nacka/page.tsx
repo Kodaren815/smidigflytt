@@ -96,7 +96,7 @@ export default async function NackaPage({ searchParams }: Props) {
         title={`${serviceType} Nacka - Professionell ${serviceDescription} i Nacka | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Nacka? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Nacka. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} nacka, ${serviceDescription} nacka, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} nacka, ${isStadfirma ? 'städning' : 'flytt'} nacka`}
-        url={`https://smidigflytt.se/stader/nacka${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/nacka${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

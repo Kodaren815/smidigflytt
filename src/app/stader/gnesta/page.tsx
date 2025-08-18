@@ -95,7 +95,7 @@ export default async function GnestaPage({ searchParams }: Props) {
         title={`${serviceType} Gnesta - Professionell ${serviceDescription} i Gnesta | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Gnesta? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Gnesta. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} gnesta, ${serviceDescription} gnesta, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} gnesta, ${isStadfirma ? 'städning' : 'flytt'} gnesta`}
-        url={`https://smidigflytt.se/stader/gnesta${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/gnesta${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

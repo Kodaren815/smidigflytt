@@ -96,7 +96,7 @@ export default async function SundbybergPage({ searchParams }: Props) {
         title={`${serviceType} Sundbyberg - Professionell ${serviceDescription} i Sundbyberg | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Sundbyberg? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Sundbyberg. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} sundbyberg, ${serviceDescription} sundbyberg, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} sundbyberg, ${isStadfirma ? 'städning' : 'flytt'} sundbyberg`}
-        url={`https://smidigflytt.se/stader/sundbyberg${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/sundbyberg${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

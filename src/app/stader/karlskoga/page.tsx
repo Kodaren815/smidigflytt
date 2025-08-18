@@ -95,7 +95,7 @@ export default async function KarlskogaPage({ searchParams }: Props) {
         title={`${serviceType} Karlskoga - Professionell ${serviceDescription} i Karlskoga | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Karlskoga? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Karlskoga. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} karlskoga, ${serviceDescription} karlskoga, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} karlskoga, ${isStadfirma ? 'städning' : 'flytt'} karlskoga`}
-        url={`https://smidigflytt.se/stader/karlskoga${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/karlskoga${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

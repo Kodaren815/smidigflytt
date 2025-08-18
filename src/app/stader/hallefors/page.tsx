@@ -96,7 +96,7 @@ export default async function HlleforsPage({ searchParams }: Props) {
         title={`${serviceType} Hallefors - Professionell ${serviceDescription} i Hallefors | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Hallefors? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Hallefors. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} hallefors, ${serviceDescription} hallefors, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} hallefors, ${isStadfirma ? 'städning' : 'flytt'} hallefors`}
-        url={`https://smidigflytt.se/stader/hallefors${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/hallefors${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

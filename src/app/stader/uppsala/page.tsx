@@ -90,7 +90,7 @@ export default async function UppsalaPage({ searchParams }: Props) {
         title={`${serviceType} Uppsala - Professionell ${serviceDescription} i Uppsala | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Uppsala? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Uppsala. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} uppsala, ${serviceDescription} uppsala, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} uppsala, ${isStadfirma ? 'städning' : 'flytt'} uppsala`}
-        url={`https://smidigflytt.se/stader/uppsala${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/uppsala${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

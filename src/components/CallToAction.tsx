@@ -66,7 +66,7 @@ export default function CallToAction() {
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <Phone className="h-8 w-8 text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">Ring oss direkt</h3>
+            <div className="text-xl font-bold text-white mb-3">Ring oss direkt</div>
             <p className="text-gray-200 mb-4">
               Prata med en expert och få svar på dina frågor direkt
             </p>
@@ -86,7 +86,7 @@ export default function CallToAction() {
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <Mail className="h-8 w-8 text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">Skicka ett mail</h3>
+            <div className="text-xl font-bold text-white mb-3">Skicka ett mail</div>
             <p className="text-gray-200 mb-4">
               Beskriv din flytt så återkommer vi inom 24 timmar
             </p>
@@ -106,7 +106,7 @@ export default function CallToAction() {
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <Calendar className="h-8 w-8 text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">Boka online</h3>
+            <div className="text-xl font-bold text-white mb-3">Boka online</div>
             <p className="text-white mb-4">
               Använd vårt formulär och boka direkt online
             </p>

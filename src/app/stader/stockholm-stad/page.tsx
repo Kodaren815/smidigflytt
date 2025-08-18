@@ -96,7 +96,7 @@ export default async function StockholmPage({ searchParams }: Props) {
         title={`${serviceType} Stockholm-Stad - Professionell ${serviceDescription} i Stockholm-Stad | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Stockholm-Stad? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Stockholm-Stad. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} stockholm-stad, ${serviceDescription} stockholm-stad, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} stockholm-stad, ${isStadfirma ? 'städning' : 'flytt'} stockholm-stad`}
-        url={`https://smidigflytt.se/stader/stockholm-stad${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/stockholm-stad${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

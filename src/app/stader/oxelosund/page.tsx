@@ -96,7 +96,7 @@ export default async function OxelsundPage({ searchParams }: Props) {
         title={`${serviceType} Oxelösund - Professionell ${serviceDescription} i Oxelösund | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Oxelösund? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Oxelösund. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} oxelosund, ${serviceDescription} oxelosund, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} oxelosund, ${isStadfirma ? 'städning' : 'flytt'} oxelosund`}
-        url={`https://smidigflytt.se/stader/oxelosund${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/oxelosund${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

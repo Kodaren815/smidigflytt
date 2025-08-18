@@ -56,7 +56,7 @@ export default async function VastmanlandPage({ searchParams }: Props) {
         title={`${serviceTitle} Västmanlands län - Professionell ${isStadfirma ? 'städservice' : 'flyttservice'} | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceTitle.toLowerCase()} i Västmanlands län? Smidigflytt erbjuder trygg ${isStadfirma ? 'städservice' : 'flyttservice'}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Västmanlands län. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceTitle.toLowerCase()} västmanlands län, ${isStadfirma ? 'städservice' : 'flyttservice'} västmanland, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} västmanland`}
-        url={`https://smidigflytt.se/stader/vastmanland${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/vastmanland${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
@@ -150,7 +150,7 @@ export default async function VastmanlandPage({ searchParams }: Props) {
               "@type": "LocalBusiness",
               "name": "Smidigflytt",
               "description": `Professionell ${isStadfirma ? 'städservice' : 'flyttservice'} med RUT-avdrag och försäkring i ${västmanlandRegion.name}`,
-              "url": `https://smidigflytt.se/stader/vastmanland${isStadfirma ? '?type=stadfirma' : ''}`,
+              "url": `https://smidigflytt365.se/stader/vastmanland${isStadfirma ? '?type=stadfirma' : ''}`,
               "telephone": "+46-10-544-05-77",
               "priceRange": "$$",
               "areaServed": {

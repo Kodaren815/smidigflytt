@@ -97,7 +97,7 @@ export default async function SdertljePage({ searchParams }: Props) {
         title={`${serviceType} Södertälje - Professionell ${serviceDescription} i Södertälje | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Södertälje? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Södertälje. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} sodertalje, ${serviceDescription} sodertalje, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} sodertalje, ${isStadfirma ? 'städning' : 'flytt'} sodertalje`}
-        url={`https://smidigflytt.se/stader/sodertalje${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/sodertalje${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

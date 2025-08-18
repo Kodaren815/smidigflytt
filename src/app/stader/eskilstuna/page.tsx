@@ -124,7 +124,7 @@ export default async function EskilstunaPage({ searchParams }: Props) {
         title={`${serviceType} Eskilstuna - Professionell ${serviceDescription} i Eskilstuna | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Eskilstuna? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Eskilstuna. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} eskilstuna, ${serviceDescription} eskilstuna, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} eskilstuna, ${isStadfirma ? 'städning' : 'flytt'} eskilstuna`}
-        url={`https://smidigflytt.se/stader/eskilstuna${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/eskilstuna${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

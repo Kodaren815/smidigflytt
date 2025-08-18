@@ -87,7 +87,7 @@ export default async function BotkyrkaPage({ searchParams }: Props) {
         title={`${serviceType} Botkyrka - Professionell ${serviceDescription} i Botkyrka | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Botkyrka? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Botkyrka. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} botkyrka, ${serviceDescription} botkyrka, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} botkyrka, ${isStadfirma ? 'städning' : 'flytt'} botkyrka`}
-        url={`https://smidigflytt.se/stader/botkyrka${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/botkyrka${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

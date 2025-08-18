@@ -95,7 +95,7 @@ export default async function StrngnsPage({ searchParams }: Props) {
         title={`${serviceType} Strängnäs - Professionell ${serviceDescription} i Strängnäs | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Strängnäs? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Strängnäs. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} strangnas, ${serviceDescription} strangnas, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} strangnas, ${isStadfirma ? 'städning' : 'flytt'} strangnas`}
-        url={`https://smidigflytt.se/stader/strangnas${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/strangnas${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

@@ -95,7 +95,7 @@ export default async function TorshllaPage({ searchParams }: Props) {
         title={`${serviceType} Torshalla - Professionell ${serviceDescription} i Torshalla | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Torshalla? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Torshalla. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} torshalla, ${serviceDescription} torshalla, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} torshalla, ${isStadfirma ? 'städning' : 'flytt'} torshalla`}
-        url={`https://smidigflytt.se/stader/torshalla${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/torshalla${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

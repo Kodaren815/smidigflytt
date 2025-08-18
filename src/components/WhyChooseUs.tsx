@@ -56,12 +56,28 @@ export default function WhyChooseUs() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-            Varför välja <span className="text-black">Smidigflytt?</span>
+            Varför välja <span className="text-smidig-blue">Smidigflytt?</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
             Vi kombinerar trygghet och kvalitet för att ge dig den bästa flyttupplevelsen. 
-            Här är vad som gör oss speciella:
+            Här är vad som gör oss speciella och varför din flytt blir både enkel och bekymmersfri med oss:
           </p>
+          
+          {/* Additional content paragraph */}
+          <div className="max-w-4xl mx-auto text-gray-600 leading-relaxed">
+            <p className="mb-4">
+              Som en etablerad flyttfirma förstår vi att varje flytt är unik. Oavsett om det handlar om bohagsflytt, 
+              företagsflytt eller utlandsflytt, arbetar vi för att göra processen så enkel och stressfri som möjligt. 
+              Med över 10 års erfarenhet i branschen har vi utvecklat metoder som säkerställer att din flytt 
+              genomförs professionellt från början till slut.
+            </p>
+            <p className="mb-4">
+              Vårt team består av erfarna flyttare som är utbildade inom säker hantering av alla typer av föremål - 
+              från känslig elektronik till tunga möbler. Vi erbjuder även kompletterande tjänster som packhjälp, 
+              bortforsling av möbler, magasinering och professionell flyttstädning som uppfyller alla krav för 
+              bostadsrättsföreningar och hyresvärdar.
+            </p>
+          </div>
         </motion.div>
 
         {/* Features Grid */}
@@ -114,9 +130,9 @@ export default function WhyChooseUs() {
           viewport={{ once: true }}
         >
           <div className="bg-gradient-secondary rounded-3xl p-8 md:p-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <div className="text-2xl md:text-3xl font-bold text-white mb-4">
               Redo att börja din flytt?
-            </h3>
+            </div>
             <p className="text-white mb-8 max-w-2xl mx-auto">
               Kontakta oss idag för en konsultation och personlig offert. 
               Vi gör din flytt enkel, trygg och stressfri.

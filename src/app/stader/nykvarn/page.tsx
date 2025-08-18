@@ -96,7 +96,7 @@ export default async function NykvarnPage({ searchParams }: Props) {
         title={`${serviceType} Nykvarn - Professionell ${serviceDescription} i Nykvarn | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Nykvarn? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Nykvarn. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} nykvarn, ${serviceDescription} nykvarn, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} nykvarn, ${isStadfirma ? 'städning' : 'flytt'} nykvarn`}
-        url={`https://smidigflytt.se/stader/nykvarn${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/nykvarn${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

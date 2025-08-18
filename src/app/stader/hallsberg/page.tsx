@@ -96,7 +96,7 @@ export default async function HallsbergPage({ searchParams }: Props) {
         title={`${serviceType} Hallsberg - Professionell ${serviceDescription} i Hallsberg | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Hallsberg? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Hallsberg. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} hallsberg, ${serviceDescription} hallsberg, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} hallsberg, ${isStadfirma ? 'städning' : 'flytt'} hallsberg`}
-        url={`https://smidigflytt.se/stader/hallsberg${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/hallsberg${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

@@ -94,7 +94,7 @@ export default async function ArbogaPage({ searchParams }: Props) {
         title={`${serviceType} Arboga - Professionell ${serviceDescription} i Arboga | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Arboga? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Arboga. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} arboga, ${serviceDescription} arboga, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} arboga, ${isStadfirma ? 'städning' : 'flytt'} arboga`}
-        url={`https://smidigflytt.se/stader/arboga${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/arboga${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

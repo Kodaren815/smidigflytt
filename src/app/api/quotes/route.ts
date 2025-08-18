@@ -1,7 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { writeFile, readFile, mkdir } from 'fs/promises'
-import { existsSync } from 'fs'
-import path from 'path'
 
 interface QuoteRequest {
   id: string
@@ -38,33 +35,26 @@ interface QuoteRequest {
   extraInfo: string
 }
 
-const DATA_DIR = path.join(process.cwd(), 'data')
-const QUOTES_FILE = path.join(DATA_DIR, 'quotes.json')
-
-async function ensureDataDir() {
-  if (!existsSync(DATA_DIR)) {
-    await mkdir(DATA_DIR, { recursive: true })
-  }
-}
-
-async function readQuoteRequests(): Promise<QuoteRequest[]> {
-  try {
-    if (!existsSync(QUOTES_FILE)) {
-      return []
-    }
-    const data = await readFile(QUOTES_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch (error) {
-    console.error('Error reading quote requests:', error)
-    return []
-  }
-}
+// In-memory storage for demo purposes (resets on each deployment)
+// In production, you would use a database like Vercel KV, PostgreSQL, or MongoDB
+const quotes: QuoteRequest[] = []
 
 async function saveQuoteRequest(quote: QuoteRequest) {
-  await ensureDataDir()
-  const quotes = await readQuoteRequests()
   quotes.unshift(quote) // Add to beginning of array
-  await writeFile(QUOTES_FILE, JSON.stringify(quotes, null, 2))
+  console.log('Quote request saved:', quote.id, quote.name, quote.serviceType)
+}
+
+// GET method for admin access
+export async function GET() {
+  try {
+    return NextResponse.json(quotes)
+  } catch (error) {
+    console.error('Error fetching quotes:', error)
+    return NextResponse.json(
+      { error: 'Ett fel uppstod när offerterna skulle hämtas' },
+      { status: 500 }
+    )
+  }
 }
 
 export async function POST(request: NextRequest) {

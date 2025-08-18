@@ -95,7 +95,7 @@ export default async function FlenPage({ searchParams }: Props) {
         title={`${serviceType} Flen - Professionell ${serviceDescription} i Flen | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Flen? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Flen. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} flen, ${serviceDescription} flen, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} flen, ${isStadfirma ? 'städning' : 'flytt'} flen`}
-        url={`https://smidigflytt.se/stader/flen${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/flen${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

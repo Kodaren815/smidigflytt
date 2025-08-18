@@ -95,7 +95,7 @@ export default async function LindesbergPage({ searchParams }: Props) {
         title={`${serviceType} Lindesberg - Professionell ${serviceDescription} i Lindesberg | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Lindesberg? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Lindesberg. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} lindesberg, ${serviceDescription} lindesberg, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} lindesberg, ${isStadfirma ? 'städning' : 'flytt'} lindesberg`}
-        url={`https://smidigflytt.se/stader/lindesberg${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/lindesberg${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

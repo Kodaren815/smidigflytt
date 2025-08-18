@@ -95,7 +95,7 @@ export default async function SkultunaPage({ searchParams }: Props) {
         title={`${serviceType} Skultuna - Professionell ${serviceDescription} i Skultuna | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Skultuna? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Skultuna. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} skultuna, ${serviceDescription} skultuna, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} skultuna, ${isStadfirma ? 'städning' : 'flytt'} skultuna`}
-        url={`https://smidigflytt.se/stader/skultuna${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/skultuna${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

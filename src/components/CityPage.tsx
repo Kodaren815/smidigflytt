@@ -419,7 +419,7 @@ export default function CityPage({ city }: CityPageProps) {
             "@type": "LocalBusiness",
             "name": `Smidigflytt - ${serviceTypeText} ${city.name}`,
             "description": `Professionell ${city.serviceType === 'städfirma' ? 'städservice' : 'flyttservice'} med RUT-avdrag och försäkring i ${city.name}`,
-            "url": `https://smidigflytt.se/stader/${city.name.toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/å/g, 'a').replace(/\s+/g, '-')}`,
+            "url": `https://smidigflytt365.se/stader/${city.name.toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/å/g, 'a').replace(/\s+/g, '-')}`,
             "telephone": "+46-10-544-05-77",
             "priceRange": "$$",
             "areaServed": {

@@ -90,7 +90,7 @@ export default async function MalmPage({ searchParams }: Props) {
         title={`${serviceType} Malmö - Professionell ${serviceDescription} i Malmö | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Malmö? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Malmö. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} malmo, ${serviceDescription} malmo, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} malmo, ${isStadfirma ? 'städning' : 'flytt'} malmo`}
-        url={`https://smidigflytt.se/stader/malmo${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/malmo${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

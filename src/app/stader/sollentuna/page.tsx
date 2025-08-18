@@ -96,7 +96,7 @@ export default async function SollentunaPage({ searchParams }: Props) {
         title={`${serviceType} Sollentuna - Professionell ${serviceDescription} i Sollentuna | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Sollentuna? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Sollentuna. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} sollentuna, ${serviceDescription} sollentuna, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} sollentuna, ${isStadfirma ? 'städning' : 'flytt'} sollentuna`}
-        url={`https://smidigflytt.se/stader/sollentuna${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/sollentuna${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

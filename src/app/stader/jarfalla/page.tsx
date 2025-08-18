@@ -96,7 +96,7 @@ export default async function JrfllaPage({ searchParams }: Props) {
         title={`${serviceType} Järfälla - Professionell ${serviceDescription} i Järfälla | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Järfälla? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Järfälla. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} jarfalla, ${serviceDescription} jarfalla, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} jarfalla, ${isStadfirma ? 'städning' : 'flytt'} jarfalla`}
-        url={`https://smidigflytt.se/stader/jarfalla${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/jarfalla${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

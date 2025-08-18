@@ -15,7 +15,7 @@ const faqData = [
       },
       {
         question: "Hur bokar jag era tjänster?",
-        answer: "Du kan boka våra tjänster på flera sätt: genom vårt onlineformulär, via telefon eller genom att skicka e-post till info@smidigflytt365.nu. Vi återkommer alltid inom 24 timmar med en offert."
+        answer: "Du kan boka våra tjänster på flera sätt: genom vårt onlineformulär, via telefon eller genom att skicka e-post till info@smidigflytt365.se. Vi återkommer alltid inom 24 timmar med en offert."
       },
       {
         question: "Är ni försäkrade?",

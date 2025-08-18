@@ -62,7 +62,7 @@ export default async function StockholmRegionPage({ searchParams }: Props) {
         title={`${serviceTitle} Stockholm - Professionell ${isStadfirma ? 'städservice' : 'flyttservice'} i Stockholms län | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceTitle.toLowerCase()} i Stockholm? Smidigflytt erbjuder trygg ${isStadfirma ? 'städservice' : 'flyttservice'}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Stockholms län. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceTitle.toLowerCase()} stockholm, ${isStadfirma ? 'städservice' : 'flyttservice'} stockholm, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} stockholm, ${isStadfirma ? 'städning' : 'flytt'} stockholm`}
-        url={`https://smidigflytt.se/stader/stockholm${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/stockholm${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <div className="min-h-screen bg-white">
       {/* Hero Section */}

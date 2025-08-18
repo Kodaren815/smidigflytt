@@ -95,7 +95,7 @@ export default async function NorbergPage({ searchParams }: Props) {
         title={`${serviceType} Norberg - Professionell ${serviceDescription} i Norberg | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Norberg? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Norberg. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} norberg, ${serviceDescription} norberg, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} norberg, ${isStadfirma ? 'städning' : 'flytt'} norberg`}
-        url={`https://smidigflytt.se/stader/norberg${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/norberg${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

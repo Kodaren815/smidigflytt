@@ -96,7 +96,7 @@ export default async function NynshamnPage({ searchParams }: Props) {
         title={`${serviceType} Nynäshamn - Professionell ${serviceDescription} i Nynäshamn | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Nynäshamn? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Nynäshamn. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} nynashamn, ${serviceDescription} nynashamn, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} nynashamn, ${isStadfirma ? 'städning' : 'flytt'} nynashamn`}
-        url={`https://smidigflytt.se/stader/nynashamn${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/nynashamn${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

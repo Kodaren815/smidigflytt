@@ -96,7 +96,7 @@ export default async function KatrineholmPage({ searchParams }: Props) {
         title={`${serviceType} Katrineholm - Professionell ${serviceDescription} i Katrineholm | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Katrineholm? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Katrineholm. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} katrineholm, ${serviceDescription} katrineholm, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} katrineholm, ${isStadfirma ? 'städning' : 'flytt'} katrineholm`}
-        url={`https://smidigflytt.se/stader/katrineholm${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/katrineholm${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

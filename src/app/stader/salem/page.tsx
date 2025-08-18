@@ -96,7 +96,7 @@ export default async function SalemPage({ searchParams }: Props) {
         title={`${serviceType} Salem - Professionell ${serviceDescription} i Salem | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Salem? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Salem. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} salem, ${serviceDescription} salem, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} salem, ${isStadfirma ? 'städning' : 'flytt'} salem`}
-        url={`https://smidigflytt.se/stader/salem${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/salem${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

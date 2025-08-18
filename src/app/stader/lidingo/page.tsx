@@ -96,7 +96,7 @@ export default async function LidingPage({ searchParams }: Props) {
         title={`${serviceType} Lidingö - Professionell ${serviceDescription} i Lidingö | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Lidingö? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Lidingö. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} lidingo, ${serviceDescription} lidingo, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} lidingo, ${isStadfirma ? 'städning' : 'flytt'} lidingo`}
-        url={`https://smidigflytt.se/stader/lidingo${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/lidingo${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

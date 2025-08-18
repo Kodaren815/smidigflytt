@@ -96,7 +96,7 @@ export default async function DanderydPage({ searchParams }: Props) {
         title={`${serviceType} Danderyd - Professionell ${serviceDescription} i Danderyd | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Danderyd? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Danderyd. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} danderyd, ${serviceDescription} danderyd, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} danderyd, ${isStadfirma ? 'städning' : 'flytt'} danderyd`}
-        url={`https://smidigflytt.se/stader/danderyd${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/danderyd${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

@@ -1,7 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { writeFile, readFile, mkdir } from 'fs/promises'
-import { existsSync } from 'fs'
-import path from 'path'
 
 interface ContactMessage {
   id: string
@@ -14,33 +11,26 @@ interface ContactMessage {
   message: string
 }
 
-const DATA_DIR = path.join(process.cwd(), 'data')
-const CONTACT_FILE = path.join(DATA_DIR, 'contacts.json')
-
-async function ensureDataDir() {
-  if (!existsSync(DATA_DIR)) {
-    await mkdir(DATA_DIR, { recursive: true })
-  }
-}
-
-async function readContactMessages(): Promise<ContactMessage[]> {
-  try {
-    if (!existsSync(CONTACT_FILE)) {
-      return []
-    }
-    const data = await readFile(CONTACT_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch (error) {
-    console.error('Error reading contact messages:', error)
-    return []
-  }
-}
+// In-memory storage for demo purposes (resets on each deployment)
+// In production, you would use a database like Vercel KV, PostgreSQL, or MongoDB
+const contacts: ContactMessage[] = []
 
 async function saveContactMessage(message: ContactMessage) {
-  await ensureDataDir()
-  const messages = await readContactMessages()
-  messages.unshift(message) // Add to beginning of array
-  await writeFile(CONTACT_FILE, JSON.stringify(messages, null, 2))
+  contacts.unshift(message) // Add to beginning of array
+  console.log('Contact message saved:', message.id, message.name, message.subject)
+}
+
+// GET method for admin access
+export async function GET() {
+  try {
+    return NextResponse.json(contacts)
+  } catch (error) {
+    console.error('Error fetching contacts:', error)
+    return NextResponse.json(
+      { error: 'Ett fel uppstod när kontaktmeddelandena skulle hämtas' },
+      { status: 500 }
+    )
+  }
 }
 
 export async function POST(request: NextRequest) {

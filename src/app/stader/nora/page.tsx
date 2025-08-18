@@ -95,7 +95,7 @@ export default async function NoraPage({ searchParams }: Props) {
         title={`${serviceType} Nora - Professionell ${serviceDescription} i Nora | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Nora? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Nora. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} nora, ${serviceDescription} nora, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} nora, ${isStadfirma ? 'städning' : 'flytt'} nora`}
-        url={`https://smidigflytt.se/stader/nora${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/nora${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

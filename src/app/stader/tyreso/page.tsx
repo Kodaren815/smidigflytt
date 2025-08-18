@@ -96,7 +96,7 @@ export default async function TyresPage({ searchParams }: Props) {
         title={`${serviceType} Tyresö - Professionell ${serviceDescription} i Tyresö | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Tyresö? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Tyresö. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} tyreso, ${serviceDescription} tyreso, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} tyreso, ${isStadfirma ? 'städning' : 'flytt'} tyreso`}
-        url={`https://smidigflytt.se/stader/tyreso${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/tyreso${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

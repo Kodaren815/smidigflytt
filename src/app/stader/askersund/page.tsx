@@ -96,7 +96,7 @@ export default async function AskersundPage({ searchParams }: Props) {
         title={`${serviceType} Askersund - Professionell ${serviceDescription} i Askersund | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Askersund? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Askersund. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} askersund, ${serviceDescription} askersund, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} askersund, ${isStadfirma ? 'städning' : 'flytt'} askersund`}
-        url={`https://smidigflytt.se/stader/askersund${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/askersund${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

@@ -90,7 +90,7 @@ export default async function rebroPage({ searchParams }: Props) {
         title={`${serviceType} Örebro - Professionell ${serviceDescription} i Örebro | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Örebro? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Örebro. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} orebro, ${serviceDescription} orebro, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} orebro, ${isStadfirma ? 'städning' : 'flytt'} orebro`}
-        url={`https://smidigflytt.se/stader/orebro${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/orebro${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

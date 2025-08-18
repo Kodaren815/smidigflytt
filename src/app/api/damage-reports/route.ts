@@ -1,7 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { writeFile, readFile, mkdir } from 'fs/promises'
-import { existsSync } from 'fs'
-import path from 'path'
 
 interface DamageReport {
   id: string
@@ -35,33 +32,26 @@ interface DamageReport {
   confirmed: boolean
 }
 
-const DATA_DIR = path.join(process.cwd(), 'data')
-const DAMAGE_REPORTS_FILE = path.join(DATA_DIR, 'damage-reports.json')
-
-async function ensureDataDir() {
-  if (!existsSync(DATA_DIR)) {
-    await mkdir(DATA_DIR, { recursive: true })
-  }
-}
-
-async function readDamageReports(): Promise<DamageReport[]> {
-  try {
-    if (!existsSync(DAMAGE_REPORTS_FILE)) {
-      return []
-    }
-    const data = await readFile(DAMAGE_REPORTS_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch (error) {
-    console.error('Error reading damage reports:', error)
-    return []
-  }
-}
+// In-memory storage for demo purposes (resets on each deployment)
+// In production, you would use a database like Vercel KV, PostgreSQL, or MongoDB
+const damageReports: DamageReport[] = []
 
 async function saveDamageReport(report: DamageReport) {
-  await ensureDataDir()
-  const reports = await readDamageReports()
-  reports.unshift(report) // Add to beginning of array
-  await writeFile(DAMAGE_REPORTS_FILE, JSON.stringify(reports, null, 2))
+  damageReports.unshift(report) // Add to beginning of array
+  console.log('Damage report saved:', report.id, report.fullName, report.damageDateTime)
+}
+
+// GET method for admin access
+export async function GET() {
+  try {
+    return NextResponse.json(damageReports)
+  } catch (error) {
+    console.error('Error fetching damage reports:', error)
+    return NextResponse.json(
+      { error: 'Ett fel uppstod när skaderapporterna skulle hämtas' },
+      { status: 500 }
+    )
+  }
 }
 
 export async function POST(request: NextRequest) {

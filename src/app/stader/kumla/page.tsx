@@ -95,7 +95,7 @@ export default async function KumlaPage({ searchParams }: Props) {
         title={`${serviceType} Kumla - Professionell ${serviceDescription} i Kumla | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Kumla? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Kumla. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} kumla, ${serviceDescription} kumla, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} kumla, ${isStadfirma ? 'städning' : 'flytt'} kumla`}
-        url={`https://smidigflytt.se/stader/kumla${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/kumla${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

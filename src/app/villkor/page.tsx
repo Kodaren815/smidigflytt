@@ -30,12 +30,14 @@ export default function VillkorPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-black mb-4">1. Allmänt</h2>
               <p className="text-gray-700 mb-4">
-                Dessa villkor gäller för alla tjänster som tillhandahålls av Smidigflytt. Genom att boka våra tjänster accepterar du dessa villkor.
+                Dessa villkor gäller för alla tjänster som tillhandahålls av Smidig Flytt 365 AB. Genom att boka våra tjänster accepterar du dessa villkor.
               </p>
               <div className="bg-gray-50 p-4 rounded-lg text-black">
                 <p><strong>Företagsuppgifter:</strong></p>
-                <p>Smidigflytt<br />
-                E-post: info@smidigflytt365.nu<br />
+                <p>Smidig Flytt 365 AB<br />
+                Org.nr: 559540-3337<br />
+                E-post: info@smidigflytt365.se<br />
+                Webbsida: www.smidigflytt365.se<br />
                 Telefon: Kommer snart</p>
               </div>
             </section>
@@ -184,7 +186,10 @@ export default function VillkorPage() {
               </p>
               <div className="text-black bg-smidig-lightgray p-6 rounded-lg">
                 <p><strong>Kontakta oss:</strong></p>
-                <p>E-post: info@smidigflytt365.nu<br />
+                <p>Smidig Flytt 365 AB<br />
+                Org.nr: 559540-3337<br />
+                E-post: info@smidigflytt365.se<br />
+                Webbsida: www.smidigflytt365.se<br />
                 Telefon: Kommer snart<br />
                 Öppettider: Måndag-Fredag 07:00-18:00</p>
               </div>

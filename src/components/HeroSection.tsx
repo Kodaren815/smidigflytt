@@ -13,21 +13,21 @@ export default function HeroSection() {
       badge: "Pålitlig flytttjänst i hela Mälardalen",
       title: "Din flytt blir",
       highlight: "Enkel & Bekymmersfri",
-      description: "Vi sköter allt från start till mål - packning, transport och upppackning. Fokusera på ditt nya kapitel medan vi tar hand om resten.",
+      description: "Vi gör din flytt enkel och bekymmersfri genom att sköta allt från start till mål - packning, transport och upppackning. Fokusera på ditt nya kapitel medan vi tar hand om resten.",
       image: "/hero-1.jpg"
     },
     {
       badge: "Expertis inom flyttstädning",
       title: "Städning som",
       highlight: "Överträffar Förväntningar",
-      description: "Professionell flyttstädning med garanti för godkänt resultat. Vi ser till att allt skinnar av renhet när vi är klara.",
+      description: "Professionell flyttstädning med garanti för godkänt resultat. Vi ser till att allt skinnar av renhet när vi är klara och gör din flytt bekymmersfri.",
       image: "/hero-2.jpg"
     },
     {
       badge: "Försäkrad och trygg hantering",
       title: "Service som du kan",
       highlight: "Förlita Dig På",
-      description: "Över tusen nöjda familjer har redan valt oss. Med komplett försäkring och professionell hantering är din flytt i trygga händer.",
+      description: "Över tusen nöjda familjer har redan valt oss. Med komplett försäkring och professionell hantering är din flytt både enkel och trygg.",
       image: "/hero-3.jpg"
     }
   ]

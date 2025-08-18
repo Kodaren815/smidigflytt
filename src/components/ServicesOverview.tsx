@@ -171,9 +171,9 @@ export default function ServicesOverview() {
           viewport={{ once: true }}
         >
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
-            <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">
+            <div className="text-2xl md:text-3xl font-bold text-black mb-4">
               Behöver du flera tjänster?
-            </h3>
+            </div>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
               Vi erbjuder paketlösningar som kombinerar flera tjänster för maximal bekvämlighet. 
               Kontakta oss för en skräddarsydd offert.

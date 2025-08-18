@@ -30,12 +30,14 @@ export default function IntegritetPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-black mb-4">1. Personuppgiftsansvarig</h2>
               <p className="text-gray-700 mb-4">
-                Smidigflytt är personuppgiftsansvarig för behandlingen av dina personuppgifter.
+                Smidig Flytt 365 AB är personuppgiftsansvarig för behandlingen av dina personuppgifter.
               </p>
               <div className="bg-gray-50 p-4 rounded-lg text-black">
                 <p><strong>Kontaktuppgifter:</strong></p>
-                <p>Smidigflytt<br />
+                <p>Smidig Flytt 365 AB<br />
+                Org.nr: 559540-3337<br />
                 E-post: info@smidigflytt365.se<br />
+                Webbsida: www.smidigflytt365.se<br />
                 Telefon: Kommer snart</p>
               </div>
             </section>
@@ -161,7 +163,10 @@ export default function IntegritetPage() {
               </p>
               <div className="text-black bg-smidig-lightgray p-6 rounded-lg">
                 <p><strong>Kontakta oss:</strong></p>
-                <p>E-post: info@smidigflytt365.se<br />
+                <p>Smidig Flytt 365 AB<br />
+                Org.nr: 559540-3337<br />
+                E-post: info@smidigflytt365.se<br />
+                Webbsida: www.smidigflytt365.se<br />
                 Telefon: Kommer snart</p>
               </div>
             </section>

@@ -96,7 +96,7 @@ export default async function EkerPage({ searchParams }: Props) {
         title={`${serviceType} Ekerö - Professionell ${serviceDescription} i Ekerö | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Ekerö? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Ekerö. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} ekero, ${serviceDescription} ekero, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} ekero, ${isStadfirma ? 'städning' : 'flytt'} ekero`}
-        url={`https://smidigflytt.se/stader/ekero${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/ekero${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

@@ -96,7 +96,7 @@ export default async function TbyPage({ searchParams }: Props) {
         title={`${serviceType} Täby - Professionell ${serviceDescription} i Täby | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Täby? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Täby. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} taby, ${serviceDescription} taby, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} taby, ${isStadfirma ? 'städning' : 'flytt'} taby`}
-        url={`https://smidigflytt.se/stader/taby${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/taby${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>

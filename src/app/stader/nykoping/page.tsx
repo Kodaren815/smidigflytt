@@ -96,7 +96,7 @@ export default async function NykpingPage({ searchParams }: Props) {
         title={`${serviceType} Nyköping - Professionell ${serviceDescription} i Nyköping | Smidigflytt`}
         description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Nyköping? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Nyköping. RUT-avdrag och försäkring ingår.`}
         keywords={`${serviceType.toLowerCase()} nykoping, ${serviceDescription} nykoping, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} nykoping, ${isStadfirma ? 'städning' : 'flytt'} nykoping`}
-        url={`https://smidigflytt.se/stader/nykoping${isStadfirma ? '?type=stadfirma' : ''}`}
+        url={`https://smidigflytt365.se/stader/nykoping${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <CityPage city={cityData} />
     </>
