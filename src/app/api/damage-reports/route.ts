@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { addMessage, getMessagesByType } from '@/lib/storage'
 
 interface DamageReport {
   id: string
@@ -32,18 +33,16 @@ interface DamageReport {
   confirmed: boolean
 }
 
-// In-memory storage for demo purposes (resets on each deployment)
-// In production, you would use a database like Vercel KV, PostgreSQL, or MongoDB
-const damageReports: DamageReport[] = []
-
 async function saveDamageReport(report: DamageReport) {
-  damageReports.unshift(report) // Add to beginning of array
+  // Type assertion to ensure compatibility with BaseMessage
+  addMessage(report as DamageReport & { [key: string]: unknown })
   console.log('Damage report saved:', report.id, report.fullName, report.damageDateTime)
 }
 
 // GET method for admin access
 export async function GET() {
   try {
+    const damageReports = getMessagesByType('damage-report')
     return NextResponse.json(damageReports)
   } catch (error) {
     console.error('Error fetching damage reports:', error)

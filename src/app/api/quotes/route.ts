@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { addMessage, getMessagesByType } from '@/lib/storage'
 
 interface QuoteRequest {
   id: string
@@ -35,18 +36,16 @@ interface QuoteRequest {
   extraInfo: string
 }
 
-// In-memory storage for demo purposes (resets on each deployment)
-// In production, you would use a database like Vercel KV, PostgreSQL, or MongoDB
-const quotes: QuoteRequest[] = []
-
 async function saveQuoteRequest(quote: QuoteRequest) {
-  quotes.unshift(quote) // Add to beginning of array
+  // Type assertion to ensure compatibility with BaseMessage
+  addMessage(quote as QuoteRequest & { [key: string]: unknown })
   console.log('Quote request saved:', quote.id, quote.name, quote.serviceType)
 }
 
 // GET method for admin access
 export async function GET() {
   try {
+    const quotes = getMessagesByType('quote')
     return NextResponse.json(quotes)
   } catch (error) {
     console.error('Error fetching quotes:', error)

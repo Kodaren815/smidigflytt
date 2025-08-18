@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { addMessage, getMessagesByType } from '@/lib/storage'
 
 interface ContactMessage {
   id: string
@@ -11,18 +12,16 @@ interface ContactMessage {
   message: string
 }
 
-// In-memory storage for demo purposes (resets on each deployment)
-// In production, you would use a database like Vercel KV, PostgreSQL, or MongoDB
-const contacts: ContactMessage[] = []
-
 async function saveContactMessage(message: ContactMessage) {
-  contacts.unshift(message) // Add to beginning of array
+  // Type assertion to ensure compatibility with BaseMessage
+  addMessage(message as ContactMessage & { [key: string]: unknown })
   console.log('Contact message saved:', message.id, message.name, message.subject)
 }
 
 // GET method for admin access
 export async function GET() {
   try {
+    const contacts = getMessagesByType('contact')
     return NextResponse.json(contacts)
   } catch (error) {
     console.error('Error fetching contacts:', error)
