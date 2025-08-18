@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -86,5 +87,18 @@ export default async function TrosaPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Trosa - Professionell ${serviceDescription} i Trosa | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Trosa? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Trosa. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} trosa, ${serviceDescription} trosa, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} trosa, ${isStadfirma ? 'städning' : 'flytt'} trosa`}
+        url={`https://smidigflytt.se/stader/trosa${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

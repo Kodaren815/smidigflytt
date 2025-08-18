@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -85,5 +86,18 @@ export default async function SurahammarPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Surahammar - Professionell ${serviceDescription} i Surahammar | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Surahammar? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Surahammar. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} surahammar, ${serviceDescription} surahammar, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} surahammar, ${isStadfirma ? 'städning' : 'flytt'} surahammar`}
+        url={`https://smidigflytt.se/stader/surahammar${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

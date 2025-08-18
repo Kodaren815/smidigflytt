@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -85,5 +86,18 @@ export default async function FlenPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Flen - Professionell ${serviceDescription} i Flen | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Flen? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Flen. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} flen, ${serviceDescription} flen, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} flen, ${isStadfirma ? 'städning' : 'flytt'} flen`}
+        url={`https://smidigflytt.se/stader/flen${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

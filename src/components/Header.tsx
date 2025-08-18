@@ -136,7 +136,7 @@ export default function Header() {
               Kommer snart
             </a>
             <a 
-              href="mailto:info@smidigflytt365.nu" 
+              href="mailto:info@smidigflytt365.se" 
               className="flex items-center transition-colors"
               style={{ color: 'white' }}
               onMouseEnter={(e) => {
@@ -147,7 +147,7 @@ export default function Header() {
               }}
             >
               <Mail size={14} className="mr-1.5" />
-              info@smidigflytt365.nu
+              info@smidigflytt365.se
             </a>
           </div>
           <div className="hidden sm:block">
@@ -174,14 +174,15 @@ export default function Header() {
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
                 <div className="flex items-center space-x-3">
-                  <div 
-                    className="w-12 h-12 rounded-xl flex items-center justify-center shadow-md"
-                    style={{ background: 'linear-gradient(135deg, #3361AC 0%, #E8C766 100%)' }}
-                  >
-                    <span className="text-white font-bold text-2xl">S</span>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-md overflow-hidden">
+                    <img 
+                      src="/logo.png" 
+                      alt="Smidig Flytt 365 Logo" 
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold" style={{ color: '#162F65' }}>Smidigflytt</div>
+                    <div className="text-2xl font-bold" style={{ color: '#162F65' }}>Smidig Flytt 365</div>
                     <div className="text-xs -mt-1" style={{ color: '#3361AC' }}>Din flyttpartner i Mälardalen</div>
                   </div>
                 </div>

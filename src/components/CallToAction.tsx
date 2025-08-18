@@ -91,10 +91,10 @@ export default function CallToAction() {
               Beskriv din flytt så återkommer vi inom 24 timmar
             </p>
             <a 
-              href="mailto:info@smidigflytt365.nu"
+              href="mailto:info@smidigflytt365.se"
               className="text-smidig-lightyellow font-semibold hover:text-white transition-colors"
             >
-              info@smidigflytt365.nu
+              info@smidigflytt365.se
             </a>
             <div className="text-sm text-gray-300 mt-2">
               Svarstid: Inom 24h

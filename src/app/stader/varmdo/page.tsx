@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -87,5 +88,18 @@ export default async function VrmdPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Värmdö - Professionell ${serviceDescription} i Värmdö | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Värmdö? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Värmdö. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} varmdo, ${serviceDescription} varmdo, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} varmdo, ${isStadfirma ? 'städning' : 'flytt'} varmdo`}
+        url={`https://smidigflytt.se/stader/varmdo${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

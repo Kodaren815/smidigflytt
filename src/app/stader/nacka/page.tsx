@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -86,5 +87,18 @@ export default async function NackaPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Nacka - Professionell ${serviceDescription} i Nacka | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Nacka? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Nacka. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} nacka, ${serviceDescription} nacka, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} nacka, ${isStadfirma ? 'städning' : 'flytt'} nacka`}
+        url={`https://smidigflytt.se/stader/nacka${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

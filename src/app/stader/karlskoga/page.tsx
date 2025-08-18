@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -85,5 +86,18 @@ export default async function KarlskogaPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Karlskoga - Professionell ${serviceDescription} i Karlskoga | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Karlskoga? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Karlskoga. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} karlskoga, ${serviceDescription} karlskoga, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} karlskoga, ${isStadfirma ? 'städning' : 'flytt'} karlskoga`}
+        url={`https://smidigflytt.se/stader/karlskoga${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

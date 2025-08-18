@@ -133,7 +133,7 @@ export default function HeroSection() {
                 <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               <Link
-                href="tel:+46-10-544-05-77"
+                href="/kontakt"
                 className="w-full bg-white/10 backdrop-blur-md text-white px-8 py-5 rounded-full text-lg font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center border border-white/20"
               >
                 <MessageCircle className="mr-2 h-5 w-5" />

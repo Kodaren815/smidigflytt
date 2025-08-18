@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -86,5 +87,18 @@ export default async function UpplandsVsbyPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Upplands-Vasby - Professionell ${serviceDescription} i Upplands-Vasby | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Upplands-Vasby? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Upplands-Vasby. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} upplands-vasby, ${serviceDescription} upplands-vasby, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} upplands-vasby, ${isStadfirma ? 'städning' : 'flytt'} upplands-vasby`}
+        url={`https://smidigflytt.se/stader/upplands-vasby${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

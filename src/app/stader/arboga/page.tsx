@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -84,5 +85,18 @@ export default async function ArbogaPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+  const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Arboga - Professionell ${serviceDescription} i Arboga | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Arboga? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Arboga. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} arboga, ${serviceDescription} arboga, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} arboga, ${isStadfirma ? 'städning' : 'flytt'} arboga`}
+        url={`https://smidigflytt.se/stader/arboga${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

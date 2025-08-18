@@ -95,8 +95,8 @@ export default function KontaktPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">E-post</h3>
-                    <a href="mailto:info@smidigflytt365.nu" className="text-lg text-smidig-blue hover:text-smidig-darkblue transition-colors">
-                      info@smidigflytt365.nu
+                    <a href="mailto:info@smidigflytt365.se" className="text-lg text-smidig-blue hover:text-smidig-darkblue transition-colors">
+                      info@smidigflytt365.se
                     </a>
                     <p className="text-gray-600 text-sm mt-1">För offertförfrågningar och frågor</p>
                   </div>
@@ -123,6 +123,22 @@ export default function KontaktPage() {
                       <p>Måndag - Fredag: 07:00 - 18:00</p>
                       <p>Lördag: 08:00 - 16:00</p>
                       <p>Söndag: 09:00 - 15:00</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-smidig-blue/10 rounded-full p-3">
+                    <svg className="h-6 w-6 text-smidig-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">Företagsinformation</h3>
+                    <div className="text-gray-700 space-y-1">
+                      <p><strong>Smidig Flytt 365 AB</strong></p>
+                      <p>Org.nr: 559540-3337</p>
+                      <p>Webbsida: <a href="https://www.smidigflytt365.se" className="text-smidig-blue hover:text-smidig-darkblue transition-colors">www.smidigflytt365.se</a></p>
                     </div>
                   </div>
                 </div>

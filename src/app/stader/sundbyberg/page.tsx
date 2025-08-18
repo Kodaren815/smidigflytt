@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -86,5 +87,18 @@ export default async function SundbybergPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Sundbyberg - Professionell ${serviceDescription} i Sundbyberg | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Sundbyberg? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Sundbyberg. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} sundbyberg, ${serviceDescription} sundbyberg, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} sundbyberg, ${isStadfirma ? 'städning' : 'flytt'} sundbyberg`}
+        url={`https://smidigflytt.se/stader/sundbyberg${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

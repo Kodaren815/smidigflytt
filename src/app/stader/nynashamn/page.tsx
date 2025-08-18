@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -86,5 +87,18 @@ export default async function NynshamnPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Nynäshamn - Professionell ${serviceDescription} i Nynäshamn | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Nynäshamn? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Nynäshamn. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} nynashamn, ${serviceDescription} nynashamn, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} nynashamn, ${isStadfirma ? 'städning' : 'flytt'} nynashamn`}
+        url={`https://smidigflytt.se/stader/nynashamn${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

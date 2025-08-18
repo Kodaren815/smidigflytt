@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -86,5 +87,18 @@ export default async function KatrineholmPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Katrineholm - Professionell ${serviceDescription} i Katrineholm | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Katrineholm? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Katrineholm. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} katrineholm, ${serviceDescription} katrineholm, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} katrineholm, ${isStadfirma ? 'städning' : 'flytt'} katrineholm`}
+        url={`https://smidigflytt.se/stader/katrineholm${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

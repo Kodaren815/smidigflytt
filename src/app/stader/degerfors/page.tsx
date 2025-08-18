@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -76,5 +77,18 @@ export default async function DegerforsPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Degerfors - Professionell ${serviceDescription} i Degerfors | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Degerfors? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Degerfors. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} degerfors, ${serviceDescription} degerfors, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} degerfors, ${isStadfirma ? 'städning' : 'flytt'} degerfors`}
+        url={`https://smidigflytt.se/stader/degerfors${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

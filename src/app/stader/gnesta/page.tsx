@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -85,5 +86,18 @@ export default async function GnestaPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Gnesta - Professionell ${serviceDescription} i Gnesta | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Gnesta? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Gnesta. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} gnesta, ${serviceDescription} gnesta, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} gnesta, ${isStadfirma ? 'städning' : 'flytt'} gnesta`}
+        url={`https://smidigflytt.se/stader/gnesta${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -85,5 +86,18 @@ export default async function TorshllaPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Torshalla - Professionell ${serviceDescription} i Torshalla | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Torshalla? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Torshalla. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} torshalla, ${serviceDescription} torshalla, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} torshalla, ${isStadfirma ? 'städning' : 'flytt'} torshalla`}
+        url={`https://smidigflytt.se/stader/torshalla${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

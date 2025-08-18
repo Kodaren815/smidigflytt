@@ -32,9 +32,9 @@ export default function SEO({ title, description, keywords, image, url }: SEOPro
       "@type": "LocalBusiness",
       "name": "Smidigflytt",
       "description": description,
-      "url": url || "https://smidigflytt365.nu",
+      "url": url || "https://smidigflytt365.se",
       "telephone": "+46-10-544-05-77",
-      "email": "info@smidigflytt365.nu",
+      "email": "info@smidigflytt365.se",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "SE"

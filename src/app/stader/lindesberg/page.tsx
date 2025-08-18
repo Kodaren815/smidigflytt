@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -85,5 +86,18 @@ export default async function LindesbergPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Lindesberg - Professionell ${serviceDescription} i Lindesberg | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Lindesberg? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Lindesberg. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} lindesberg, ${serviceDescription} lindesberg, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} lindesberg, ${isStadfirma ? 'städning' : 'flytt'} lindesberg`}
+        url={`https://smidigflytt.se/stader/lindesberg${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

@@ -48,35 +48,53 @@ export default function CityPage({ city }: CityPageProps) {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {serviceTypeText} i <span className="text-white">{city.name}</span>
             </h1>
-            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-              {serviceDescription}
+            <p className="text-xl text-gray-200 mb-6 max-w-4xl mx-auto leading-relaxed">
+              {serviceDescription} - <strong>RUT-avdrag och försäkring ingår</strong>
             </p>
+            
+            {/* SEO-focused benefit highlights */}
+            <div className="flex flex-wrap justify-center gap-4 mb-8 text-lg">
+              <span className="bg-white/20 px-4 py-2 rounded-full">✅ Fast pris utan dolda kostnader</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full">✅ RUT-avdrag - vi sköter allt</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full">✅ F-skattsedel & försäkring</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full">✅ Flexibla tider</span>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Link
                 href="/offert"
                 className="bg-gradient-cta text-black px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
-                Begär offert för {city.name}
+                Få Kostnadsfri Offert - {city.name}
               </Link>
               <a
                 href="tel:+46-10-544-05-77"
                 className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-all duration-300 border border-white/20"
               >
-                Ring oss: Kommer snart
+                Ring 010-544 05 77
               </a>
             </div>
 
-            {/* Trust indicators */}
-            <div className="flex items-center justify-center space-x-6 text-sm">
+            {/* Enhanced trust indicators */}
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
               <div className="flex items-center">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-yellow-500 text-yellow-200" />
                 ))}
                 <span className="ml-2">4.8/5 stjärnor</span>
               </div>
-              <div>🛡️ Försäkrade</div>
-              <div>💳 RUT-avdrag</div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                F-skattsedel & försäkring
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                RUT-avdrag ingår
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                Över 500 nöjda kunder
+              </div>
             </div>
           </motion.div>
         </div>
@@ -93,7 +111,10 @@ export default function CityPage({ city }: CityPageProps) {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-                {serviceTypeText} i {city.name} - Vi känner staden
+                {city.serviceType === 'städfirma' 
+                  ? `Professionell städfirma i ${city.name} - Därför väljer kunder oss`
+                  : `Professionell flyttfirma i ${city.name} - Därför väljer kunder oss`
+                }
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 {city.description}
@@ -103,13 +124,30 @@ export default function CityPage({ city }: CityPageProps) {
               </p>
               
               <div className="bg-gradient-primary rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">Professionell service</h3>
-                <p className="text-white/90">
+                <h3 className="text-xl font-bold mb-3">
                   {city.serviceType === 'städfirma' 
-                    ? `Städtjänster i ${city.name} med RUT-avdrag och försäkring`
-                    : `Flytthjälp i ${city.name} med RUT-avdrag och försäkring`
+                    ? `Varför välja vår städfirma i ${city.name}?`
+                    : `Varför välja vår flyttfirma i ${city.name}?`
                   }
-                </p>
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0" />
+                    <span>RUT-avdrag - vi sköter allt pappersarbete</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0" />
+                    <span>F-skattsedel och fullständig försäkring</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0" />
+                    <span>Fast pris utan dolda kostnader</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0" />
+                    <span>Flexibla tider - även kvällar och helger</span>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -121,7 +159,12 @@ export default function CityPage({ city }: CityPageProps) {
               className="mt-12 lg:mt-0"
             >
               <div className="bg-gradient-to-br from-gray-100 to-white rounded-3xl p-8">
-                <h3 className="text-xl font-bold text-black mb-6">Våra specialiteter i {city.name}:</h3>
+                <h3 className="text-xl font-bold text-black mb-6">
+                  {city.serviceType === 'städfirma' 
+                    ? `Våra städtjänster i ${city.name}:`
+                    : `Våra flytttjänster i ${city.name}:`
+                  }
+                </h3>
                 <div className="space-y-4">
                   {city.specialties.map((specialty, index) => (
                     <div key={index} className="flex items-start">
@@ -129,6 +172,19 @@ export default function CityPage({ city }: CityPageProps) {
                       <span className="text-gray-700">{specialty}</span>
                     </div>
                   ))}
+                </div>
+                
+                {/* Local SEO boost */}
+                <div className="mt-6 p-4 bg-blue-50 rounded-xl">
+                  <h4 className="font-semibold text-blue-900 mb-2">
+                    {city.serviceType === 'städfirma' 
+                      ? `Lokalt etablerad städfirma i ${city.name}`
+                      : `Lokalt etablerad flyttfirma i ${city.name}`
+                    }
+                  </h4>
+                  <p className="text-sm text-blue-800">
+                    Vi känner {city.name} och {city.region} väl och erbjuder snabb, pålitlig service till fast pris.
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -147,12 +203,15 @@ export default function CityPage({ city }: CityPageProps) {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Tjänster vi erbjuder i {city.name}
+              {city.serviceType === 'städfirma' 
+                ? `Våra städtjänster i ${city.name} - Med RUT-avdrag`
+                : `Våra flytttjänster i ${city.name} - Med RUT-avdrag`
+              }
             </h2>
-            <p className="text-xl text-white max-w-3xl mx-auto">
+            <p className="text-xl text-white max-w-4xl mx-auto">
               {city.serviceType === 'städfirma'
-                ? `Vi är din kompletta partner för alla städbehov i ${city.name}`
-                : `Vi är din kompletta partner för alla flyttbehov i ${city.name}`
+                ? `Professionell städservice i ${city.name} med försäkring och RUT-avdrag. Vi sköter allt från flyttstädning till hemstäd - alltid till fast pris.`
+                : `Professionell flyttservice i ${city.name} med försäkring och RUT-avdrag. Vi hanterar allt från packning till städning - alltid till fast pris.`
               }
             </p>
           </motion.div>
@@ -295,44 +354,6 @@ export default function CityPage({ city }: CityPageProps) {
         </div>
       </section>
 
-      {/* Areas Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-black text-3xl md:text-4xl font-bold text-blue-900 mb-6">
-              Områden vi täcker i {city.name}
-            </h2>
-            <p className="text-xl text-gray-600">
-              Vi är verksamma i hela {city.name} och omgivande områden
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-gray-100 to-white rounded-3xl p-8"
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-              {city.areas.map((area, index) => (
-                <div 
-                  key={index}
-                  className="text-black bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
-                >
-                  <span className="text-blue-900 font-medium">{area}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-primary text-white">
@@ -388,6 +409,62 @@ export default function CityPage({ city }: CityPageProps) {
           </motion.div>
         </div>
       </section>
+
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": `Smidigflytt - ${serviceTypeText} ${city.name}`,
+            "description": `Professionell ${city.serviceType === 'städfirma' ? 'städservice' : 'flyttservice'} med RUT-avdrag och försäkring i ${city.name}`,
+            "url": `https://smidigflytt.se/stader/${city.name.toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/å/g, 'a').replace(/\s+/g, '-')}`,
+            "telephone": "+46-10-544-05-77",
+            "priceRange": "$$",
+            "areaServed": {
+              "@type": "City",
+              "name": city.name,
+              "containedIn": {
+                "@type": "State",
+                "name": city.region
+              }
+            },
+            "serviceType": city.serviceType === 'städfirma' ? "Städservice" : "Flyttservice",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": `${serviceTypeText} tjänster`,
+              "itemListElement": city.services.map((service, index) => ({
+                "@type": "Offer",
+                "position": index + 1,
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": service,
+                  "description": `${service} i ${city.name} med RUT-avdrag`,
+                  "areaServed": {
+                    "@type": "City",
+                    "name": city.name
+                  }
+                }
+              }))
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": city.name,
+              "addressRegion": city.region,
+              "addressCountry": "SE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "127"
+            }
+          })
+        }}
+      />
     </div>
   )
 }

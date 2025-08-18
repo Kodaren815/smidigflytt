@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -77,5 +78,18 @@ export default async function BotkyrkaPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Botkyrka - Professionell ${serviceDescription} i Botkyrka | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Botkyrka? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Botkyrka. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} botkyrka, ${serviceDescription} botkyrka, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} botkyrka, ${isStadfirma ? 'städning' : 'flytt'} botkyrka`}
+        url={`https://smidigflytt.se/stader/botkyrka${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -87,5 +88,18 @@ export default async function HuddingePage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Huddinge - Professionell ${serviceDescription} i Huddinge | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Huddinge? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Huddinge. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} huddinge, ${serviceDescription} huddinge, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} huddinge, ${isStadfirma ? 'städning' : 'flytt'} huddinge`}
+        url={`https://smidigflytt.se/stader/huddinge${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

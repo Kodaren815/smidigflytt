@@ -35,7 +35,7 @@ export default function IntegritetPage() {
               <div className="bg-gray-50 p-4 rounded-lg text-black">
                 <p><strong>Kontaktuppgifter:</strong></p>
                 <p>Smidigflytt<br />
-                E-post: info@smidigflytt365.nu<br />
+                E-post: info@smidigflytt365.se<br />
                 Telefon: Kommer snart</p>
               </div>
             </section>
@@ -122,7 +122,7 @@ export default function IntegritetPage() {
                 <li><strong>Begränsning:</strong> Begära begränsad behandling</li>
               </ul>
               <p className="text-gray-700">
-                För att utöva dina rättigheter, kontakta oss på info@smidigflytt365.nu
+                För att utöva dina rättigheter, kontakta oss på info@smidigflytt365.se
               </p>
             </section>
 
@@ -161,7 +161,7 @@ export default function IntegritetPage() {
               </p>
               <div className="text-black bg-smidig-lightgray p-6 rounded-lg">
                 <p><strong>Kontakta oss:</strong></p>
-                <p>E-post: info@smidigflytt365.nu<br />
+                <p>E-post: info@smidigflytt365.se<br />
                 Telefon: Kommer snart</p>
               </div>
             </section>

@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -9,18 +10,57 @@ interface Props {
 export async function generateMetadata({ searchParams }: Props) {
   
   const resolvedSearchParams = await searchParams
-  const serviceType = resolvedSearchParams.type === 'stadfirma' ? 'Städfirma' : 'Flyttfirma'
-  const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
+  const isStadfirma = resolvedSearchParams.type === 'stadfirma'
+  const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+  
+  // Enhanced SEO metadata for Eskilstuna with targeted keywords
+  const seoData = isStadfirma ? {
+    title: `Städfirma Eskilstuna | Smidigflytt - RUT-avdrag & försäkrad städservice`,
+    description: `Professionell städfirma i Eskilstuna. RUT-avdrag, försäkring och fast pris. Hemstäd, kontorsstäd & flyttstädning i hela Eskilstuna. Få offert idag!`,
+    keywords: `städfirma eskilstuna, städhjälp eskilstuna, hemstäd eskilstuna, kontorsstäd eskilstuna, flyttstädning eskilstuna, RUT-avdrag städning eskilstuna, prisvärd städfirma södermanland, byggstädning eskilstuna`
+  } : {
+    title: `Flyttfirma Eskilstuna | Smidigflytt - Trygg flytt med RUT-avdrag`,
+    description: `Flyttfirma i Eskilstuna med försäkring och RUT-avdrag. Fast pris, packhjälp och flyttstädning. Billig och trygg flytthjälp i hela Eskilstuna. Få kostnadsfri offert!`,
+    keywords: `flyttfirma eskilstuna, flytthjälp eskilstuna, billig flyttfirma eskilstuna, RUT-avdrag flytt eskilstuna, bohagsflytt eskilstuna, packhjälp eskilstuna, flyttstädning eskilstuna, trygg flyttfirma södermanland`
+  }
   
   return {
-    title: `${serviceType} Eskilstuna - Professionell ${serviceDescription} i Eskilstuna | Smidigflytt`,
-    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Eskilstuna? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'}. RUT-avdrag och försäkring ingår.`,
-    keywords: `${serviceType.toLowerCase()} eskilstuna, ${serviceDescription} eskilstuna, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} eskilstuna, ${resolvedSearchParams.type === 'stadfirma' ? 'städning' : 'flytt'} eskilstuna`,
+    title: seoData.title,
+    description: seoData.description,
+    keywords: seoData.keywords,
     openGraph: {
-      title: `${serviceType} Eskilstuna - Professionell ${serviceDescription} i Eskilstuna | Smidigflytt`,
-      description: `Trygg ${serviceDescription} och service i Eskilstuna. RUT-avdrag och försäkring ingår.`,
+      title: seoData.title,
+      description: seoData.description,
       type: "website",
       locale: "sv_SE",
+      images: [
+        {
+          url: `/images/${isStadfirma ? 'stadfirma' : 'flyttfirma'}-eskilstuna.jpg`,
+          width: 1200,
+          height: 630,
+          alt: `${serviceType} Eskilstuna - Smidigflytt`
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seoData.title,
+      description: seoData.description,
+    },
+    alternates: {
+      canonical: `/stader/eskilstuna${isStadfirma ? '?type=stadfirma' : ''}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   }
 }
@@ -34,11 +74,11 @@ export default async function EskilstunaPage({ searchParams }: Props) {
     name: "Eskilstuna",
     region: "Södermanlands län",
     description: isStadfirma
-      ? "Eskilstuna är Södermanlands residensstad med rikt industriarv och modern utveckling. Vi erbjuder professionella städtjänster i hela Eskilstuna kommun."
-      : "Eskilstuna är Södermanlands residensstad med rikt industriarv och modern utveckling. Vi erbjuder professionella flyttjänster i hela Eskilstuna kommun.",
+      ? "Eskilstuna är Södermanlands residensstad med rikt industriarv och modern utveckling. Som etablerad städfirma i Eskilstuna erbjuder vi professionella städtjänster med RUT-avdrag och försäkring i hela Eskilstuna kommun. Vi levererar alltid trygg städservice till fast pris utan dolda kostnader."
+      : "Eskilstuna är Södermanlands residensstad med rikt industriarv och modern utveckling. Som etablerad flyttfirma i Eskilstuna erbjuder vi professionella flytttjänster med RUT-avdrag och försäkring i hela Eskilstuna kommun. Vi levererar alltid trygg flyttservice till fast pris utan dolda kostnader.",
     localInfo: isStadfirma
-      ? "I Eskilstuna täcker vi alla områden från centrala staden till omkringliggande orter. Vi har gedigen kunskap om stadens förutsättningar för städtjänster och erbjuder specialiserade lösningar."
-      : "I Eskilstuna täcker vi alla områden från centrala staden till omkringliggande orter. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har gedigen kunskap om stadens logistiska förutsättningar.",
+      ? "Som lokalt etablerad städfirma i Eskilstuna täcker vi alla områden från centrala staden till omkringliggande orter som Nyfors, Hällbybrunn och Skiftinge. Vi har gedigen kunskap om stadens olika bostadsområden och erbjuder specialiserad städservice med RUT-avdrag som gör att du får professionell hjälp till reducerat pris."
+      : "Som lokalt etablerad flyttfirma i Eskilstuna täcker vi alla områden från centrala staden till omkringliggande orter som Nyfors, Hällbybrunn och Skiftinge. Vi har gedigen kunskap om stadens logistiska förutsättningar och erbjuder flytthjälp med RUT-avdrag som gör att du får professionell service till reducerat pris.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",
@@ -75,5 +115,18 @@ export default async function EskilstunaPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Eskilstuna - Professionell ${serviceDescription} i Eskilstuna | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Eskilstuna? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Eskilstuna. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} eskilstuna, ${serviceDescription} eskilstuna, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} eskilstuna, ${isStadfirma ? 'städning' : 'flytt'} eskilstuna`}
+        url={`https://smidigflytt.se/stader/eskilstuna${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

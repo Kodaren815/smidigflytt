@@ -1,4 +1,5 @@
 import CityPage from '@/components/CityPage'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -86,5 +87,18 @@ export default async function StockholmPage({ searchParams }: Props) {
     serviceType: isStadfirma ? 'städfirma' as const : 'flyttfirma' as const
   }
 
-  return <CityPage city={cityData} />
+    const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+
+  return (
+    <>
+      <SEO
+        title={`${serviceType} Stockholm-Stad - Professionell ${serviceDescription} i Stockholm-Stad | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceType.toLowerCase()} i Stockholm-Stad? Smidigflytt erbjuder trygg ${serviceDescription}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Stockholm-Stad. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceType.toLowerCase()} stockholm-stad, ${serviceDescription} stockholm-stad, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} stockholm-stad, ${isStadfirma ? 'städning' : 'flytt'} stockholm-stad`}
+        url={`https://smidigflytt.se/stader/stockholm-stad${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <CityPage city={cityData} />
+    </>
+  )
 }

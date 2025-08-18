@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, ArrowRight, Truck, Sparkles } from 'lucide-react'
+import SEO from '@/components/SEO'
 
 interface Props {
   searchParams: Promise<{
@@ -56,7 +57,14 @@ export default async function StockholmRegionPage({ searchParams }: Props) {
   const isStadfirma = resolvedSearchParams.type === 'stadfirma'
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO
+        title={`${serviceTitle} Stockholm - Professionell ${isStadfirma ? 'städservice' : 'flyttservice'} i Stockholms län | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceTitle.toLowerCase()} i Stockholm? Smidigflytt erbjuder trygg ${isStadfirma ? 'städservice' : 'flyttservice'}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Stockholms län. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceTitle.toLowerCase()} stockholm, ${isStadfirma ? 'städservice' : 'flyttservice'} stockholm, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} stockholm, ${isStadfirma ? 'städning' : 'flytt'} stockholm`}
+        url={`https://smidigflytt.se/stader/stockholm${isStadfirma ? '?type=stadfirma' : ''}`}
+      />
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-orange-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -149,5 +157,6 @@ export default async function StockholmRegionPage({ searchParams }: Props) {
         </div>
       </section>
     </div>
+    </>
   )
 }
