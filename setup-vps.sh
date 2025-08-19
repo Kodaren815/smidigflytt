@@ -136,19 +136,15 @@ cd "$PROJECT_DIR"
 print_status "Project directory created at $PROJECT_DIR"
 
 # Clone or copy the repository
-if [ -d ".git" ]; then
+if [ -f "package.json" ]; then
+    print_status "Found project files in current directory!"
+elif [ -d ".git" ]; then
     print_step "Updating existing repository..."
     git pull origin main
 else
-    print_step "Initializing project files..."
-    # If running from within the project directory, copy files
-    if [ -f "$(dirname "$0")/package.json" ]; then
-        print_status "Copying project files from current directory..."
-        cp -r "$(dirname "$0")"/* .
-    else
-        print_error "Please run this script from within the SmidigFlytt project directory, or provide the source code."
-        exit 1
-    fi
+    print_error "No project files found! Please ensure you have uploaded all project files to /opt/smidigflytt"
+    print_error "Required files: package.json, Dockerfile, src/, docker-compose.vps.yml"
+    exit 1
 fi
 
 # Create data directory with proper permissions
