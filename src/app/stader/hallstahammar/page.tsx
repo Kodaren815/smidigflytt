@@ -38,8 +38,8 @@ export default async function HallstahammarPage({ searchParams }: Props) {
       ? "Hallstahammar är en tätort i Västmanland med närhet till både Västerås och natursköna Mälaren. Vi erbjuder professionella städtjänster i hela Hallstahammar kommun."
       : "Hallstahammar är en tätort i Västmanland med närhet till både Västerås och natursköna Mälaren. Vi erbjuder professionella flyttjänster i hela Hallstahammar kommun.",
     localInfo: isStadfirma
-      ? "I Hallstahammar täcker vi alla områden från centrala tätorten till omgivande byar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om lokalområdet."
-      : "I Hallstahammar täcker vi alla områden från centrala tätorten till omgivande byar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om lokalområdet.",
+      ? "I Hallstahammar täcker vi alla områden från centrala tätorten till omgivande byar. Vi hjälper ofta kunder i Kolbäck, Strömsholm och Kärrbo och har god kännedom om lokalområdet."
+      : "I Hallstahammar täcker vi alla områden från centrala tätorten till omgivande byar. Vi hjälper ofta kunder i Kolbäck, Strömsholm och Kärrbo och har god kännedom om lokalområdet.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

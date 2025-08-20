@@ -44,7 +44,7 @@ export default function TrustAndCredentials() {
               Godkänd för RUT-avdrag och F-skatteregistrerad för trygg hantering av dina ärenden.
             </p>
             <a 
-              href="https://www.skatteverket.se/privat/skatter/arbeteinkomstpension/rutavdragforreparationunderhallochskotsel.4.3684199413c956649b57c0a.html" 
+              href="https://www.skatteverket.se/privat/skatter/arbeteinkomstpension/rutavdrag.4.12fa2ce61594c38f24a80002975.html" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center text-green-600 hover:text-green-700 font-medium text-sm"
@@ -70,7 +70,7 @@ export default function TrustAndCredentials() {
               Vi följer branschens etiska riktlinjer och kvalitetsstandarder för professionella flyttfirmor.
             </p>
             <a 
-              href="https://www.konsumentverket.se/for-foretag/salja-varor-eller-tjanster/transport-och-flytt/" 
+              href="https://www.konsumentverket.se/foretag/salja-varor-och-tjanster/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm"
@@ -96,7 +96,7 @@ export default function TrustAndCredentials() {
               Omfattande ansvars- och transportförsäkring som skyddar dina tillhörigheter under hela flytten.
             </p>
             <a 
-              href="https://www.konsumenternas.se/konsumentstod/produkter-tjanster/flytta/vad-galler-vid-transportskada/" 
+              href="https://www.konsumentverket.se/konsument/konsumentstod/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium text-sm"

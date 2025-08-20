@@ -38,8 +38,8 @@ export default async function LindesbergPage({ searchParams }: Props) {
       ? "Lindesberg är en historisk bergslingsstad med rikt kulturarv och vacker bebyggelse. Vi erbjuder professionella städtjänster i hela Lindesberg kommun."
       : "Lindesberg är en historisk bergslingsstad med rikt kulturarv och vacker bebyggelse. Vi erbjuder professionella flyttjänster i hela Lindesberg kommun.",
     localInfo: isStadfirma
-      ? "I Lindesberg täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens historiska värden."
-      : "I Lindesberg täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens historiska värden.",
+      ? "I Lindesberg täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Frövi, Vedevåg och Ramsberg och respekterar stadens historiska värden."
+      : "I Lindesberg täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Frövi, Vedevåg och Ramsberg och respekterar stadens historiska värden.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

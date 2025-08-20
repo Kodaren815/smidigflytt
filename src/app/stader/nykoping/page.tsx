@@ -38,8 +38,8 @@ export default async function NykpingPage({ searchParams }: Props) {
       ? "Nyköping är en historisk stad vid Östersjökusten med charmig atmosfär och närhet till både Stockholm och Skavsta flygplats. Vi erbjuder professionella städtjänster i hela Nyköping kommun."
       : "Nyköping är en historisk stad vid Östersjökusten med charmig atmosfär och närhet till både Stockholm och Skavsta flygplats. Vi erbjuder professionella flyttjänster i hela Nyköping kommun.",
     localInfo: isStadfirma
-      ? "I Nyköping täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både kust- och inlandsmiljöer."
-      : "I Nyköping täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både kust- och inlandsmiljöer.",
+      ? "I Nyköping täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Stigtomta, Tystberga och Jönåker och har god kännedom om både kust- och inlandsmiljöer."
+      : "I Nyköping täcker vi alla områden från den medeltida stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Stigtomta, Tystberga och Jönåker och har god kännedom om både kust- och inlandsmiljöer.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

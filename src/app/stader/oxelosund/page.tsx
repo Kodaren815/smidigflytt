@@ -38,8 +38,8 @@ export default async function OxelsundPage({ searchParams }: Props) {
       ? "Oxelösund är en hamnstad vid Östersjön känd för sitt stålverk och maritima atmosfär. Vi erbjuder professionella städtjänster i hela Oxelösund kommun."
       : "Oxelösund är en hamnstad vid Östersjön känd för sitt stålverk och maritima atmosfär. Vi erbjuder professionella flyttjänster i hela Oxelösund kommun.",
     localInfo: isStadfirma
-      ? "I Oxelösund täcker vi alla områden från hamnområdet till bostadskvarter. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har erfarenhet av industriella miljöer och kustnära förhållanden."
-      : "I Oxelösund täcker vi alla områden från hamnområdet till bostadskvarter. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har erfarenhet av industriella miljöer och kustnära förhållanden.",
+      ? "I Oxelösund täcker vi alla områden från hamnområdet till bostadskvarter. Vi hjälper ofta kunder i Nyköpings kommun, Järna och Ålberga och har erfarenhet av industriella miljöer och kustnära förhållanden."
+      : "I Oxelösund täcker vi alla områden från hamnområdet till bostadskvarter. Vi hjälper ofta kunder i Nyköpings kommun, Järna och Ålberga och har erfarenhet av industriella miljöer och kustnära förhållanden.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

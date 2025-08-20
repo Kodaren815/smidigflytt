@@ -38,8 +38,8 @@ export default async function FlenPage({ searchParams }: Props) {
       ? "Flen är en tätort i Sörmlands inland med närhet till både natur och större städer. Vi erbjuder professionella städtjänster i hela Flen kommun."
       : "Flen är en tätort i Sörmlands inland med närhet till både natur och större städer. Vi erbjuder professionella flyttjänster i hela Flen kommun.",
     localInfo: isStadfirma
-      ? "I Flen täcker vi alla områden från centrala tätorten till omkringliggande landsbygd. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både urban och rural miljö."
-      : "I Flen täcker vi alla områden från centrala tätorten till omkringliggande landsbygd. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både urban och rural miljö.",
+      ? "I Flen täcker vi alla områden från centrala tätorten till omkringliggande landsbygd. Vi hjälper ofta kunder i Malmköping, Sparreholm och Hölö och har god kännedom om både urban och rural miljö."
+      : "I Flen täcker vi alla områden från centrala tätorten till omkringliggande landsbygd. Vi hjälper ofta kunder i Malmköping, Sparreholm och Hölö och har god kännedom om både urban och rural miljö.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

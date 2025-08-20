@@ -154,9 +154,9 @@ export default function PriceCalculator() {
               <Check className="h-8 w-8 md:h-10 md:w-10 text-white" />
             </div>
             
-            <h1 className="text-black text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">
+            <div className="text-black text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">
               Tack för din förfrågan!
-            </h1>
+            </div>
             
             <div className="bg-gray-100 rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
               <h3 className="font-bold text-blue-900 mb-3 md:mb-4 text-sm md:text-base">Sammanfattning av din förfrågan:</h3>
@@ -1032,7 +1032,7 @@ export default function PriceCalculator() {
         {/* Progress Bar */}
         <div className="mb-8 md:mb-12">
           <div className="flex justify-between items-center mb-4">
-            <h1 className="text-xl md:text-2xl font-bold text-white">Förfrågningsformulär</h1>
+            <div className="text-xl md:text-2xl font-bold text-white">Förfrågningsformulär</div>
             <span className="text-white/80 text-sm md:text-base">{currentStep + 1} av {totalSteps}</span>
           </div>
           <div className="w-full bg-white/20 rounded-full h-2 md:h-3">

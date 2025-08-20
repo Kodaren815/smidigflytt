@@ -25,7 +25,7 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   
   const regionName = regionNames[resolvedParams.region] || resolvedParams.region
   const isStadfirma = resolvedSearchParams.type === 'stadfirma'
-  const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
+  // const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
   
   // SEO-optimized titles and descriptions with targeted keywords
   const seoData = isStadfirma ? {

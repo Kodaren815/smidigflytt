@@ -222,11 +222,11 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="tel:+46-10-544-05-77"
+                href="/kontakt"
                 className="bg-gradient-cta text-smidig-darkblue px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center"
               >
                 <Phone className="mr-2 h-5 w-5" />
-                Ring oss direkt
+                Kontakta oss
               </a>
               <a 
                 href="/kontakt"

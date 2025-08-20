@@ -38,8 +38,8 @@ export default async function SurahammarPage({ searchParams }: Props) {
       ? "Surahammar är en charmig tätort i Västmanland med närhet till naturen och goda kommunikationer. Vi erbjuder professionella städtjänster i hela Surahammar kommun."
       : "Surahammar är en charmig tätort i Västmanland med närhet till naturen och goda kommunikationer. Vi erbjuder professionella flyttjänster i hela Surahammar kommun.",
     localInfo: isStadfirma
-      ? "I Surahammar täcker vi alla områden från centrala tätorten till omkringliggande byar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och känner väl till de lokala förhållandena."
-      : "I Surahammar täcker vi alla områden från centrala tätorten till omkringliggande byar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och känner väl till de lokala förhållandena.",
+      ? "I Surahammar täcker vi alla områden från centrala tätorten till omkringliggande byar. Vi hjälper ofta kunder i Ramnäs, Virsbo och Ängelsberg och känner väl till de lokala förhållandena."
+      : "I Surahammar täcker vi alla områden från centrala tätorten till omkringliggande byar. Vi hjälper ofta kunder i Ramnäs, Virsbo och Ängelsberg och känner väl till de lokala förhållandena.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

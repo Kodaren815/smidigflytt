@@ -38,8 +38,8 @@ export default async function KpingPage({ searchParams }: Props) {
       ? "Köping är en charmig stad i Västmanland med rikt historiskt arv och vacker natur vid Mälaren. Vi erbjuder professionella städtjänster i hela Köping kommun."
       : "Köping är en charmig stad i Västmanland med rikt historiskt arv och vacker natur vid Mälaren. Vi erbjuder professionella flyttjänster i hela Köping kommun.",
     localInfo: isStadfirma
-      ? "I Köping täcker vi alla områden från centrala staden till omgivande byar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och känner till de lokala förhållandena väl."
-      : "I Köping täcker vi alla områden från centrala staden till omgivande byar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och känner till de lokala förhållandena väl.",
+      ? "I Köping täcker vi alla områden från centrala staden till omgivande byar. Vi hjälper ofta kunder i Munktorp, Kolsva och Yxtaholm och känner till de lokala förhållandena väl."
+      : "I Köping täcker vi alla områden från centrala staden till omgivande byar. Vi hjälper ofta kunder i Munktorp, Kolsva och Yxtaholm och känner till de lokala förhållandena väl.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

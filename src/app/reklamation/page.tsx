@@ -160,9 +160,9 @@ export default function ReklamationPage() {
                 <Check className="h-10 w-10 text-white" />
               </div>
               
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Skadeanmälan mottagen
-              </h1>
+              </div>
               
               <p className="text-xl text-gray-600 mb-8">
                 Tack för din skadeanmälan. Vi har mottagit din anmälan och kommer att behandla den snarast möjligt. 

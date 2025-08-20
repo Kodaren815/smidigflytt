@@ -15,34 +15,34 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const serviceDescription = resolvedSearchParams.type === 'stadfirma' ? 'städtjänster' : 'flytthjälp'
 
   return {
-    title: `${serviceType} Västmanlands län - Professionell ${serviceDescription} | Smidigflytt`,
-    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Västmanlands län? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Västmanlands län. RUT-avdrag och försäkring ingår.`,
-    keywords: `${serviceType.toLowerCase()} västmanlands län, ${serviceDescription} västmanland, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} västmanland`,
+    title: `${serviceType} Södermanlands län - Professionell ${serviceDescription} | Smidigflytt`,
+    description: `Letar du efter en pålitlig ${serviceType.toLowerCase()} i Södermanlands län? Smidigflytt erbjuder trygg ${serviceDescription}, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Södermanlands län. RUT-avdrag och försäkring ingår.`,
+    keywords: `${serviceType.toLowerCase()} södermanlands län, ${serviceDescription} södermanland, ${resolvedSearchParams.type === 'stadfirma' ? 'hemstäd' : 'flyttstädning'} södermanland`,
     openGraph: {
-      title: `${serviceType} Västmanlands län - Professionell ${serviceDescription} | Smidigflytt`,
-      description: `Trygg ${serviceDescription} och service i Västmanlands län. RUT-avdrag och försäkring ingår.`,
+      title: `${serviceType} Södermanlands län - Professionell ${serviceDescription} | Smidigflytt`,
+      description: `Trygg ${serviceDescription} och service i Södermanlands län. RUT-avdrag och försäkring ingår.`,
       type: "website",
       locale: "sv_SE",
     },
   }
 }
 
-export default async function VastmanlandPage({ searchParams }: Props) {
+export default async function SodermanlandPage({ searchParams }: Props) {
   const resolvedSearchParams = await searchParams
 
-  const västmanlandRegion = {
-    name: 'Västmanlands län',
+  const södermanlandRegion = {
+    name: 'Södermanlands län',
     cities: [
-      { name: 'Västerås', slug: 'vasteras' },
-      { name: 'Arboga', slug: 'arboga' },
-      { name: 'Köping', slug: 'koping' },
-      { name: 'Sala', slug: 'sala' },
-      { name: 'Fagersta', slug: 'fagersta' },
-      { name: 'Surahammar', slug: 'surahammar' },
-      { name: 'Hallstahammar', slug: 'hallstahammar' },
-      { name: 'Norberg', slug: 'norberg' },
-      { name: 'Kungsor', slug: 'kungsor' },
-      { name: 'Skinnskatteberg', slug: 'skultuna' }
+      { name: 'Eskilstuna', slug: 'eskilstuna' },
+      { name: 'Katrineholm', slug: 'katrineholm' },
+      { name: 'Strängnäs', slug: 'strangnas' },
+      { name: 'Nyköping', slug: 'nykoping' },
+      { name: 'Oxelösund', slug: 'oxelosund' },
+      { name: 'Flen', slug: 'flen' },
+      { name: 'Gnesta', slug: 'gnesta' },
+      { name: 'Trosa', slug: 'trosa' },
+      { name: 'Nykvarn', slug: 'nykvarn' },
+      { name: 'Torshälla', slug: 'torshalla' }
     ]
   }
 
@@ -53,10 +53,10 @@ export default async function VastmanlandPage({ searchParams }: Props) {
   return (
     <>
       <SEO
-        title={`${serviceTitle} Västmanlands län - Professionell ${isStadfirma ? 'städservice' : 'flyttservice'} | Smidigflytt`}
-        description={`Letar du efter en pålitlig ${serviceTitle.toLowerCase()} i Västmanlands län? Smidigflytt erbjuder trygg ${isStadfirma ? 'städservice' : 'flyttservice'}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Västmanlands län. RUT-avdrag och försäkring ingår.`}
-        keywords={`${serviceTitle.toLowerCase()} västmanlands län, ${isStadfirma ? 'städservice' : 'flyttservice'} västmanland, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} västmanland`}
-        url={`https://smidigflytt365.se/stader/vastmanland${isStadfirma ? '?type=stadfirma' : ''}`}
+        title={`${serviceTitle} Södermanlands län - Professionell ${isStadfirma ? 'städservice' : 'flyttservice'} | Smidigflytt`}
+        description={`Letar du efter en pålitlig ${serviceTitle.toLowerCase()} i Södermanlands län? Smidigflytt erbjuder trygg ${isStadfirma ? 'städservice' : 'flyttservice'}, ${isStadfirma ? 'hemstäd och kontorsstäd' : 'flyttstädning och magasinering'} i hela Södermanlands län. RUT-avdrag och försäkring ingår.`}
+        keywords={`${serviceTitle.toLowerCase()} södermanlands län, ${isStadfirma ? 'städservice' : 'flyttservice'} södermanland, ${isStadfirma ? 'hemstäd' : 'flyttstädning'} södermanland`}
+        url={`https://smidigflytt365.se/stader/sodermanland${isStadfirma ? '?type=stadfirma' : ''}`}
       />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
@@ -65,11 +65,11 @@ export default async function VastmanlandPage({ searchParams }: Props) {
             <div className="text-center">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium mb-6">
                 <MapPin className="h-4 w-4 mr-2" />
-                {västmanlandRegion.name}
+                {södermanlandRegion.name}
               </div>
               
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                {serviceTitle} i {västmanlandRegion.name}
+                {serviceTitle} i {södermanlandRegion.name}
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
                 Välj din stad för professionell {isStadfirma ? 'städservice' : 'flyttservice'}
@@ -87,7 +87,7 @@ export default async function VastmanlandPage({ searchParams }: Props) {
                 {serviceTitle}
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
-                {isStadfirma ? 'Städfirma' : 'Flyttfirma'} i {västmanlandRegion.name} - Välj din stad
+                {isStadfirma ? 'Städfirma' : 'Flyttfirma'} i {södermanlandRegion.name} - Välj din stad
               </h2>
               <p className="text-xl text-gray-600 mb-8">
                 Vi erbjuder {isStadfirma ? 'professionell städservice' : 'trygg flyttservice'} med RUT-avdrag i följande städer
@@ -95,7 +95,7 @@ export default async function VastmanlandPage({ searchParams }: Props) {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {västmanlandRegion.cities.map((city) => (
+              {södermanlandRegion.cities.map((city) => (
                 <Link
                   key={city.slug}
                   href={`/stader/${city.slug}${isStadfirma ? '?type=stadfirma' : ''}`}
@@ -123,7 +123,7 @@ export default async function VastmanlandPage({ searchParams }: Props) {
         <section className="py-20 bg-gradient-to-br from-gray-100 to-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6">
-              {isStadfirma ? 'Behöver du städhjälp' : 'Behöver du flytthjälp'} i {västmanlandRegion.name}?
+              {isStadfirma ? 'Behöver du städhjälp' : 'Behöver du flytthjälp'} i {södermanlandRegion.name}?
             </h2>
             <p className="text-xl text-gray-600 mb-8">
               {isStadfirma 
@@ -149,19 +149,19 @@ export default async function VastmanlandPage({ searchParams }: Props) {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Smidigflytt",
-              "description": `Professionell ${isStadfirma ? 'städservice' : 'flyttservice'} med RUT-avdrag och försäkring i ${västmanlandRegion.name}`,
-              "url": `https://smidigflytt365.se/stader/vastmanland${isStadfirma ? '?type=stadfirma' : ''}`,
+              "description": `Professionell ${isStadfirma ? 'städservice' : 'flyttservice'} med RUT-avdrag och försäkring i ${södermanlandRegion.name}`,
+              "url": `https://smidigflytt365.se/stader/sodermanland${isStadfirma ? '?type=stadfirma' : ''}`,
               "telephone": "+46-10-544-05-77",
               "priceRange": "$$",
               "areaServed": {
                 "@type": "State",
-                "name": västmanlandRegion.name
+                "name": södermanlandRegion.name
               },
               "serviceType": isStadfirma ? "Städservice" : "Flyttservice",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": `${serviceTitle} tjänster`,
-                "itemListElement": västmanlandRegion.cities.map(city => ({
+                "itemListElement": södermanlandRegion.cities.map(city => ({
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",

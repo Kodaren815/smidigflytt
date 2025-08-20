@@ -38,8 +38,8 @@ export default async function KarlskogaPage({ searchParams }: Props) {
       ? "Karlskoga är känt för sitt industriarv och Alfred Nobels koppling till staden. Vi erbjuder professionella städtjänster i hela Karlskoga kommun."
       : "Karlskoga är känt för sitt industriarv och Alfred Nobels koppling till staden. Vi erbjuder professionella flyttjänster i hela Karlskoga kommun.",
     localInfo: isStadfirma
-      ? "I Karlskoga täcker vi alla områden från industrikvarteren till bostadsområden vid sjöarna. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både industri- och naturmiljöer."
-      : "I Karlskoga täcker vi alla områden från industrikvarteren till bostadsområden vid sjöarna. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både industri- och naturmiljöer.",
+      ? "I Karlskoga täcker vi alla områden från industrikvarteren till bostadsområden vid sjöarna. Vi hjälper ofta kunder i Degerfors, Laxå och Kristinehamn och har god kännedom om både industri- och naturmiljöer."
+      : "I Karlskoga täcker vi alla områden från industrikvarteren till bostadsområden vid sjöarna. Vi hjälper ofta kunder i Degerfors, Laxå och Kristinehamn och har god kännedom om både industri- och naturmiljöer.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

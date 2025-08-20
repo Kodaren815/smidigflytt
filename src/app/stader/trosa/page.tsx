@@ -38,8 +38,8 @@ export default async function TrosaPage({ searchParams }: Props) {
       ? "Trosa är en pittoresk kuststad känd som 'Sveriges minsta stad' med charmig träbebyggelse och maritim atmosfär. Vi erbjuder professionella städtjänster i hela Trosa kommun."
       : "Trosa är en pittoresk kuststad känd som 'Sveriges minsta stad' med charmig träbebyggelse och maritim atmosfär. Vi erbjuder professionella flyttjänster i hela Trosa kommun.",
     localInfo: isStadfirma
-      ? "I Trosa täcker vi alla områden från den idylliska trästaden till skärgårdsmiljöer. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har särskild erfarenhet av kustnära och kulturhistoriska miljöer."
-      : "I Trosa täcker vi alla områden från den idylliska trästaden till skärgårdsmiljöer. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har särskild erfarenhet av kustnära och kulturhistoriska miljöer.",
+      ? "I Trosa täcker vi alla områden från den idylliska trästaden till skärgårdsmiljöer. Vi hjälper ofta kunder i Vagnhärad, Tullgarn och Tystberga och har särskild erfarenhet av kustnära och kulturhistoriska miljöer."
+      : "I Trosa täcker vi alla områden från den idylliska trästaden till skärgårdsmiljöer. Vi hjälper ofta kunder i Vagnhärad, Tullgarn och Tystberga och har särskild erfarenhet av kustnära och kulturhistoriska miljöer.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

@@ -5,7 +5,7 @@ services:
     build: .
     container_name: smidigflytt-app
     ports:
-      - "3001:3000"  # Using port 3001 to avoid conflicts with existing services
+      - "3000:3000"  # Run on port 3000 for both host and container
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1

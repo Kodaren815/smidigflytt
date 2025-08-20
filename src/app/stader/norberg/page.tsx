@@ -38,8 +38,8 @@ export default async function NorbergPage({ searchParams }: Props) {
       ? "Norberg är en historisk gruvstad med rikt kulturarv och vacker bergslandskap. Vi erbjuder professionella städtjänster i hela Norberg kommun."
       : "Norberg är en historisk gruvstad med rikt kulturarv och vacker bergslandskap. Vi erbjuder professionella flyttjänster i hela Norberg kommun.",
     localInfo: isStadfirma
-      ? "I Norberg täcker vi alla områden från den historiska stadskärnan till omgivande bergsbyar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens industrihistoriska arv."
-      : "I Norberg täcker vi alla områden från den historiska stadskärnan till omgivande bergsbyar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens industrihistoriska arv.",
+      ? "I Norberg täcker vi alla områden från den historiska stadskärnan till omgivande bergsbyar. Vi hjälper ofta kunder i Ängelsberg, Kärrgruvan och Rödgavel och respekterar stadens industrihistoriska arv."
+      : "I Norberg täcker vi alla områden från den historiska stadskärnan till omgivande bergsbyar. Vi hjälper ofta kunder i Ängelsberg, Kärrgruvan och Rödgavel och respekterar stadens industrihistoriska arv.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

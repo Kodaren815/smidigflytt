@@ -38,8 +38,8 @@ export default async function SkultunaPage({ searchParams }: Props) {
       ? "Skultuna är känt för sin traditionella mässingsbruk och hantverkstradition. Vi erbjuder professionella städtjänster i hela Skultuna med respekt för stadens kulturarv."
       : "Skultuna är känt för sin traditionella mässingsbruk och hantverkstradition. Vi erbjuder professionella flyttjänster i hela Skultuna med respekt för stadens kulturarv.",
     localInfo: isStadfirma
-      ? "I Skultuna täcker vi alla områden från den historiska bruksmiljön till moderna bostadskvarter. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens hantverkstraditioner."
-      : "I Skultuna täcker vi alla områden från den historiska bruksmiljön till moderna bostadskvarter. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens hantverkstraditioner.",
+      ? "I Skultuna täcker vi alla områden från den historiska bruksmiljön till moderna bostadskvarter. Vi hjälper ofta kunder i Västerås, Dingtuna och Tillberga och uppskattar stadens hantverkstraditioner."
+      : "I Skultuna täcker vi alla områden från den historiska bruksmiljön till moderna bostadskvarter. Vi hjälper ofta kunder i Västerås, Dingtuna och Tillberga och uppskattar stadens hantverkstraditioner.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

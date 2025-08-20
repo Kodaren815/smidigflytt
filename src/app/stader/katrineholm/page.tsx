@@ -38,8 +38,8 @@ export default async function KatrineholmPage({ searchParams }: Props) {
       ? "Katrineholm är en järnvägsknut med rik historia och strategiskt läge i Sörmland. Vi erbjuder professionella städtjänster i hela Katrineholm kommun."
       : "Katrineholm är en järnvägsknut med rik historia och strategiskt läge i Sörmland. Vi erbjuder professionella flyttjänster i hela Katrineholm kommun.",
     localInfo: isStadfirma
-      ? "I Katrineholm täcker vi alla områden från järnvägsstaden till omgivande landsbygd. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kunskap om logistik tack vare stadens järnvägshistoria."
-      : "I Katrineholm täcker vi alla områden från järnvägsstaden till omgivande landsbygd. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kunskap om logistik tack vare stadens järnvägshistoria.",
+      ? "I Katrineholm täcker vi alla områden från järnvägsstaden till omgivande landsbygd. Vi hjälper ofta kunder i Valla, Bie och Duvbo och har god kunskap om logistik tack vare stadens järnvägshistoria."
+      : "I Katrineholm täcker vi alla områden från järnvägsstaden till omgivande landsbygd. Vi hjälper ofta kunder i Valla, Bie och Duvbo och har god kunskap om logistik tack vare stadens järnvägshistoria.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

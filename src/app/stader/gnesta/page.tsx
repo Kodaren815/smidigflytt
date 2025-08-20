@@ -38,8 +38,8 @@ export default async function GnestaPage({ searchParams }: Props) {
       ? "Gnesta är en mindre kommun i Sörmland med vacker natur och lugn atmosfär. Vi erbjuder professionella städtjänster i hela Gnesta kommun."
       : "Gnesta är en mindre kommun i Sörmland med vacker natur och lugn atmosfär. Vi erbjuder professionella flyttjänster i hela Gnesta kommun.",
     localInfo: isStadfirma
-      ? "I Gnesta täcker vi alla områden från tätorten till de vackra naturområdena. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar den naturnära miljön och den personliga servicen."
-      : "I Gnesta täcker vi alla områden från tätorten till de vackra naturområdena. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar den naturnära miljön och den personliga servicen.",
+      ? "I Gnesta täcker vi alla områden från tätorten till de vackra naturområdena. Vi hjälper ofta kunder i Järna, Årdala och Björnlunda och uppskattar den naturnära miljön och den personliga servicen."
+      : "I Gnesta täcker vi alla områden från tätorten till de vackra naturområdena. Vi hjälper ofta kunder i Järna, Årdala och Björnlunda och uppskattar den naturnära miljön och den personliga servicen.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

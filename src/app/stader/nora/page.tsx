@@ -38,8 +38,8 @@ export default async function NoraPage({ searchParams }: Props) {
       ? "Nora är en välbevarad trästad med charmig småstadskänsla och rikt kulturarv. Vi erbjuder professionella städtjänster i hela Nora kommun."
       : "Nora är en välbevarad trästad med charmig småstadskänsla och rikt kulturarv. Vi erbjuder professionella flyttjänster i hela Nora kommun.",
     localInfo: isStadfirma
-      ? "I Nora täcker vi alla områden från den bevarade trästadsmiljön till omgivande naturområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens kulturhistoriska värden."
-      : "I Nora täcker vi alla områden från den bevarade trästadsmiljön till omgivande naturområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens kulturhistoriska värden.",
+      ? "I Nora täcker vi alla områden från den bevarade trästadsmiljön till omgivande naturområden. Vi hjälper ofta kunder i Pershyttan, Gyttorp och Järnboås och uppskattar stadens kulturhistoriska värden."
+      : "I Nora täcker vi alla områden från den bevarade trästadsmiljön till omgivande naturområden. Vi hjälper ofta kunder i Pershyttan, Gyttorp och Järnboås och uppskattar stadens kulturhistoriska värden.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

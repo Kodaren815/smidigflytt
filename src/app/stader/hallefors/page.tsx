@@ -38,8 +38,8 @@ export default async function HlleforsPage({ searchParams }: Props) {
       ? "Hällefors är en skogskommun i Bergslagen med närhet till vildmark och naturupplevelser. Vi erbjuder professionella städtjänster i hela Hällefors kommun."
       : "Hällefors är en skogskommun i Bergslagen med närhet till vildmark och naturupplevelser. Vi erbjuder professionella flyttjänster i hela Hällefors kommun.",
     localInfo: isStadfirma
-      ? "I Hällefors täcker vi alla områden från tätorten till avlägsna skogsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har erfarenhet av både urban och glesbygdsmiljö."
-      : "I Hällefors täcker vi alla områden från tätorten till avlägsna skogsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har erfarenhet av både urban och glesbygdsmiljö.",
+      ? "I Hällefors täcker vi alla områden från tätorten till avlägsna skogsområden. Vi hjälper ofta kunder i Grythyttan, Hjulsjö och Rödålund och har erfarenhet av både urban och glesbygdsmiljö."
+      : "I Hällefors täcker vi alla områden från tätorten till avlägsna skogsområden. Vi hjälper ofta kunder i Grythyttan, Hjulsjö och Rödålund och har erfarenhet av både urban och glesbygdsmiljö.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

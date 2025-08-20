@@ -38,8 +38,8 @@ export default async function TorshllaPage({ searchParams }: Props) {
       ? "Torshälla är en historisk handelsstad vid Eskilstunaån med charmig småstadskänsla. Vi erbjuder professionella städtjänster i hela Torshälla och omgivning."
       : "Torshälla är en historisk handelsstad vid Eskilstunaån med charmig småstadskänsla. Vi erbjuder professionella flyttjänster i hela Torshälla och omgivning.",
     localInfo: isStadfirma
-      ? "I Torshälla täcker vi alla områden från den gamla handelsstaden till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens historiska charm."
-      : "I Torshälla täcker vi alla områden från den gamla handelsstaden till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar stadens historiska charm.",
+      ? "I Torshälla täcker vi alla områden från den gamla handelsstaden till moderna bostadsområden. Vi hjälper ofta kunder i Eskilstuna centrum, Vilsta och Kjula och uppskattar stadens historiska charm."
+      : "I Torshälla täcker vi alla områden från den gamla handelsstaden till moderna bostadsområden. Vi hjälper ofta kunder i Eskilstuna centrum, Vilsta och Kjula och uppskattar stadens historiska charm.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

@@ -37,8 +37,8 @@ export default async function DegerforsPage({ searchParams }: Props) {
       ? "Degerfors är en industrikommun med stolt stålbruks- och ishockeytradition. Vi erbjuder professionella städtjänster i hela Degerfors kommun."
       : "Degerfors är en industrikommun med stolt stålbruks- och ishockeytradition. Vi erbjuder professionella flyttjänster i hela Degerfors kommun.",
     localInfo: isStadfirma
-      ? "I Degerfors täcker vi alla områden från industriområdena till bostadskvarteren. Vi har erfarenhet av städning i industriella miljöer och specialiserad städning för småstadsatmosfär."
-      : "I Degerfors täcker vi alla områden från industriområdena till bostadskvarteren. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har erfarenhet av industriella miljöer och småstadsatmosfär.",
+      ? "I Degerfors täcker vi alla områden från industriområdena till bostadskvarteren. Vi hjälper ofta kunder i Karlskoga kommun och har erfarenhet av industriella miljöer och småstadsatmosfär."
+      : "I Degerfors täcker vi alla områden från industriområdena till bostadskvarteren. Vi hjälper ofta kunder i Karlskoga kommun och har erfarenhet av industriella miljöer och småstadsatmosfär.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

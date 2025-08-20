@@ -38,8 +38,8 @@ export default async function SalaPage({ searchParams }: Props) {
       ? "Sala är känt för sitt silvergruv-arv och vackra kulturmiljöer. Vi erbjuder professionella städtjänster i hela Sala kommun med fokus på personlig service."
       : "Sala är känt för sitt silvergruv-arv och vackra kulturmiljöer. Vi erbjuder professionella flyttjänster i hela Sala kommun med fokus på personlig service.",
     localInfo: isStadfirma
-      ? "I Sala täcker vi alla områden från centrala staden till de pittoreska byarna i kommunen. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både äldre och moderna bostadsområden."
-      : "I Sala täcker vi alla områden från centrala staden till de pittoreska byarna i kommunen. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både äldre och moderna bostadsområden.",
+      ? "I Sala täcker vi alla områden från centrala staden till de pittoreska byarna i kommunen. Vi hjälper ofta kunder i Möklinta, Västerfärnebo och Heby och har god kännedom om både äldre och moderna bostadsområden."
+      : "I Sala täcker vi alla områden från centrala staden till de pittoreska byarna i kommunen. Vi hjälper ofta kunder i Möklinta, Västerfärnebo och Heby och har god kännedom om både äldre och moderna bostadsområden.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

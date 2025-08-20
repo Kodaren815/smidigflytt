@@ -2,5 +2,63 @@
   "version": 2,
   "env": {
     "NEXT_TELEMETRY_DISABLED": "1"
-  }
+  },
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "smidigflytt365.se"
+        }
+      ],
+      "destination": "https://www.smidigflytt365.se/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "smidigflytt.se"
+        }
+      ],
+      "destination": "https://www.smidigflytt365.se/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.smidigflytt.se"
+        }
+      ],
+      "destination": "https://www.smidigflytt365.se/$1", 
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
 }

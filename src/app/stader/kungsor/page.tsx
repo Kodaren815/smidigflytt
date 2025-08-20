@@ -38,8 +38,8 @@ export default async function KungsrPage({ searchParams }: Props) {
       ? "Kungsör är en pittoresk tätort vid Mälaren med vacker natur och lugn atmosfär. Vi erbjuder professionella städtjänster i hela Kungsör kommun."
       : "Kungsör är en pittoresk tätort vid Mälaren med vacker natur och lugn atmosfär. Vi erbjuder professionella flyttjänster i hela Kungsör kommun.",
     localInfo: isStadfirma
-      ? "I Kungsör täcker vi alla områden från centrala tätorten till vackra Mälarområdena. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar den naturnära miljön."
-      : "I Kungsör täcker vi alla områden från centrala tätorten till vackra Mälarområdena. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och uppskattar den naturnära miljön.",
+      ? "I Kungsör täcker vi alla områden från centrala tätorten till vackra Mälarområdena. Vi hjälper ofta kunder i Valdemarsvik, Ärla och Tortuna och uppskattar den naturnära miljön."
+      : "I Kungsör täcker vi alla områden från centrala tätorten till vackra Mälarområdena. Vi hjälper ofta kunder i Valdemarsvik, Ärla och Tortuna och uppskattar den naturnära miljön.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

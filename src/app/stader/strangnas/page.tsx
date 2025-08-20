@@ -38,8 +38,8 @@ export default async function StrngnsPage({ searchParams }: Props) {
       ? "Strängnäs är en historisk domkyrkostad vid Mälaren med vacker arkitektur och kulturarv. Vi erbjuder professionella städtjänster i hela Strängnäs kommun."
       : "Strängnäs är en historisk domkyrkostad vid Mälaren med vacker arkitektur och kulturarv. Vi erbjuder professionella flyttjänster i hela Strängnäs kommun.",
     localInfo: isStadfirma
-      ? "I Strängnäs täcker vi alla områden från den medeltida domkyrkan till moderna Mälarområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens kulturhistoriska värden."
-      : "I Strängnäs täcker vi alla områden från den medeltida domkyrkan till moderna Mälarområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens kulturhistoriska värden.",
+      ? "I Strängnäs täcker vi alla områden från den medeltida domkyrkan till moderna Mälarområden. Vi hjälper ofta kunder i Mariefred, Åkers styckebruk och Stallarholmen och respekterar stadens kulturhistoriska värden."
+      : "I Strängnäs täcker vi alla områden från den medeltida domkyrkan till moderna Mälarområden. Vi hjälper ofta kunder i Mariefred, Åkers styckebruk och Stallarholmen och respekterar stadens kulturhistoriska värden.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

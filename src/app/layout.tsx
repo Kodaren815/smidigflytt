@@ -1,13 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.smidigflytt.se'),
+  metadataBase: new URL('https://www.smidigflytt365.se'),
   title: "Smidigflytt - Professionell Flyttfirma & Städservice",
   description: "Professionell flyttfirma med bohagsflytt, företagsflytt och städservice i hela Sverige. RUT-avdrag, försäkring och erfarna flyttare. Få offert idag!",
   keywords: "flyttfirma, bohagsflytt, företagsflytt, utlandsflytt, bärhjälp, packhjälp, bortforsling, magasinering, flyttstädning, byggstädning, fönsterputsning, Sverige, RUT-avdrag",

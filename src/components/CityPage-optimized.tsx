@@ -20,6 +20,9 @@ interface CityPageProps {
 
 export default function CityPage({ city }: CityPageProps) {
   const serviceTypeText = city.serviceType === 'städfirma' ? 'Städfirma' : 'Flyttfirma';
+  // const serviceDescription = city.serviceType === 'städfirma' 
+  //   ? `Trygg städservice i ${city.name}` 
+  //   : `Trygg flytthjälp & städning i ${city.name}`;
 
   return (
     <div className="min-h-screen">
@@ -137,7 +140,7 @@ export default function CityPage({ city }: CityPageProps) {
                     <span className="font-semibold text-gray-900">Kundbetyg</span>
                   </div>
                   <p className="text-gray-600 italic mb-4">
-                    &quot;Fantastisk service i {city.name}! Snabb, professionell och prisvärd hjälp.&quot;
+                    &ldquo;Fantastisk service i {city.name}! Snabb, professionell och prisvärd hjälp.&rdquo;
                   </p>
                   <p className="text-sm text-gray-500">- Maria L., {city.name}</p>
                 </div>

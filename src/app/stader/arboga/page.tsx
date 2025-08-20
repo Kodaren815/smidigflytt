@@ -37,8 +37,8 @@ export default async function ArbogaPage({ searchParams }: Props) {
       ? "Arboga är en av Sveriges äldsta städer med medeltida charm och modern utveckling. Vi erbjuder professionella städtjänster i hela Arboga kommun."
       : "Arboga är en av Sveriges äldsta städer med medeltida charm och modern utveckling. Vi erbjuder professionella flyttjänster i hela Arboga kommun.",
     localInfo: isStadfirma
-      ? "I Arboga täcker vi alla områden från den historiska stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens kulturhistoriska värden."
-      : "I Arboga täcker vi alla områden från den historiska stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och respekterar stadens kulturhistoriska värden.",
+      ? "I Arboga täcker vi alla områden från den historiska stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Götlunda, Målhammar och Valskog och respekterar stadens kulturhistoriska värden."
+      : "I Arboga täcker vi alla områden från den historiska stadskärnan till moderna bostadsområden. Vi hjälper ofta kunder i Götlunda, Målhammar och Valskog och respekterar stadens kulturhistoriska värden.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

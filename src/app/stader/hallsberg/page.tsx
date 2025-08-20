@@ -38,8 +38,8 @@ export default async function HallsbergPage({ searchParams }: Props) {
       ? "Hallsberg är Sveriges viktigaste järnvägsknut och en central logistikhub. Vi erbjuder professionella städtjänster i hela Hallsberg kommun."
       : "Hallsberg är Sveriges viktigaste järnvägsknut och en central logistikhub. Vi erbjuder professionella flyttjänster i hela Hallsberg kommun.",
     localInfo: isStadfirma
-      ? "I Hallsberg täcker vi alla områden från järnvägsstationen till omkringliggande tätorter. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och drar nytta av stadens excellenta logistikläge."
-      : "I Hallsberg täcker vi alla områden från järnvägsstationen till omkringliggande tätorter. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och drar nytta av stadens excellenta logistikläge.",
+      ? "I Hallsberg täcker vi alla områden från järnvägsstationen till omkringliggande tätorter. Vi hjälper ofta kunder i Pålsboda, Hovsta och Björkbacken och drar nytta av stadens excellenta logistikläge."
+      : "I Hallsberg täcker vi alla områden från järnvägsstationen till omkringliggande tätorter. Vi hjälper ofta kunder i Pålsboda, Hovsta och Björkbacken och drar nytta av stadens excellenta logistikläge.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

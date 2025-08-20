@@ -2,21 +2,21 @@ import { Metadata } from 'next'
 import { Truck, Users, Shield, Award, MapPin, CheckCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: "Om oss - Smidigflytt | Din pålitliga flyttpartner i Mälardalen",
+  title: "Om oss - Smidigflytt | Din pålitliga flyttfirma i Mälardalen",
   description: "Lär dig mer om Smidigflytt, vårt huvudkontor i Eskilstuna och vårt engagemang för professionella flytt- och städtjänster i hela Mälardalen.",
-  keywords: "om smidigflytt, flyttfirma eskilstuna, huvudkontor, företagsinformation, flyttpartner",
+  keywords: "om smidigflytt, flyttfirma eskilstuna, huvudkontor, företagsinformation, flyttfirma",
   openGraph: {
-    title: "Om oss - Smidigflytt | Din pålitliga flyttpartner i Mälardalen",
+    title: "Om oss - Smidigflytt | Din pålitliga flyttfirma i Mälardalen",
     description: "Lär dig mer om Smidigflytt, vårt huvudkontor i Eskilstuna och vårt engagemang för professionella flytt- och städtjänster i hela Mälardalen.",
   },
 }
 
 export default function AboutUsPage() {
   const stats = [
-    { icon: Users, label: "Nöjda kunder", value: "1000+" },
-    { icon: Truck, label: "Genomförda flyttar", value: "2500+" },
-    { icon: Award, label: "År av erfarenhet", value: "10+" },
-    { icon: MapPin, label: "Städer vi betjänar", value: "50+" }
+    { icon: Users, label: "Nöjda kunder", value: "100+" },
+    { icon: Truck, label: "Genomförda flyttar", value: "100+" },
+    { icon: Award, label: "År av erfarenhet", value: "2+" },
+    { icon: MapPin, label: "Städer vi betjänar", value: "15+" }
   ];
 
   const values = [

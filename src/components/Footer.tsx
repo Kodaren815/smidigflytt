@@ -16,7 +16,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="text-xl font-bold">Smidigflytt</div>
-                <div className="text-sm text-yellow-300">Din flyttpartner i Mälardalen</div>
+                <div className="text-sm text-black-300">Din flyttfirma i Mälardalen</div>
               </div>
             </div>
             <p className="text-gray-700 text-sm leading-relaxed">
@@ -24,10 +24,14 @@ export default function Footer() {
               Med trygghet och kvalitet hjälper vi dig att göra din flytt smidig och stressfri.
             </p>
             <div className="flex items-center space-x-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-yellow-500 text-yellow-200" />
-              ))}
-              <span className="ml-2 text-sm text-gray-300">4.8/5 (Nöjda kunder)</span>
+              <div className="flex">
+                <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
+                <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
+                <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
+                <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
+                <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
+              </div>
+              <span className="ml-2 text-sm text-gray-600">4.8/5 (Nöjda kunder)</span>
             </div>
           </div>
 
@@ -70,7 +74,7 @@ export default function Footer() {
 
           {/* Popular Cities */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-yellow-300">Populära städer</h3>
+            <h3 className="text-lg font-semibold text-black-300">Populära städer</h3>
             <nav className="space-y-2">
               <Link href="/stader/stockholm" className="block text-black hover:text-white transition-colors text-sm">
                 Flyttfirma Stockholm
@@ -98,22 +102,22 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-yellow-300">Kontaktuppgifter</h3>
+            <h3 className="text-lg font-semibold text-black-300">Kontaktuppgifter</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-yellow-500" />
+                <Phone className="h-5 w-5 text-black-500" />
                 <a href="tel:+46-10-544-05-77" className="text-black hover:text-white transition-colors text-sm">
                   Kommer snart
                 </a>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-yellow-500" />
+                <Mail className="h-5 w-5 text-black-500" />
                 <a href="mailto:info@smidigflytt365.se" className="text-black hover:text-white transition-colors text-sm">
                   info@smidigflytt365.se
                 </a>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-yellow-500 mt-0.5" />
+                <MapPin className="h-5 w-5 text-black-500 mt-0.5" />
                 <div className="text-black text-sm">
                   <div>Täcker hela Sverige</div>
                   <div className="text-xs text-gray-400 mt-1">
@@ -122,7 +126,7 @@ export default function Footer() {
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <svg className="h-5 w-5 text-yellow-500 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-5 w-5 text-black-500 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
                 <div className="text-black text-sm">

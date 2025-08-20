@@ -38,8 +38,8 @@ export default async function KumlaPage({ searchParams }: Props) {
       ? "Kumla är en växande kommun i Örebro län med närhet till både Örebro och Hallsberg. Vi erbjuder professionella städtjänster i hela Kumla kommun."
       : "Kumla är en växande kommun i Örebro län med närhet till både Örebro och Hallsberg. Vi erbjuder professionella flyttjänster i hela Kumla kommun.",
     localInfo: isStadfirma
-      ? "I Kumla täcker vi alla områden från centrala tätorten till omkringliggande byar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och drar nytta av stadens centrala läge i länet."
-      : "I Kumla täcker vi alla områden från centrala tätorten till omkringliggande byar. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och drar nytta av stadens centrala läge i länet.",
+      ? "I Kumla täcker vi alla områden från centrala tätorten till omkringliggande byar. Vi hjälper ofta kunder i Sandtorp, Odensbacken och Sköllersta och drar nytta av stadens centrala läge i länet."
+      : "I Kumla täcker vi alla områden från centrala tätorten till omkringliggande byar. Vi hjälper ofta kunder i Sandtorp, Odensbacken och Sköllersta och drar nytta av stadens centrala läge i länet.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

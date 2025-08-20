@@ -38,8 +38,8 @@ export default async function AskersundPage({ searchParams }: Props) {
       ? "Askersund är en pittoresk badort vid Vätterns norra strand med vacker träbebyggelse och rik historia. Vi erbjuder professionella städtjänster i hela Askersund kommun."
       : "Askersund är en pittoresk badort vid Vätterns norra strand med vacker träbebyggelse och rik historia. Vi erbjuder professionella flyttjänster i hela Askersund kommun.",
     localInfo: isStadfirma
-      ? "I Askersund täcker vi hela kommunen från kustnära områden vid Vättern till inlandet. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både samhällen och glesbygd."
-      : "I Askersund täcker vi hela kommunen från kustnära områden vid Vättern till inlandet. Vi hjälper ofta kunder i Nyfors, Hällbybrunn och Skiftinge och har god kännedom om både samhällen och glesbygd.",
+      ? "I Askersund täcker vi hela kommunen från kustnära områden vid Vättern till inlandet. Vi hjälper ofta kunder i Laxå, Zinkgruvan och Hampetorp och har god kännedom om både samhällen och glesbygd."
+      : "I Askersund täcker vi hela kommunen från kustnära områden vid Vättern till inlandet. Vi hjälper ofta kunder i Laxå, Zinkgruvan och Hampetorp och har god kännedom om både samhällen och glesbygd.",
     services: isStadfirma ? [
       "Flyttstädning för villa och lägenhet", 
       "Byggstädning efter renovering",

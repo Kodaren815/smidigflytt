@@ -12,7 +12,7 @@ export async function generateMetadata({ searchParams }: Props) {
   const resolvedSearchParams = await searchParams
   const isStadfirma = resolvedSearchParams.type === 'stadfirma'
   const serviceType = isStadfirma ? 'Städfirma' : 'Flyttfirma'
-  const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
+  // const serviceDescription = isStadfirma ? 'städtjänster' : 'flytthjälp'
   
   // Enhanced SEO metadata with targeted local keywords
   const seoData = isStadfirma ? {

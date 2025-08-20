@@ -149,7 +149,7 @@ export default function AdminPage() {
         <div className="max-w-md w-full">
           <div className="bg-white rounded-3xl p-8 shadow-2xl">
             <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Panel</h1>
+              <div className="text-3xl font-bold text-gray-900 mb-2">Admin Panel</div>
               <p className="text-gray-600">Ange lösenord för att komma åt admin-panelen</p>
             </div>
 
