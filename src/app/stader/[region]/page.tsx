@@ -12,6 +12,16 @@ interface Props {
   }>
 }
 
+// Generate static params for all regions
+export async function generateStaticParams() {
+  return [
+    { region: 'sodermanland' },
+    { region: 'vastmanland' },
+    { region: 'stockholm' },
+    { region: 'orebro-lan' },
+  ]
+}
+
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const resolvedParams = await params
   const resolvedSearchParams = await searchParams

@@ -38,7 +38,7 @@ export default function IntegritetPage() {
                 Org.nr: 559540-3337<br />
                 E-post: info@smidigflytt365.se<br />
                 Webbsida: www.smidigflytt365.se<br />
-                Telefon: Kommer snart</p>
+                Telefon: 08-27 09 09</p>
               </div>
             </section>
 
@@ -167,7 +167,7 @@ export default function IntegritetPage() {
                 Org.nr: 559540-3337<br />
                 E-post: info@smidigflytt365.se<br />
                 Webbsida: www.smidigflytt365.se<br />
-                Telefon: Kommer snart</p>
+                Telefon: 08-27 09 09</p>
               </div>
             </section>
 

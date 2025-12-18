@@ -1,26 +1,42 @@
+# Netlify configuration for Next.js deployment
+# This config supports both SSR and Netlify Forms
+
 [build]
   command = "npm run build"
   publish = ".next"
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [build.environment]
-  NEXT_TELEMETRY_DISABLED = "1"
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
 
-[[redirects]]
-  from = "/admin"
-  to = "/admin"
-  status = 200
+# Form submissions settings
+[forms]
+  # Enable form detection
+  enabled = true
 
-[[redirects]]
-  from = "/reklamation"
-  to = "/reklamation"
-  status = 200
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 
-[[redirects]]
-  from = "/api/*"
-  to = "/api/:splat"
-  status = 200
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

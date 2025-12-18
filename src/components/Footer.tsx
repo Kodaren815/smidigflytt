@@ -106,8 +106,16 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-black-500" />
-                <a href="tel:+46-10-544-05-77" className="text-black hover:text-white transition-colors text-sm">
-                  Kommer snart
+                <a href="tel:08270909" className="text-black hover:text-white transition-colors text-sm">
+                  08-27 09 09
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <svg className="h-5 w-5 text-black-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+                <a href="sms:0761780552" className="text-black hover:text-white transition-colors text-sm">
+                  076-178 05 52 (SMS)
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -119,9 +127,11 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-black-500 mt-0.5" />
                 <div className="text-black text-sm">
-                  <div>Täcker hela Sverige</div>
+                  <div className="font-semibold">Huvudkontor:</div>
+                  <div>Pressargatan 12</div>
+                  <div>632 29 Eskilstuna</div>
                   <div className="text-xs text-gray-400 mt-1">
-                    Huvudkontor: Mälardalen
+                    Täcker hela Sverige
                   </div>
                 </div>
               </div>

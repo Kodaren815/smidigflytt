@@ -220,10 +220,10 @@ export default function StaderPage() {
                 Begär offert
               </Link>
               <a
-                href="tel:+46-10-544-05-77"
+                href="tel:08270909"
                 className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-smidig-darkblue transition-all duration-300"
               >
-                Ring oss: Kommer snart
+                Ring oss: 08-27 09 09
               </a>
             </div>
           </div>

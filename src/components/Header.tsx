@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react'
+import { Menu, X, Phone, Mail, ChevronDown, MessageCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface SubMenuItem {
@@ -30,25 +30,25 @@ const navigation: NavigationItem[] = [
     submenu: [
       { 
         name: 'Västmanland', 
-        href: '/stader/vastmanland?type=flyttfirma',
+        href: '/stader/vastmanland/flyttfirma',
         description: 'Flyttjänster i Västerås, Köping och Sala med omnejd.',
         services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
       },
       { 
         name: 'Stockholm', 
-        href: '/stader/stockholm?type=flyttfirma',
+        href: '/stader/stockholm/flyttfirma',
         description: 'Smidig flytt i hela Storstockholm – från city till förort.',
         services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
       },
       { 
         name: 'Örebro län', 
-        href: '/stader/orebro-lan?type=flyttfirma',
+        href: '/stader/orebro-lan/flyttfirma',
         description: 'Vi hjälper dig med flytt i Örebro, Kumla och Hallsberg.',
         services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
       },
       { 
         name: 'Södermanland', 
-        href: '/stader/sodermanland?type=flyttfirma',
+        href: '/stader/sodermanland/flyttfirma',
         description: 'Flyttjänster i Eskilstuna, Strängnäs och Katrineholm.',
         services: ['Bohagsflytt', 'Kontorsflytt', 'Transport']
       },
@@ -60,25 +60,25 @@ const navigation: NavigationItem[] = [
     submenu: [
       { 
         name: 'Västmanland', 
-        href: '/stader/vastmanland?type=stadfirma',
+        href: '/stader/vastmanland/stadfirma',
         description: 'Flyttstäd och hemstäd i Västerås, Köping och Sala.',
         services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
       },
       { 
         name: 'Stockholm', 
-        href: '/stader/stockholm?type=stadfirma',
+        href: '/stader/stockholm/stadfirma',
         description: 'Städtjänster för hem och kontor i hela Stockholm.',
         services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
       },
       { 
         name: 'Örebro län', 
-        href: '/stader/orebro-lan?type=stadfirma',
+        href: '/stader/orebro-lan/stadfirma',
         description: 'Städning vid flytt och vardag i Örebro, Kumla och Hallsberg.',
         services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
       },
       { 
         name: 'Södermanland', 
-        href: '/stader/sodermanland?type=stadfirma',
+        href: '/stader/sodermanland/stadfirma',
         description: 'Professionell städservice i Eskilstuna, Strängnäs och Katrineholm.',
         services: ['Flyttstäd', 'Hemstäd', 'Kontorsstäd']
       },
@@ -122,7 +122,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <a 
-              href="tel:010-123-4567" 
+              href="tel:08270909" 
               className="flex items-center transition-colors"
               style={{ color: 'white' }}
               onMouseEnter={(e) => {
@@ -133,7 +133,21 @@ export default function Header() {
               }}
             >
               <Phone size={14} className="mr-1.5" />
-              Kommer snart
+              08-27 09 09
+            </a>
+            <a 
+              href="sms:0761780552" 
+              className="flex items-center transition-colors"
+              style={{ color: 'white' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#3361AC'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'white'
+              }}
+            >
+              <MessageCircle size={14} className="mr-1.5" />
+              076-178 05 52
             </a>
             <a 
               href="mailto:info@smidigflytt365.se" 
@@ -182,7 +196,7 @@ export default function Header() {
                     />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold" style={{ color: '#162F65' }}>Smidig Flytt 365</div>
+                    <div className="text-2xl font-bold" style={{ color: '#162F65' }}>Smidig Flytt 365 AB</div>
                     <div className="text-xs -mt-1" style={{ color: '#3361AC' }}>Din flyttfirma i Mälardalen</div>
                   </div>
                 </div>

@@ -1,0 +1,19 @@
+services:
+  smidigflytt:
+    build:
+      context: .
+      dockerfile: Dockerfile.optimized
+    container_name: smidigflytt-app
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: unless-stopped
+    networks:
+      - web-network
+
+networks:
+  web-network:
+    driver: bridge
+    name: web-network

@@ -43,11 +43,11 @@ export default function CallToAction() {
               <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="tel:+46-10-544-05-77"
+              href="tel:08270909"
               className="group bg-white/10 backdrop-blur-md text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-white/20 transition-all duration-300 flex items-center justify-center border-2 border-white/30"
             >
               <Phone className="mr-3 h-6 w-6" />
-              Ring nu: Kommer snart
+              Ring nu: 08-27 09 09
             </a>
           </div>
         </motion.div>
@@ -71,10 +71,10 @@ export default function CallToAction() {
               Prata med en expert och få svar på dina frågor direkt
             </p>
             <a 
-              href="tel:+46-10-544-05-77"
+              href="tel:08270909"
               className="text-smidig-lightyellow font-semibold hover:text-white transition-colors"
             >
-              Kommer snart
+              08-27 09 09
             </a>
             <div className="text-sm text-gray-300 mt-2">
               Vardagar 08:00-18:00

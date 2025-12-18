@@ -1,193 +1,163 @@
-# Smidigflytt Deployment Guide
+# Smidigflytt VPS Deployment - Multi-Service Setup
 
-This guide covers how to deploy the Smidigflytt website to various platforms.
+This guide explains how to deploy the Smidigflytt website alongside your existing `mblokalatjanster` service on the same VPS.
 
-## 🐳 Docker Deployment (VPS/Self-hosted)
+## ✅ Sitemap Configuration
 
-### Prerequisites
-- Docker and Docker Compose installed on your server
-- Port 3000 (or 80/443 for production) available
+The website includes **dynamic sitemap generation** that automatically:
+- Uses the correct domain: `https://www.smidigflytt365.se/sitemap.xml`
+- Updates automatically with current timestamp
+- Includes all pages (main, services, cities)
+- Is properly configured for nginx routing
 
-### Quick Deployment
+## Architecture Overview
+
+Your VPS will run:
+- **mblokalatjanster** on port 3001 (existing)
+- **smidigflytt** on port 3002 (new)
+- **nginx** as a reverse proxy routing traffic based on domain names
+
+## Deployment Options
+
+### Option 1: Deploy Alongside Existing Services (Recommended)
+
+Use this if you want to keep your current nginx setup and just add smidigflytt:
+
+1. **Deploy smidigflytt service:**
+   ```bash
+   ./deploy-standalone.sh
+   ```
+
+2. **Update your existing nginx configuration** to include smidigflytt routing:
+   - Add the smidigflytt upstream and server block from `nginx-multi-service.conf`
+   - Make sure both services are in the same `web-network`
+
+### Option 2: Replace Nginx with Multi-Service Configuration
+
+If you want to use our comprehensive nginx setup:
+
+1. **Stop your current nginx:**
+   ```bash
+   docker stop your-nginx-container
+   ```
+
+2. **Deploy with new nginx:**
+   ```bash
+   docker compose -f docker-compose-with-nginx.yml up -d --build
+   ```
+
+## File Explanations
+
+### `docker-compose.yml` (Modified)
+- Uses port 3002 to avoid conflicts
+- Connects to `web-network` for communication with other services
+- Includes proper healthchecks and volume mounts
+
+### `nginx-multi-service.conf`
+- Routes traffic based on server_name
+- Handles both smidigflytt365.se and your mblokalatjanster domain
+- Includes proper proxy headers and static file serving
+
+### `Dockerfile`
+- Optimized for production with multi-stage build principles
+- Non-root user for security
+- Built-in healthcheck
+
+## Network Configuration
+
+Both services use the `web-network` Docker network:
+```yaml
+networks:
+  web-network:
+    external: false
+    name: web-network
+```
+
+## Port Mapping
+
+- **mblokalatjanster**: External port 3001 → Internal port 3000
+- **smidigflytt**: External port 3002 → Internal port 3000
+- **nginx**: External ports 80/443 → Internal ports 80/443
+
+## Domain Configuration
+
+Update the nginx configuration with your actual domains:
+- `smidigflytt365.se` → routes to smidigflytt service
+- `your-mblokalatjanster-domain.com` → routes to mblokalatjanster service
+
+## SSL/HTTPS Setup
+
+To add SSL certificates:
+
+1. Obtain certificates (Let's Encrypt recommended)
+2. Mount certificate files in nginx container:
+   ```yaml
+   volumes:
+     - ./ssl:/etc/nginx/ssl:ro
+   ```
+3. Add SSL server blocks to nginx configuration
+
+## Monitoring and Logs
+
+**View logs:**
 ```bash
-# Clone the repository
-git clone <your-repo-url>
-cd smidigflytt-website
+# Smidigflytt logs
+docker logs -f smidigflytt-app
 
-# Start the application
-./deploy-vps.sh
+# Mblokalatjanster logs  
+docker logs -f mblokalatjanster-app
+
+# Nginx logs
+docker logs -f nginx-proxy
 ```
 
-### Manual Docker Deployment
+**Health checks:**
+- Both services have built-in health checks
+- Check status: `docker ps`
+- Detailed health: `docker inspect container-name`
+
+## Troubleshooting
+
+### Port Conflicts
+If you get port binding errors:
+- Check what's using the ports: `sudo netstat -tulpn | grep :3002`
+- Modify port in docker-compose.yml if needed
+
+### Network Issues
+Ensure both services are on the same network:
 ```bash
-# Development
-docker-compose up -d --build
-
-# Production with Nginx
-docker-compose -f docker-compose.prod.yml up -d --build --profile production
+docker network inspect web-network
 ```
 
-### Environment Setup
-The application will create a `data/` directory for storing form submissions. Ensure this directory persists between deployments by mounting it as a volume.
+### Service Not Responding
+1. Check container logs
+2. Verify network connectivity between containers
+3. Test direct access to services on their ports
 
-## ☁️ Vercel Deployment
+## Updating Services
 
-### Prerequisites
-- Vercel CLI installed: `npm i -g vercel`
-- Vercel account
-
-### Deployment Steps
+**Update smidigflytt:**
 ```bash
-# Login to Vercel
-vercel login
-
-# Deploy
-vercel
-
-# For production deployment
-vercel --prod
+docker compose up -d --build smidigflytt
 ```
 
-### Important Notes for Vercel
-- File uploads are stored in memory and will be lost on serverless function restarts
-- Consider using external storage (AWS S3, Cloudinary) for production file handling
-- The `data/` directory won't persist between function invocations
-
-## 🌐 Netlify Deployment
-
-### Prerequisites
-- Netlify CLI installed: `npm i -g netlify-cli`
-- Netlify account
-
-### Deployment Steps
+**Update both services:**
 ```bash
-# Login to Netlify
-netlify login
-
-# Build the project
-npm run build
-
-# Deploy
-netlify deploy --prod --dir=.next
+docker compose down
+docker compose up -d --build
 ```
 
-### Netlify Configuration
-Create a `netlify.toml` file:
-```toml
-[build]
-  command = "npm run build"
-  publish = ".next"
+## Backup Considerations
 
-[[redirects]]
-  from = "/admin"
-  to = "/admin"
-  status = 200
+Important directories to backup:
+- `./data/` - Application data
+- `./ssl/` - SSL certificates (if used)
+- Configuration files (docker-compose.yml, nginx.conf)
 
-[[redirects]]
-  from = "/api/*"
-  to = "/api/:splat"
-  status = 200
-```
+## Performance Optimization
 
-## 🔧 VPS Server Setup (Ubuntu/Debian)
-
-### 1. Install Docker
-```bash
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo usermod -aG docker $USER
-```
-
-### 2. Install Docker Compose
-```bash
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-```
-
-### 3. Deploy Application
-```bash
-git clone <your-repo-url>
-cd smidigflytt-website
-./deploy-vps.sh
-```
-
-### 4. Setup SSL (Optional)
-For production with SSL, place your certificates in an `ssl/` directory:
-- `ssl/cert.pem` - SSL certificate
-- `ssl/key.pem` - Private key
-
-Then run:
-```bash
-docker-compose -f docker-compose.prod.yml up -d --build --profile production
-```
-
-## 📁 Data Persistence
-
-### File Storage Locations
-- **Docker**: `/app/data` (mounted to host `./data`)
-- **Vercel**: Temporary (consider external storage)
-- **Netlify**: Not supported (consider external storage)
-
-### Data Files
-- `data/contacts.json` - Contact form submissions
-- `data/quotes.json` - Quote requests
-- `data/damage-reports.json` - Damage reports with file attachments
-
-## 🔒 Security Considerations
-
-### Admin Access
-- Default password: `smidigflytt2024admin`
-- **Change this password** in production by modifying `src/app/api/admin/route.ts`
-
-### Production Recommendations
-1. Change the admin password
-2. Use HTTPS (SSL certificates)
-3. Configure firewall to only allow necessary ports
-4. Regular backups of the `data/` directory
-5. Monitor application logs
-
-## 🚀 Performance Optimization
-
-### Docker Production Tips
-- Use multi-stage builds (already configured)
-- Enable gzip compression (Nginx config provided)
-- Set up proper logging and monitoring
-
-### Serverless Deployment Tips (Vercel/Netlify)
-- Optimize image sizes and formats
-- Use external storage for file uploads
-- Implement CDN for static assets
-
-## 📊 Monitoring
-
-### Health Checks
-The Docker setup includes health checks. Monitor with:
-```bash
-docker-compose ps
-docker-compose logs -f
-```
-
-### Application URLs
-- **Main site**: `http://your-domain.com`
-- **Admin panel**: `http://your-domain.com/admin`
-- **API endpoints**: `http://your-domain.com/api/*`
-
-## 🛠️ Troubleshooting
-
-### Common Issues
-1. **Port already in use**: Change port in docker-compose.yml
-2. **Permission denied**: Ensure Docker has proper permissions
-3. **Build fails**: Check Node.js version (requires 18+)
-4. **Data not persisting**: Verify volume mounts in docker-compose.yml
-
-### Logs
-```bash
-# Docker logs
-docker-compose logs -f
-
-# Container inspection
-docker inspect smidigflytt-website_smidigflytt-web_1
-```
-
-## 📞 Support
-For deployment issues or questions, check the logs first. The application includes comprehensive error handling and logging.
+For production use:
+- Enable gzip compression (included in nginx config)
+- Set up proper log rotation
+- Configure nginx worker processes based on CPU cores
+- Use Docker resource limits if needed

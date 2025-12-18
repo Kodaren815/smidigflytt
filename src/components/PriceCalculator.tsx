@@ -78,6 +78,39 @@ export default function PriceCalculator() {
 
   const totalSteps = formData.serviceType === 'städtjänster' ? 10 : 15
 
+  // Hidden form for Netlify Forms detection
+  const renderHiddenNetlifyForm = () => (
+    <form name="price-quote" data-netlify="true" hidden>
+      <input type="text" name="serviceType" />
+      <input type="text" name="date" />
+      <input type="text" name="fromAddress" />
+      <input type="text" name="fromPostalCode" />
+      <input type="text" name="toAddress" />
+      <input type="text" name="toPostalCode" />
+      <input type="text" name="address" />
+      <input type="text" name="postalCode" />
+      <input type="text" name="fromHousingType" />
+      <input type="text" name="fromSquareMeters" />
+      <input type="text" name="fromFloor" />
+      <input type="text" name="fromHasElevator" />
+      <input type="text" name="fromHasBalcony" />
+      <input type="text" name="toHousingType" />
+      <input type="text" name="toSquareMeters" />
+      <input type="text" name="toFloor" />
+      <input type="text" name="toHasElevator" />
+      <input type="text" name="toHasBalcony" />
+      <input type="text" name="housingType" />
+      <input type="text" name="squareMeters" />
+      <input type="text" name="floor" />
+      <input type="text" name="hasElevator" />
+      <input type="text" name="hasBalcony" />
+      <input type="text" name="name" />
+      <input type="text" name="phone" />
+      <input type="text" name="email" />
+      <textarea name="extraInfo"></textarea>
+    </form>
+  )
+
   const updateFormData = (field: keyof FormData, value: string | number | boolean | null) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
@@ -105,19 +138,27 @@ export default function PriceCalculator() {
     setSubmitError('')
 
     try {
-      const response = await fetch('/api/quotes', {
+      // Create URLSearchParams for Netlify Forms submission
+      const formParams = new URLSearchParams()
+      formParams.append('form-name', 'price-quote')
+      
+      // Add all form fields
+      Object.entries(formData).forEach(([key, value]) => {
+        if (value !== null && value !== undefined && value !== '') {
+          formParams.append(key, String(value))
+        }
+      })
+
+      const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formParams.toString(),
       })
 
       if (response.ok) {
         setIsSubmitted(true)
       } else {
-        const errorData = await response.json()
-        setSubmitError(errorData.error || 'Ett fel uppstod när förfrågan skulle skickas')
+        setSubmitError('Ett fel uppstod när förfrågan skulle skickas')
       }
     } catch {
       setSubmitError('Ett fel uppstod när förfrågan skulle skickas')
@@ -219,7 +260,7 @@ export default function PriceCalculator() {
                 Skicka ny förfrågan
               </button>
               <a 
-                href="tel:+46-10-544-05-77"
+                href="tel:08270909"
                 className="text-black border-2 border-blue-600 px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-colors text-sm md:text-base"
               >
                 Ring oss nu
@@ -1026,8 +1067,10 @@ export default function PriceCalculator() {
   }
 
   return (
-    <div className="min-h-screen mobile-safe bg-gradient-secondary py-8 md:py-20">
-      <div className="w-full md:w-[60vw] max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+    <>
+      {renderHiddenNetlifyForm()}
+      <div className="min-h-screen mobile-safe bg-gradient-secondary py-8 md:py-20">
+        <div className="w-full md:w-[60vw] max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
 
         {/* Progress Bar */}
         <div className="mb-8 md:mb-12">
@@ -1107,7 +1150,8 @@ export default function PriceCalculator() {
             )}
           </div>
         )}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

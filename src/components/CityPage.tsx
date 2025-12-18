@@ -11,7 +11,7 @@ interface CityData {
   services: string[]
   specialties: string[]
   areas: string[]
-  serviceType?: 'flyttfirma' | 'städfirma'
+  serviceType?: 'flyttfirma' | 'städfirma' | 'stadfirma'
 }
 
 interface CityPageProps {
@@ -19,7 +19,7 @@ interface CityPageProps {
 }
 
 export default function CityPage({ city }: CityPageProps) {
-  const serviceTypeText = city.serviceType === 'städfirma' ? 'Städfirma' : 'Flyttfirma';
+  const serviceTypeText = (city.serviceType === 'städfirma' || city.serviceType === 'stadfirma') ? 'Städfirma' : 'Flyttfirma';
 
   return (
     <div className="min-h-screen">
@@ -346,11 +346,11 @@ export default function CityPage({ city }: CityPageProps) {
               </Link>
               
               <a
-                href="tel:0123456789"
+                href="tel:08270909"
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-200"
               >
                 <Phone className="mr-2 h-5 w-5" />
-                Kommer snart
+                08-27 09 09
               </a>
             </div>
 
@@ -361,7 +361,7 @@ export default function CityPage({ city }: CityPageProps) {
                   <div className="space-y-2 text-sm text-gray-600">
                     <div className="flex items-center">
                       <Phone className="h-4 w-4 mr-2 text-blue-600" />
-                      Kommer snart
+                      08-27 09 09
                     </div>
                     <div className="flex items-center">
                       <Mail className="h-4 w-4 mr-2 text-blue-600" />

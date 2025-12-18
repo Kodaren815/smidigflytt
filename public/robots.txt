@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /tjanster/
+Allow: /stader/
+Allow: /offert
+Allow: /kontakt
+
+# Block admin and API endpoints
+Disallow: /admin
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.smidigflytt365.se/sitemap.xml

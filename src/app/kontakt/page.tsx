@@ -52,7 +52,7 @@ export default function KontaktPage() {
     <>
       <SEO
         title="Kontakt - Kom i kontakt med Smidigflytt | Smidigflytt"
-        description="Kontakta Smidigflytt för professionell flytthjälp och städservice. Ring oss på Kommer snart eller skicka ett meddelande."
+        description="Kontakta Smidigflytt för professionell flytthjälp och städservice. Ring oss på 08-27 09 09 eller skicka ett meddelande."
         keywords="kontakt, flyttfirma, telefonnummer, e-post, adress"
       />
       
@@ -82,10 +82,23 @@ export default function KontaktPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">Telefon</h3>
-                    <a href="tel:+46-10-544-05-77" className="text-lg text-smidig-blue hover:text-smidig-darkblue transition-colors">
-                      Kommer snart
+                    <a href="tel:08270909" className="text-lg text-smidig-blue hover:text-smidig-darkblue transition-colors">
+                      08-27 09 09
                     </a>
                     <p className="text-gray-600 text-sm mt-1">Ring för direkt kontakt</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-smidig-blue/10 rounded-full p-3">
+                    <MessageCircle className="h-6 w-6 text-smidig-blue" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">SMS</h3>
+                    <a href="sms:0761780552" className="text-lg text-smidig-blue hover:text-smidig-darkblue transition-colors">
+                      076-178 05 52
+                    </a>
+                    <p className="text-gray-600 text-sm mt-1">Skicka SMS för snabb kontakt</p>
                   </div>
                 </div>
 
@@ -107,9 +120,10 @@ export default function KontaktPage() {
                     <MapPin className="h-6 w-6 text-smidig-blue" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Område</h3>
-                    <p className="text-lg text-gray-700">Hela Sverige</p>
-                    <p className="text-gray-600 text-sm mt-1">Huvudkontor: Mälardalen</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Huvudkontor</h3>
+                    <p className="text-lg text-gray-700">Pressargatan 12</p>
+                    <p className="text-lg text-gray-700">632 29 Eskilstuna</p>
+                    <p className="text-gray-600 text-sm mt-1">Vi täcker hela Sverige</p>
                   </div>
                 </div>
 
@@ -150,7 +164,7 @@ export default function KontaktPage() {
                   <a href="/offert" className="block bg-gradient-cta text-white px-6 py-3 rounded-full text-center font-semibold hover:shadow-lg transition-all duration-200">
                     Begär offert
                   </a>
-                  <a href="tel:+46-10-544-05-77" className="block border-2 border-black text-black px-6 py-3 rounded-full text-center font-semibold hover:bg-smidig-blue hover:text-black transition-all duration-200">
+                  <a href="tel:08270909" className="block border-2 border-black text-black px-6 py-3 rounded-full text-center font-semibold hover:bg-smidig-blue hover:text-black transition-all duration-200">
                     Ring nu
                   </a>
                 </div>

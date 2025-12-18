@@ -68,10 +68,10 @@ export default function ServicePage({ service }: ServicePageProps) {
                   Begär offert
                 </Link>
                 <a
-                  href="tel:+46-10-544-05-77"
+                  href="tel:08270909"
                   className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-all duration-300 border border-white/20"
                 >
-                  Ring: Kommer snart
+                  Ring: 08-27 09 09
                 </a>
               </div>
 
@@ -327,10 +327,10 @@ export default function ServicePage({ service }: ServicePageProps) {
                 Begär offert nu
               </Link>
               <a
-                href="tel:+46-10-544-05-77"
+                href="tel:08270909"
                 className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-all duration-300 border border-white/20"
               >
-                Ring: Kommer snart
+                Ring: 08-27 09 09
               </a>
             </div>
 

@@ -1,0 +1,48 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx-multi-service.conf:/etc/nginx/nginx.conf:ro
+      - ./public:/app/smidigflytt/public:ro
+      # Add SSL certificates if you have them
+      # - ./ssl:/etc/nginx/ssl:ro
+    restart: unless-stopped
+    networks:
+      - web-network
+    depends_on:
+      - smidigflytt
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  smidigflytt:
+    build: .
+    container_name: smidigflytt-app
+    expose:
+      - "3000"  # Only expose internally, not to host
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+    volumes:
+      - ./data:/app/data
+      - ./public:/app/public:ro
+    restart: unless-stopped
+    networks:
+      - web-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  web-network:
+    external: false
+    name: web-network
