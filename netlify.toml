@@ -12,11 +12,6 @@
   NODE_VERSION = "20"
   NPM_FLAGS = "--legacy-peer-deps"
 
-# Form submissions settings
-[forms]
-  # Enable form detection
-  enabled = true
-
 # Headers for security and performance
 [[headers]]
   for = "/*"
