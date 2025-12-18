@@ -12,6 +12,13 @@
   NODE_VERSION = "20"
   NPM_FLAGS = "--legacy-peer-deps"
 
+# Ensure images are properly served
+[[redirects]]
+  from = "/hero-keys.jpg"
+  to = "/hero-keys.jpg"
+  status = 200
+  force = false
+
 # Headers for security and performance
 [[headers]]
   for = "/*"
