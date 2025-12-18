@@ -6,14 +6,6 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   // Enable standalone output for Docker
   output: 'standalone',
-  // Allow warnings during build - only fail on errors
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
-  // Allow build to complete with warnings
-  typescript: {
-    ignoreBuildErrors: false,
-  },
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
@@ -51,11 +43,7 @@ const nextConfig: NextConfig = {
       },
     ]
   },
-  // Experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-    scrollRestoration: true,
-  },
+
   // Headers for better caching and security
   async headers() {
     return [
