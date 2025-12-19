@@ -109,12 +109,55 @@ export default function PriceCalculator() {
       const submitFormData = new FormData()
       submitFormData.append('form-name', 'price-quote')
       
-      // Add all form fields
-      Object.entries(formData).forEach(([key, value]) => {
-        if (value !== null && value !== undefined && value !== '') {
-          submitFormData.append(key, String(value))
+      // Add common fields
+      submitFormData.append('serviceType', formData.serviceType)
+      submitFormData.append('date', formData.date)
+      submitFormData.append('name', formData.name)
+      submitFormData.append('phone', formData.phone)
+      submitFormData.append('email', formData.email)
+      if (formData.extraInfo) {
+        submitFormData.append('extraInfo', formData.extraInfo)
+      }
+
+      // Add service-specific fields
+      if (formData.serviceType === 'städtjänster') {
+        // Cleaning service - single address
+        submitFormData.append('address', formData.address)
+        submitFormData.append('postalCode', formData.postalCode)
+        submitFormData.append('housingType', formData.housingType)
+        submitFormData.append('squareMeters', formData.squareMeters)
+        submitFormData.append('floor', formData.floor)
+        if (formData.hasElevator !== null) {
+          submitFormData.append('hasElevator', String(formData.hasElevator))
         }
-      })
+        if (formData.hasBalcony !== null) {
+          submitFormData.append('hasBalcony', String(formData.hasBalcony))
+        }
+      } else {
+        // Moving service - from/to addresses
+        submitFormData.append('fromAddress', formData.fromAddress)
+        submitFormData.append('fromPostalCode', formData.fromPostalCode)
+        submitFormData.append('toAddress', formData.toAddress)
+        submitFormData.append('toPostalCode', formData.toPostalCode)
+        submitFormData.append('fromHousingType', formData.fromHousingType)
+        submitFormData.append('fromSquareMeters', formData.fromSquareMeters)
+        submitFormData.append('fromFloor', formData.fromFloor)
+        if (formData.fromHasElevator !== null) {
+          submitFormData.append('fromHasElevator', String(formData.fromHasElevator))
+        }
+        if (formData.fromHasBalcony !== null) {
+          submitFormData.append('fromHasBalcony', String(formData.fromHasBalcony))
+        }
+        submitFormData.append('toHousingType', formData.toHousingType)
+        submitFormData.append('toSquareMeters', formData.toSquareMeters)
+        submitFormData.append('toFloor', formData.toFloor)
+        if (formData.toHasElevator !== null) {
+          submitFormData.append('toHasElevator', String(formData.toHasElevator))
+        }
+        if (formData.toHasBalcony !== null) {
+          submitFormData.append('toHasBalcony', String(formData.toHasBalcony))
+        }
+      }
 
       const response = await fetch('/api/submit-form', {
         method: 'POST',
