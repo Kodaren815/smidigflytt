@@ -125,7 +125,8 @@ export default function ReklamationPage() {
         netlifyFormData.append('files', file)
       })
 
-      const response = await fetch('/', {
+      // Submit to Netlify Forms
+      const response = await fetch('/reklamation', {
         method: 'POST',
         body: netlifyFormData,
       })
@@ -558,7 +559,7 @@ export default function ReklamationPage() {
                   
                   <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                     <p className="text-sm text-yellow-800">
-                      Efter att skadeanmälan har behandlats kommer Flytt & Städ Sverige AB att återkomma till Er med ett beslut i ärendet.
+                      Efter att skadeanmälan har behandlats kommer Smidigflytt365 AB att återkomma till Er med ett beslut i ärendet.
                     </p>
                   </div>
                 </div>
