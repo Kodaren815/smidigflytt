@@ -35,7 +35,18 @@ const nextConfig: NextConfig = {
             value: 'smidigflytt.se',
           },
         ],
-        destination: 'https://www.smidigflytt.se/:path*',
+        destination: 'https://www.smidigflytt365.se/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.smidigflytt.se',
+          },
+        ],
+        destination: 'https://www.smidigflytt365.se/:path*',
         permanent: true,
       },
     ]
