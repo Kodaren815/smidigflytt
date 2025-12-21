@@ -99,39 +99,42 @@ export default function ReklamationPage() {
     setErrorMessage('')
 
     try {
-      // Convert files to base64 for JSON transmission
-      const fileData = await Promise.all(
-        formData.files.map(async (file) => ({
-          name: file.name,
-          type: file.type,
-          size: file.size,
-          data: await new Promise<string>((resolve) => {
-            const reader = new FileReader()
-            reader.onloadend = () => resolve(reader.result as string)
-            reader.readAsDataURL(file)
-          })
-        }))
-      )
+      // Create FormData for Netlify Forms submission
+      const netlifyFormData = new FormData()
+      netlifyFormData.append('form-name', 'damage-report')
+      
+      // Add all form fields
+      netlifyFormData.append('fullName', formData.fullName)
+      netlifyFormData.append('orderNumber', formData.orderNumber)
+      netlifyFormData.append('personalNumber', formData.personalNumber)
+      netlifyFormData.append('email', formData.email)
+      netlifyFormData.append('phone', formData.phone)
+      netlifyFormData.append('damageDateTime', formData.damageDateTime)
+      netlifyFormData.append('damageLocation', formData.damageLocation)
+      netlifyFormData.append('damageDescription', formData.damageDescription)
+      netlifyFormData.append('brand', formData.brand)
+      netlifyFormData.append('acquisitionValue', formData.acquisitionValue)
+      netlifyFormData.append('manufacturedYear', formData.manufacturedYear)
+      netlifyFormData.append('insuranceCompany', formData.insuranceCompany)
+      netlifyFormData.append('purchaseDate', formData.purchaseDate)
+      netlifyFormData.append('claimAmount', formData.claimAmount)
+      netlifyFormData.append('witnessInfo', formData.witnessInfo)
+      
+      // Add files
+      formData.files.forEach((file) => {
+        netlifyFormData.append('files', file)
+      })
 
-      const submitData = {
-        ...formData,
-        files: fileData
-      }
-
-      const response = await fetch('/api/damage-reports', {
+      const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(submitData),
+        body: netlifyFormData,
       })
 
       if (response.ok) {
         setSubmitStatus('success')
         setFormData(initialFormData)
       } else {
-        const errorData = await response.json()
-        setErrorMessage(errorData.error || 'Ett fel uppstod när anmälan skulle skickas')
+        setErrorMessage('Ett fel uppstod när anmälan skulle skickas')
         setSubmitStatus('error')
       }
     } catch {
@@ -216,7 +219,15 @@ export default function ReklamationPage() {
 
           {/* Form */}
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form 
+              onSubmit={handleSubmit} 
+              className="space-y-8"
+              name="damage-report"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
+              <input type="hidden" name="form-name" value="damage-report" />
               
               {/* Personal Information */}
               <div>

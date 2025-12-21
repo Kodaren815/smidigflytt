@@ -6,6 +6,8 @@
 <body>
   <!-- This form is used by Netlify to detect form fields -->
   <!-- It will never be shown to users -->
+  
+  <!-- Price Quote Form -->
   <form name="price-quote" netlify netlify-honeypot="bot-field" hidden>
     <input type="text" name="serviceType" />
     <input type="text" name="date" />
@@ -34,6 +36,26 @@
     <input type="text" name="phone" />
     <input type="email" name="email" />
     <textarea name="extraInfo"></textarea>
+  </form>
+
+  <!-- Damage Report Form -->
+  <form name="damage-report" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="fullName" />
+    <input type="text" name="orderNumber" />
+    <input type="text" name="personalNumber" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="datetime-local" name="damageDateTime" />
+    <input type="text" name="damageLocation" />
+    <textarea name="damageDescription"></textarea>
+    <input type="text" name="brand" />
+    <input type="number" name="acquisitionValue" />
+    <input type="number" name="manufacturedYear" />
+    <input type="text" name="insuranceCompany" />
+    <input type="date" name="purchaseDate" />
+    <input type="number" name="claimAmount" />
+    <textarea name="witnessInfo"></textarea>
+    <input type="file" name="files" multiple />
   </form>
 </body>
 </html>
