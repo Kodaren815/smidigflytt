@@ -13,44 +13,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // WWW redirect configuration
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'smidigflytt365.se',
-          },
-        ],
-        destination: 'https://www.smidigflytt365.se/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'smidigflytt.se',
-          },
-        ],
-        destination: 'https://www.smidigflytt365.se/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.smidigflytt.se',
-          },
-        ],
-        destination: 'https://www.smidigflytt365.se/:path*',
-        permanent: true,
-      },
-    ]
-  },
 
   // Headers for better caching and security
   async headers() {

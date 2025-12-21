@@ -12,6 +12,25 @@
   NODE_VERSION = "20"
   NPM_FLAGS = "--legacy-peer-deps"
 
+# Domain redirects - redirect all variants to www.smidigflytt365.se
+[[redirects]]
+  from = "https://smidigflytt365.se/*"
+  to = "https://www.smidigflytt365.se/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://smidigflytt.se/*"
+  to = "https://www.smidigflytt365.se/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.smidigflytt.se/*"
+  to = "https://www.smidigflytt365.se/:splat"
+  status = 301
+  force = true
+
 # Ensure images are properly served
 [[redirects]]
   from = "/hero-keys.jpg"
