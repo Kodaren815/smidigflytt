@@ -13,12 +13,17 @@ export default function ReklamationPage() {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData as any).toString()
     })
-      .then(() => {
-        window.location.href = '/reklamation/success'
+      .then((response) => {
+        console.log('Form submission response:', response.status, response.statusText)
+        if (response.ok || response.status === 200) {
+          window.location.href = '/reklamation/success'
+        } else {
+          throw new Error('Form submission failed')
+        }
       })
       .catch((error) => {
         alert('Ett fel uppstod. Försök igen.')
-        console.error(error)
+        console.error('Form submission error:', error)
       })
     
     e.preventDefault()
