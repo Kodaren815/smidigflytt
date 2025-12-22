@@ -5,10 +5,13 @@ import SEO from '@/components/SEO'
 
 export default function ReklamationPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    
     const form = e.currentTarget
     const formData = new FormData(form)
     
-    fetch('/', {
+    // Submit to the same page (/reklamation) where the form exists
+    fetch('/reklamation', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData as any).toString()
@@ -25,8 +28,6 @@ export default function ReklamationPage() {
         alert('Ett fel uppstod. Försök igen.')
         console.error('Form submission error:', error)
       })
-    
-    e.preventDefault()
   }
 
   return (
