@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import { AlertTriangle, Upload } from 'lucide-react'
+import { AlertTriangle, Upload, FileText, X } from 'lucide-react'
 import SEO from '@/components/SEO'
 
 export default function ReklamationPage() {
+
   return (
     <>
       <SEO
@@ -34,6 +35,7 @@ export default function ReklamationPage() {
               name="damage-report"
               method="POST"
               data-netlify="true"
+              data-netlify-honeypot="bot-field"
               action="/reklamation/success"
             >
               <input type="hidden" name="form-name" value="damage-report" />
@@ -125,6 +127,8 @@ export default function ReklamationPage() {
                     <input
                       type="datetime-local"
                       name="damageDateTime"
+                      value={formData.damageDateTime}
+                      onChange={handleInputChange}
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       required
                     />
@@ -137,6 +141,8 @@ export default function ReklamationPage() {
                     <input
                       type="text"
                       name="damageLocation"
+                      value={formData.damageLocation}
+                      onChange={handleInputChange}
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Fullständig adress där skadan inträffade"
                       required
@@ -149,6 +155,8 @@ export default function ReklamationPage() {
                     </label>
                     <textarea
                       name="damageDescription"
+                      value={formData.damageDescription}
+                      onChange={handleInputChange}
                       rows={5}
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Detaljerad beskrivning av hur skadan uppstod..."
@@ -164,6 +172,8 @@ export default function ReklamationPage() {
                       <input
                         type="text"
                         name="brand"
+                        value={formData.brand}
+                        onChange={handleInputChange}
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="t.ex. IKEA Billy, Samsung TV"
                       />
@@ -176,6 +186,8 @@ export default function ReklamationPage() {
                       <input
                         type="number"
                         name="acquisitionValue"
+                        value={formData.acquisitionValue}
+                        onChange={handleInputChange}
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="Ursprungligt inköpspris"
                       />
@@ -188,8 +200,10 @@ export default function ReklamationPage() {
                       <input
                         type="number"
                         name="manufacturedYear"
+                        value={formData.manufacturedYear}
+                        onChange={handleInputChange}
                         min="1900"
-                        max="2025"
+                        max={new Date().getFullYear()}
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="YYYY"
                       />
@@ -202,6 +216,8 @@ export default function ReklamationPage() {
                       <input
                         type="text"
                         name="insuranceCompany"
+                        value={formData.insuranceCompany}
+                        onChange={handleInputChange}
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="t.ex. Länsförsäkringar, If, Folksam"
                       />
@@ -214,6 +230,8 @@ export default function ReklamationPage() {
                       <input
                         type="date"
                         name="purchaseDate"
+                        value={formData.purchaseDate}
+                        onChange={handleInputChange}
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       />
                     </div>
@@ -225,6 +243,8 @@ export default function ReklamationPage() {
                       <input
                         type="number"
                         name="claimAmount"
+                        value={formData.claimAmount}
+                        onChange={handleInputChange}
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="Begärt ersättningsbelopp"
                       />
@@ -237,6 +257,8 @@ export default function ReklamationPage() {
                     </label>
                     <textarea
                       name="witnessInfo"
+                      value={formData.witnessInfo}
+                      onChange={handleInputChange}
                       rows={3}
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Vittnes namn, adress och telefonnummer om tillämpligt"
@@ -268,6 +290,7 @@ export default function ReklamationPage() {
                               type="file"
                               multiple
                               accept="image/*,.pdf,.doc,.docx"
+                              onChange={handleFileChange}
                               className="sr-only"
                             />
                           </label>
@@ -279,6 +302,29 @@ export default function ReklamationPage() {
                       </div>
                     </div>
                   </div>
+                  
+                  {/* File List */}
+                  {formData.files.length > 0 && (
+                    <div className="space-y-2">
+                      <h3 className="text-sm font-medium text-gray-700">Valda filer:</h3>
+                      {formData.files.map((file, index) => (
+                        <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                          <div className="flex items-center">
+                            <FileText className="h-5 w-5 text-gray-400 mr-2" />
+                            <span className="text-sm text-gray-900">{file.name}</span>
+                            <span className="text-xs text-gray-500 ml-2">({(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => removeFile(index)}
+                            className="text-red-500 hover:text-red-700"
+                          >
+                            <X className="h-4 w-4" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                     <h3 className="font-medium text-blue-900 mb-2">Vid skadeanmälan skall följande uppgifter bifogas:</h3>
@@ -301,6 +347,8 @@ export default function ReklamationPage() {
                     <input
                       type="checkbox"
                       name="confirmed"
+                      checked={formData.confirmed}
+                      onChange={handleInputChange}
                       className="mt-1 h-4 w-4 text-black focus:ring-smidig-blue border-gray-300 rounded"
                       required
                     />
@@ -317,13 +365,21 @@ export default function ReklamationPage() {
                 </div>
               </div>
 
+              {/* Error Messages */}
+              {(submitStatus === 'error' || errorMessage) && (
+                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-xl">
+                  {errorMessage || 'Ett fel uppstod när anmälan skulle skickas. Försök igen.'}
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="flex justify-center pt-6">
                 <button
                   type="submit"
-                  className="bg-gradient-cta text-white px-12 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                  disabled={isSubmitting || !formData.confirmed}
+                  className="bg-gradient-cta text-white px-12 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  Skicka skadeanmälan
+                  {isSubmitting ? 'Skickar anmälan...' : 'Skicka skadeanmälan'}
                 </button>
               </div>
             </form>
