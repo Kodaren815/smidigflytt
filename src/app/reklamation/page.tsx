@@ -1,8 +1,29 @@
-import Link from 'next/link'
+'use client'
+
 import { AlertTriangle, Upload } from 'lucide-react'
 import SEO from '@/components/SEO'
 
 export default function ReklamationPage() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData as any).toString()
+    })
+      .then(() => {
+        window.location.href = '/reklamation/success'
+      })
+      .catch((error) => {
+        alert('Ett fel uppstod. Försök igen.')
+        console.error(error)
+      })
+    
+    e.preventDefault()
+  }
+
   return (
     <>
       <SEO
@@ -30,11 +51,11 @@ export default function ReklamationPage() {
           {/* Form */}
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
             <form 
-              className="space-y-8"
               name="damage-report"
               method="POST"
               data-netlify="true"
-              action="/reklamation/success"
+              onSubmit={handleSubmit}
+              className="space-y-8"
             >
               <input type="hidden" name="form-name" value="damage-report" />
               
@@ -46,11 +67,12 @@ export default function ReklamationPage() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-black mb-2">
+                    <label htmlFor="fullName" className="block text-sm font-medium text-black mb-2">
                       För- och efternamn *
                     </label>
                     <input
                       type="text"
+                      id="fullName"
                       name="fullName"
                       className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Ditt fullständiga namn"
@@ -59,11 +81,12 @@ export default function ReklamationPage() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="orderNumber" className="block text-sm font-medium text-gray-700 mb-2">
                       Order nr
                     </label>
                     <input
                       type="text"
+                      id="orderNumber"
                       name="orderNumber"
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Ordernummer om tillgängligt"
@@ -71,11 +94,12 @@ export default function ReklamationPage() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="personalNumber" className="block text-sm font-medium text-gray-700 mb-2">
                       Personnummer *
                     </label>
                     <input
                       type="text"
+                      id="personalNumber"
                       name="personalNumber"
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="YYYYMMDD-XXXX"
@@ -84,11 +108,12 @@ export default function ReklamationPage() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                       E-post *
                     </label>
                     <input
                       type="email"
+                      id="email"
                       name="email"
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="din.epost@exempel.se"
@@ -97,11 +122,12 @@ export default function ReklamationPage() {
                   </div>
                   
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                       Telefon *
                     </label>
                     <input
                       type="tel"
+                      id="phone"
                       name="phone"
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="070-123 45 67"
@@ -119,11 +145,12 @@ export default function ReklamationPage() {
                 
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="damageDateTime" className="block text-sm font-medium text-gray-700 mb-2">
                       Datum och klockslag skadan inträffade *
                     </label>
                     <input
                       type="datetime-local"
+                      id="damageDateTime"
                       name="damageDateTime"
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       required
@@ -131,11 +158,12 @@ export default function ReklamationPage() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="damageLocation" className="block text-sm font-medium text-gray-700 mb-2">
                       Skadeplats (fullständig adress) *
                     </label>
                     <input
                       type="text"
+                      id="damageLocation"
                       name="damageLocation"
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       placeholder="Fullständig adress där skadan inträffade"
@@ -144,10 +172,11 @@ export default function ReklamationPage() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="damageDescription" className="block text-sm font-medium text-gray-700 mb-2">
                       Beskriv så utförligt som möjligt hur skadan inträffade *
                     </label>
                     <textarea
+                      id="damageDescription"
                       name="damageDescription"
                       rows={5}
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
@@ -158,11 +187,12 @@ export default function ReklamationPage() {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="brand" className="block text-sm font-medium text-gray-700 mb-2">
                         Fabrikat och Modell
                       </label>
                       <input
                         type="text"
+                        id="brand"
                         name="brand"
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="t.ex. IKEA Billy, Samsung TV"
@@ -170,11 +200,12 @@ export default function ReklamationPage() {
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="acquisitionValue" className="block text-sm font-medium text-gray-700 mb-2">
                         Anskaffningsvärde (kr)
                       </label>
                       <input
                         type="number"
+                        id="acquisitionValue"
                         name="acquisitionValue"
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="Ursprungligt inköpspris"
@@ -182,11 +213,12 @@ export default function ReklamationPage() {
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="manufacturedYear" className="block text-sm font-medium text-gray-700 mb-2">
                         Tillverkat år
                       </label>
                       <input
                         type="number"
+                        id="manufacturedYear"
                         name="manufacturedYear"
                         min="1900"
                         max="2025"
@@ -196,11 +228,12 @@ export default function ReklamationPage() {
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="insuranceCompany" className="block text-sm font-medium text-gray-700 mb-2">
                         Ditt försäkringsbolag
                       </label>
                       <input
                         type="text"
+                        id="insuranceCompany"
                         name="insuranceCompany"
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="t.ex. Länsförsäkringar, If, Folksam"
@@ -208,22 +241,24 @@ export default function ReklamationPage() {
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="purchaseDate" className="block text-sm font-medium text-gray-700 mb-2">
                         Inköpsdatum
                       </label>
                       <input
                         type="date"
+                        id="purchaseDate"
                         name="purchaseDate"
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="claimAmount" className="block text-sm font-medium text-gray-700 mb-2">
                         Anspråk (kr)
                       </label>
                       <input
                         type="number"
+                        id="claimAmount"
                         name="claimAmount"
                         className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
                         placeholder="Begärt ersättningsbelopp"
@@ -232,10 +267,11 @@ export default function ReklamationPage() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="witnessInfo" className="block text-sm font-medium text-gray-700 mb-2">
                       Om vittne finns (namn, adress, mobil)
                     </label>
                     <textarea
+                      id="witnessInfo"
                       name="witnessInfo"
                       rows={3}
                       className="text-black w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-smidig-blue focus:outline-none focus:ring-2 focus:ring-smidig-blue/20 transition-colors"
@@ -245,47 +281,21 @@ export default function ReklamationPage() {
                 </div>
               </div>
 
-              {/* File Upload */}
+              {/* File Upload - Note: File uploads removed to simplify Netlify Forms submission */}
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-4">
                   Bifoga filer
                 </h2>
                 
                 <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Ladda upp komplettering till anmälan (ex. bilder, kvitto, kontoudrag, skiss, skadeblankett)
-                    </label>
-                    <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl hover:border-smidig-blue transition-colors">
-                      <div className="space-y-1 text-center">
-                        <Upload className="mx-auto h-12 w-12 text-gray-400" />
-                        <div className="flex text-sm text-gray-600">
-                          <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-black hover:text-smidig-darkblue focus-within:outline-none">
-                            <span>Ladda upp filer</span>
-                            <input
-                              id="file-upload"
-                              name="files"
-                              type="file"
-                              multiple
-                              accept="image/*,.pdf,.doc,.docx"
-                              className="sr-only"
-                            />
-                          </label>
-                          <p className="pl-1">eller dra och släpp</p>
-                        </div>
-                        <p className="text-xs text-gray-500">
-                          PNG, JPG, PDF, DOC upp till 10MB per fil
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <h3 className="font-medium text-blue-900 mb-2">Vid skadeanmälan skall följande uppgifter bifogas:</h3>
-                    <ul className="text-sm text-blue-800 space-y-1">
-                      <li>• Kvitto/kontoutdrag eller liknande som kan påvisa anskaffningsvärdet</li>
-                      <li>• Bilder på det skadade föremålet</li>
-                    </ul>
+                    <h3 className="font-medium text-blue-900 mb-2">Skicka bilagor via e-post</h3>
+                    <p className="text-sm text-blue-800 mb-2">
+                      För att bifoga filer (bilder, kvitton, etc.), vänligen skicka dem till: <strong>info@smidigflytt365.se</strong>
+                    </p>
+                    <p className="text-sm text-blue-800">
+                      Ange ditt namn och personnummer i e-postmeddelandet så att vi kan koppla filerna till din skadeanmälan.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -300,11 +310,13 @@ export default function ReklamationPage() {
                   <div className="flex items-start">
                     <input
                       type="checkbox"
+                      id="confirmed"
                       name="confirmed"
+                      value="yes"
                       className="mt-1 h-4 w-4 text-black focus:ring-smidig-blue border-gray-300 rounded"
                       required
                     />
-                    <label className="ml-3 text-sm text-gray-700">
+                    <label htmlFor="confirmed" className="ml-3 text-sm text-gray-700">
                       Härmed intygar jag att ovanstående uppgifter är korrekta och sanningsenliga *
                     </label>
                   </div>
