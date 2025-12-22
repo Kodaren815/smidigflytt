@@ -86,7 +86,7 @@ export default function ReklamationPage() {
     }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     
     if (!formData.confirmed) {
@@ -99,46 +99,31 @@ export default function ReklamationPage() {
     setErrorMessage('')
 
     try {
-      // Create FormData for Netlify Forms submission
-      const netlifyFormData = new FormData()
-      netlifyFormData.append('form-name', 'damage-report')
+      // Get the form element and create FormData from it
+      const form = e.currentTarget
+      const netlifyFormData = new FormData(form)
       
-      // Add all form fields
-      netlifyFormData.append('fullName', formData.fullName)
-      netlifyFormData.append('orderNumber', formData.orderNumber)
-      netlifyFormData.append('personalNumber', formData.personalNumber)
-      netlifyFormData.append('email', formData.email)
-      netlifyFormData.append('phone', formData.phone)
-      netlifyFormData.append('damageDateTime', formData.damageDateTime)
-      netlifyFormData.append('damageLocation', formData.damageLocation)
-      netlifyFormData.append('damageDescription', formData.damageDescription)
-      netlifyFormData.append('brand', formData.brand)
-      netlifyFormData.append('acquisitionValue', formData.acquisitionValue)
-      netlifyFormData.append('manufacturedYear', formData.manufacturedYear)
-      netlifyFormData.append('insuranceCompany', formData.insuranceCompany)
-      netlifyFormData.append('purchaseDate', formData.purchaseDate)
-      netlifyFormData.append('claimAmount', formData.claimAmount)
-      netlifyFormData.append('witnessInfo', formData.witnessInfo)
-      
-      // Add files
-      formData.files.forEach((file) => {
-        netlifyFormData.append('files', file)
-      })
+      // Ensure form-name is set
+      if (!netlifyFormData.has('form-name')) {
+        netlifyFormData.append('form-name', 'damage-report')
+      }
 
       // Submit to Netlify Forms
-      const response = await fetch('/reklamation', {
+      const response = await fetch('/', {
         method: 'POST',
-        body: netlifyFormData,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(netlifyFormData as any).toString(),
       })
 
-      if (response.ok) {
+      if (response.ok || response.status === 200) {
         setSubmitStatus('success')
         setFormData(initialFormData)
       } else {
         setErrorMessage('Ett fel uppstod när anmälan skulle skickas')
         setSubmitStatus('error')
       }
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error)
       setErrorMessage('Ett fel uppstod när anmälan skulle skickas')
       setSubmitStatus('error')
     } finally {
