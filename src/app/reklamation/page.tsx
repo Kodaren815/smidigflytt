@@ -1,35 +1,7 @@
-'use client'
-
-import { AlertTriangle, Upload } from 'lucide-react'
+import { AlertTriangle } from 'lucide-react'
 import SEO from '@/components/SEO'
 
 export default function ReklamationPage() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    
-    const form = e.currentTarget
-    const formData = new FormData(form)
-    
-    // Submit to the same page (/reklamation) where the form exists
-    fetch('/reklamation', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as any).toString()
-    })
-      .then((response) => {
-        console.log('Form submission response:', response.status, response.statusText)
-        if (response.ok || response.status === 200) {
-          window.location.href = '/reklamation/success'
-        } else {
-          throw new Error('Form submission failed')
-        }
-      })
-      .catch((error) => {
-        alert('Ett fel uppstod. Försök igen.')
-        console.error('Form submission error:', error)
-      })
-  }
-
   return (
     <>
       <SEO
@@ -59,8 +31,8 @@ export default function ReklamationPage() {
             <form 
               name="damage-report"
               method="POST"
+              action="/reklamation/success"
               data-netlify="true"
-              onSubmit={handleSubmit}
               className="space-y-8"
             >
               <input type="hidden" name="form-name" value="damage-report" />
