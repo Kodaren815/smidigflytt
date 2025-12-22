@@ -102,17 +102,11 @@ export default function ReklamationPage() {
       // Get the form element and create FormData from it
       const form = e.currentTarget
       const netlifyFormData = new FormData(form)
-      
-      // Ensure form-name is set
-      if (!netlifyFormData.has('form-name')) {
-        netlifyFormData.append('form-name', 'damage-report')
-      }
 
-      // Submit to Netlify Forms
+      // Submit to Netlify Forms with multipart/form-data for file support
       const response = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(netlifyFormData as any).toString(),
+        body: netlifyFormData,
       })
 
       if (response.ok || response.status === 200) {
