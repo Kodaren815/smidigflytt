@@ -1,7 +1,42 @@
+'use client'
+
+import { useState } from 'react'
 import { AlertTriangle } from 'lucide-react'
 import SEO from '@/components/SEO'
 
 export default function ReklamationPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    try {
+      const form = e.currentTarget
+      const formData = new FormData(form)
+
+      const response = await fetch('/api/damage-report', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        window.location.href = '/reklamation/success'
+      } else {
+        setSubmitError('Ett fel uppstod när anmälan skulle skickas. Försök igen.')
+        setIsSubmitting(false)
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitError('Ett fel uppstod när anmälan skulle skickas. Försök igen.')
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <>
       <SEO
@@ -30,9 +65,7 @@ export default function ReklamationPage() {
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
             <form 
               name="damage-report"
-              method="POST"
-              action="/reklamation/success"
-              data-netlify="true"
+              onSubmit={handleSubmit}
               className="space-y-8"
             >
               <input type="hidden" name="form-name" value="damage-report" />
@@ -307,13 +340,21 @@ export default function ReklamationPage() {
                 </div>
               </div>
 
+              {/* Error Message */}
+              {submitError && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                  <p className="text-sm text-red-800">{submitError}</p>
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="flex justify-center pt-6">
                 <button
                   type="submit"
-                  className="bg-gradient-cta text-white px-12 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                  disabled={isSubmitting}
+                  className="bg-gradient-cta text-white px-12 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  Skicka skadeanmälan
+                  {isSubmitting ? 'Skickar anmälan...' : 'Skicka skadeanmälan'}
                 </button>
               </div>
             </form>
